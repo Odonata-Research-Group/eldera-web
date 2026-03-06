@@ -110,30 +110,30 @@
     .t-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-hover));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.82rem;color:var(--dark);flex-shrink:0}
     .t-name{font-weight:600;font-size:.88rem;color:var(--text)}
     .t-detail{font-size:.75rem;color:var(--muted);margin-top:.1rem}
-    .faq-section{background:var(--dark);padding:6rem 3rem}
+    .faq-section{background:var(--clay);padding:6rem 3rem}
     .faq-inner{max-width:740px;margin:0 auto}
     .faq-list{display:flex;flex-direction:column;margin-top:2.5rem}
-    .faq-item{border-bottom:1px solid rgba(255,255,255,.06)}
+    .faq-item{border-bottom:1px solid var(--border)}
     .faq-q{width:100%;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:1.25rem 0;text-align:left;gap:1rem}
-    .faq-q span{font-family:var(--serif);font-weight:500;font-size:1rem;color:var(--text-on-dark);line-height:1.4}
+    .faq-q span{font-family:var(--serif);font-weight:500;font-size:1.1rem;color:var(--text);line-height:1.4}
     .faq-q::after{content:'+';font-size:1.3rem;color:var(--gold);flex-shrink:0;transition:transform .2s;font-family:var(--sans)}
     .faq-item.open .faq-q::after{transform:rotate(45deg)}
-    .faq-a{font-size:.9rem;color:var(--sub-on-dark);line-height:1.7;max-height:0;overflow:hidden;transition:max-height .3s ease,padding .2s}
+    .faq-a{font-size:.85rem;color:var(--muted);line-height:1.65;max-height:0;overflow:hidden;transition:max-height .3s ease,padding .2s}
     .faq-item.open .faq-a{max-height:300px;padding-bottom:1.25rem}
-    .cta-section{background:var(--gold);padding:6rem 3rem;text-align:center}
-    .cta-section h2{font-family:var(--serif);font-size:clamp(2rem,3.5vw,2.8rem);color:var(--dark);line-height:1.12;margin-bottom:1.2rem;letter-spacing:-.02em;font-weight:500}
-    .cta-section h2 em{font-style:italic}
-    .cta-section p{font-size:1rem;color:rgba(26,21,16,.6);max-width:480px;margin:0 auto 2.5rem;line-height:1.75}
-    .footer{background:var(--dark);padding:4rem 3rem 2.5rem}
+    .cta-section{background:var(--white);padding:6rem 3rem;text-align:center}
+    .cta-section h2{font-family:var(--serif);font-size:clamp(2rem,3.5vw,2.8rem);color:var(--text);line-height:1.12;margin-bottom:1.2rem;letter-spacing:-.02em;font-weight:500}
+    .cta-section h2 em{font-style:italic;color:var(--gold)}
+    .cta-section p{font-size:1rem;color:var(--muted-warm);max-width:480px;margin:0 auto 2.5rem;line-height:1.75}
+    .footer{background:var(--white);padding:4rem 3rem 2.5rem;border-top:1px solid var(--border)}
     .footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem}
-    .footer-brand{font-family:var(--serif);font-size:1.4rem;font-weight:500;font-style:italic;color:var(--text-on-dark);letter-spacing:-.03em;margin-bottom:1rem}
-    .footer-tagline{font-size:.85rem;color:var(--sub-on-dark);line-height:1.6;max-width:280px}
     .footer-col-title{font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem}
     .footer-col a{display:block;font-size:.85rem;color:#625E5B;text-decoration:none;margin-bottom:.65rem;transition:color .2s}
-    .footer-col a:hover{color:var(--text-on-dark)}
+    .footer-col a:hover{color:var(--text)}
     .footer-social{display:flex;gap:.75rem;margin-top:1rem}
     .footer-social-link{color:#625E5B;transition:color .2s;display:flex;align-items:center}
-    .footer-social-link:hover{color:var(--white)}
+    .footer-social-link:hover{color:var(--text)}
+    .footer-bottom{max-width:1100px;margin:3rem auto 0;padding-top:2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+    .footer-copy{font-size:.75rem;color:var(--muted)}
     .footer-bottom{max-width:1100px;margin:3rem auto 0;padding-top:2rem;border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;align-items:center}
     .footer-copy{font-size:.75rem;color:rgba(255,255,255,.3)}
     @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
@@ -206,7 +206,7 @@
       <div class="safety-card-item reveal"><div class="safety-card-icon"><svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="#C49A2A"><path d="M870-779q0-44-25-77.5T779-890v-50q62 0 101.5 48T920-779h-50ZM220-40q-75 0-127.5-52.65T40-220h50q0 54 38.07 92T220-90v50Zm182 0q-27 0-51.5-12.5T311-88L54-468l20-16q17-15 39.5-19t44.57 13.19L280-397v-413q0-12.75 8.68-21.38 8.67-8.62 21.5-8.62 12.82 0 21.32 8.62 8.5 8.63 8.5 21.38v528L166-410l195 288q7 11 17.5 16.5T402-100h288q38 0 64-26t26-64v-580q0-12.75 8.68-21.38 8.67-8.62 21.5-8.62 12.82 0 21.32 8.62 8.5 8.63 8.5 21.38v580q0 63-43.5 106.5T690-40H402Zm45-440v-410q0-12.75 8.68-21.38 8.67-8.62 21.5-8.62 12.82 0 21.32 8.62 8.5 8.63 8.5 21.38v410h-60Zm167 0v-370q0-12.75 8.68-21.38 8.67-8.62 21.5-8.62 12.82 0 21.32 8.62 8.5 8.63 8.5 21.38v370h-60ZM473-290Z"/></svg></div><h3>Parents always in the loop</h3><p>Parents receive session summaries and approve all sessions for children under 13.</p></div>
       <div class="safety-card-item reveal"><div class="safety-card-icon"><svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="#C49A2A"><path d="M702-494 575-622l42-42 85 85 170-170 42 43-212 212Zm-450-29q-42-42-42-108t42-108q42-42 108-42t108 42q42 42 42 108t-42 108q-42 42-108 42t-108-42ZM40-160v-94q0-35 17.5-63.5T108-360q75-33 133.5-46.5T360-420q60 0 118 13.5T611-360q33 15 51 43t18 63v94H40Zm60-60h520v-34q0-16-9-30.5T587-306q-71-33-120-43.5T360-360q-58 0-107.5 10.5T132-306q-15 7-23.5 21.5T100-254v34Zm324.5-346.5Q450-592 450-631t-25.5-64.5Q399-721 360-721t-64.5 25.5Q270-670 270-631t25.5 64.5Q321-541 360-541t64.5-25.5ZM360-290Zm0-341Z"/></svg></div><h3>Human review on every flag</h3><p>Every safety escalation is reviewed by a real Eldera team member. No automated-only responses.</p></div>
     </div>
-    <div class="safety-stat-bar"><div class="stat-num">&lt;3</div><div class="stat-text">incidents per 10,000 sessions. Every one reviewed by a human. Every one resolved.</div></div>
+    <p style="max-width:1100px;margin:3rem auto 0;font-family:var(--serif);font-style:italic;font-size:1.05rem;color:var(--muted);line-height:1.7;text-align:center;">Eldera operates under an active MOU with the California Commission on Aging and meets<br>WHO Social Prescription standards for safe intergenerational programming.</p>
   </div></section>
 
   <section class="do-section"><div class="do-inner">
@@ -235,7 +235,7 @@
 
   <section class="faq-section"><div class="faq-inner">
     <span class="section-label">Common questions</span>
-    <h2 class="section-title section-title--light">Everything Mentors Ask Us.</h2>
+    <h2 class="section-title">Everything Mentors Ask Us.</h2>
     <div class="faq-list">
       <div class="faq-item"><button class="faq-q"><span>Do I need teaching or mentoring experience?</span></button><div class="faq-a">Not at all. What matters is life experience, patience, and a genuine desire to connect with a young person. We provide orientation, conversation guides, and ongoing support to help you feel confident from day one.</div></div>
       <div class="faq-item"><button class="faq-q"><span>How much time does it take?</span></button><div class="faq-a">One hour per week for your session, plus a few minutes to review your session summary and prep for next time. The onboarding process (profile, background check, orientation) takes about two weeks total.</div></div>
@@ -251,8 +251,8 @@
 
   <footer class="footer">
     <div class="footer-inner">
-      <div><a href="index.html" style="display:flex;align-items:center;text-decoration:none;color:var(--white);margin-bottom:1rem">
-        <svg height="32" viewBox="0 0 345 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="eldera" style="display:block;color:var(--white)">
+      <div><a href="index.html" style="display:flex;align-items:center;text-decoration:none;color:var(--dark);margin-bottom:1rem">
+        <svg height="32" viewBox="0 0 345 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="eldera" style="display:block;color:var(--dark)">
           <path d="M43.5 33.5C41.6 33.5 39.6 33.6 37.8 33.9C17 36.7 1 54.4 1 75.9C1 97.3 17 115 37.8 117.8C39.6 118.1 41.6 118.2 43.5 118.2H44.5V33.5H43.5ZM36.9 110C20.8 106.9 8.6 92.8 8.6 75.9C8.6 58.9 20.8 44.8 36.9 41.7V110Z" fill="currentColor" stroke="currentColor" stroke-width="2"/>
           <path d="M38.4 100.9C40.3 100.9 42.2 100.8 44.1 100.6C69.1 97.7 88.5 76.6 88.5 50.9C88.5 25.3 69.1 4.2 44.1 1.3C42.2 1.1 40.3 1 38.4 1H37.4V100.9H38.4ZM45 9.1C65.3 12.3 80.9 29.8 80.9 50.9C80.9 72.1 65.3 89.6 45 92.8V9.1Z" fill="currentColor" stroke="currentColor" stroke-width="2"/>
           <path d="M41.3 100.7C59.9 100.7 74.9 85.7 74.9 67.2C74.9 48.7 59.9 33.7 41.3 33.7C22.8 33.7 7.8 48.7 7.8 67.2C7.8 85.7 22.8 100.7 41.3 100.7ZM41.3 93.1C27 93.1 15.4 81.5 15.4 67.2C15.4 52.9 27 41.3 41.3 41.3C55.7 41.3 67.3 52.9 67.3 67.2C67.3 81.5 55.7 93.1 41.3 93.1Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
