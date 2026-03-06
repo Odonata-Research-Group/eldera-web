@@ -9,29 +9,36 @@
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,300;1,6..72,400;1,6..72,500;1,6..72,600;1,6..72,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{--serif:'Newsreader',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--gold:#C49A2A;--gold-hover:#A67E1E;--gold-pale:rgba(196,154,42,0.10);--gold-border:rgba(196,154,42,0.25);--dark:#1A1510;--white:#fff;--clay:#F7F3E9;--text:#1A1510;--text-on-dark:#fff;--sub-on-dark:rgba(255,255,255,0.65);--muted:#666;--border:#E8E3D9;--radius-md:0.875rem;--radius-lg:1.25rem;--radius-xl:1.75rem;--radius-pill:100px;--shadow-sm:0 1px 3px rgba(26,21,16,0.06);--shadow-md:0 4px 16px rgba(26,21,16,0.08)}
+    :root{--serif:'Newsreader',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--gold:#C49A2A;--gold-hover:#A67E1E;--gold-pale:rgba(196,154,42,0.10);--gold-border:rgba(196,154,42,0.25);--dark:#1A1510;--white:#fff;--clay:#F7F3E9;--clay-dark:#EDE9DF;--text:#1A1510;--text-on-dark:#fff;--sub-on-dark:rgba(255,255,255,0.65);--muted:#666666;--muted-warm:#625E5B;--border:#E8E3D9;--radius-md:0.875rem;--radius-lg:1.25rem;--radius-xl:1.75rem;--radius-pill:100px;--shadow-sm:0 1px 3px rgba(26,21,16,0.06);--shadow-md:0 4px 16px rgba(26,21,16,0.08)}
     body{font-family:var(--sans);background:var(--white);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+
+    /* NAV */
     .nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.25rem 3rem;transition:background .3s}
     .nav.scrolled{background:rgba(26,21,16,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 1px 0 rgba(255,255,255,.06)}
-    .nav-logo{font-family:var(--serif);font-size:1.6rem;font-weight:500;font-style:italic;color:var(--white);text-decoration:none;letter-spacing:-.03em}
+    .nav-logo{display:flex;align-items:center;text-decoration:none;color:var(--white);flex-shrink:0}
     .nav-links{display:flex;align-items:center;gap:2.25rem}
     .nav-links a{font-size:.82rem;font-weight:500;color:rgba(255,255,255,.65);text-decoration:none;transition:color .2s}
     .nav-links a:hover{color:var(--white)}
-    .nav-cta{background:var(--gold)!important;color:var(--dark)!important;font-weight:600!important;padding:.5rem 1.25rem!important;border-radius:var(--radius-pill)!important}
+    .nav-cta{background:var(--gold)!important;color:var(--dark)!important;font-weight:600!important;padding:.5rem 1.25rem!important;border-radius:var(--radius-pill)!important;transition:background .2s!important}
+    .nav-cta:hover{background:var(--gold-hover)!important}
+
+    /* SHARED */
     .section-label{display:block;font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
     .section-title{font-family:var(--serif);font-size:clamp(2rem,3.5vw,2.8rem);font-weight:500;color:var(--text);letter-spacing:-.02em;line-height:1.12;margin-bottom:1rem}
     .section-title em{font-style:italic;color:var(--gold)}
     .section-title--light{color:var(--text-on-dark)}
-    .section-sub{font-size:.95rem;color:var(--muted);max-width:520px;line-height:1.7}
+    .section-sub{font-size:1rem;color:var(--muted-warm);max-width:520px;line-height:1.65}
     .btn-primary{display:inline-block;background:var(--gold);color:var(--dark);font-weight:600;font-size:.95rem;padding:.9rem 2rem;border-radius:var(--radius-pill);text-decoration:none;transition:all .2s}
     .btn-primary:hover{background:var(--gold-hover);transform:translateY(-2px);box-shadow:0 8px 24px rgba(196,154,42,.3)}
     .btn-ghost{color:var(--sub-on-dark);font-size:.92rem;text-decoration:none;transition:color .2s;font-weight:500}
     .btn-ghost:hover{color:var(--white)}
     .btn-dark{display:inline-block;background:var(--dark);color:var(--gold);font-weight:600;font-size:.95rem;padding:.9rem 2rem;border-radius:var(--radius-pill);text-decoration:none;transition:all .2s}
     .btn-dark:hover{background:#2a2318;transform:translateY(-2px)}
+
+    /* HERO */
     .hero{min-height:85vh;background:var(--dark);display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:8rem 3rem 5rem;position:relative;overflow:hidden}
     .hero::before{content:'';position:absolute;top:-10%;right:-5%;width:600px;height:600px;background:radial-gradient(circle,rgba(196,154,42,.07) 0%,transparent 70%);pointer-events:none}
-    .hero>*{position:relative;z-index:1}
+    .hero>*{position:relative;z-index:2}
     .hero-inner{max-width:680px}
     .hero-eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:1.75rem;padding:.4rem 1.1rem;border:1px solid var(--gold-border);border-radius:var(--radius-pill)}
     .hero h1{font-family:var(--serif);font-size:clamp(2.8rem,5vw,4.2rem);line-height:1.06;color:var(--text-on-dark);margin-bottom:1.5rem;letter-spacing:-.03em;font-weight:400}
@@ -41,6 +48,8 @@
     .safety-badges{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2.5rem;padding-top:2.5rem;border-top:1px solid rgba(255,255,255,.06)}
     .badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius-pill);padding:.4rem .9rem;font-size:.75rem;color:rgba(255,255,255,.6)}
     .badge-dot{width:6px;height:6px;border-radius:50%;background:#4ade80;flex-shrink:0}
+
+    /* MENTOR CARDS */
     .mentors-section{padding:6rem 3rem;background:var(--clay)}
     .mentors-inner{max-width:1100px;margin:0 auto}
     .mentors-header{text-align:center;margin-bottom:3.5rem}
@@ -56,14 +65,18 @@
     .mentor-detail{font-size:.78rem;color:var(--muted);margin-bottom:1rem}
     .mentor-quote{font-family:var(--serif);font-style:italic;font-size:.9rem;color:var(--text);line-height:1.6;margin-bottom:1rem}
     .mentor-superpower{display:inline-flex;align-items:center;gap:.4rem;background:var(--gold-pale);border:1px solid var(--gold-border);border-radius:var(--radius-pill);padding:.3rem .8rem;font-size:.72rem;color:var(--gold);font-weight:600}
-    .trust-section{padding:6rem 3rem}
+
+    /* TRUST STATS */
+    .trust-section{padding:6rem 3rem;background:var(--white)}
     .trust-inner{max-width:1100px;margin:0 auto}
     .trust-header{text-align:center;margin-bottom:3.5rem}
     .trust-header .section-sub{margin:0 auto}
     .trust-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
     .trust-stat{text-align:center;padding:2rem 1.5rem;border-radius:var(--radius-lg);background:var(--clay);border:1px solid var(--border)}
     .trust-stat-num{font-family:var(--serif);font-size:2.4rem;color:var(--gold);line-height:1;margin-bottom:.5rem;font-weight:400}
-    .trust-stat-label{font-size:.85rem;color:var(--muted);line-height:1.5}
+    .trust-stat-label{font-size:.85rem;color:var(--muted-warm);line-height:1.5}
+
+    /* HOW IT WORKS */
     .how-section{padding:6rem 3rem;background:var(--dark)}
     .how-inner{max-width:700px;margin:0 auto}
     .how-inner .section-title,.how-inner .section-label{text-align:center}
@@ -74,19 +87,20 @@
     .how-num{width:40px;height:40px;border-radius:50%;background:rgba(196,154,42,.12);color:var(--gold);font-family:var(--serif);font-size:1rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1;font-weight:500}
     .how-step-content h3{font-family:var(--serif);font-weight:500;font-size:1.1rem;color:var(--text-on-dark);margin-bottom:.4rem;padding-top:.5rem}
     .how-step-content p{font-size:.88rem;color:var(--sub-on-dark);line-height:1.65}
+
+    /* SAFETY */
     .safety-section{padding:6rem 3rem;background:var(--white)}
     .safety-inner{max-width:1100px;margin:0 auto}
     .safety-header{text-align:center;margin-bottom:3.5rem}
     .safety-header .section-sub{margin:0 auto}
     .safety-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1.25rem}
-    .safety-card-item{background:var(--clay);border-radius:var(--radius-lg);padding:2rem;border:1px solid var(--border);transition:transform .25s,box-shadow .25s}
+    .safety-card-item{background:var(--clay);border-radius:var(--radius-lg);padding:2rem 1.75rem;border:1px solid var(--border);transition:transform .25s,box-shadow .25s}
     .safety-card-item:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
-    .safety-card-icon{width:44px;height:44px;border-radius:var(--radius-md);background:var(--gold-pale);display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:1.1rem}
-    .safety-card-item h3{font-family:var(--serif);font-weight:500;font-size:.95rem;color:var(--text);margin-bottom:.4rem}
-    .safety-card-item p{font-size:.82rem;color:var(--muted);line-height:1.55}
-    .safety-stat-bar{max-width:1100px;margin:3rem auto 0;display:flex;align-items:center;justify-content:center;gap:1.25rem;padding:2rem;background:var(--dark);border-radius:var(--radius-lg)}
-    .safety-stat-bar .stat-num{font-family:var(--serif);font-size:2.5rem;color:var(--gold);line-height:1;font-weight:400}
-    .safety-stat-bar .stat-text{font-size:.88rem;color:var(--sub-on-dark);line-height:1.5;max-width:380px}
+    .safety-card-icon{width:48px;height:48px;border-radius:var(--radius-md);background:var(--gold-pale);display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem}
+    .safety-card-item h3{font-family:var(--serif);font-weight:500;font-size:1rem;color:var(--text);margin-bottom:.5rem}
+    .safety-card-item p{font-size:.82rem;color:var(--muted-warm);line-height:1.6}
+
+    /* PARENT QUOTE + WHAT TO EXPECT */
     .parent-section{padding:6rem 3rem;background:var(--clay)}
     .parent-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
     .big-quote{font-family:var(--serif);font-size:clamp(1.5rem,2.5vw,2rem);line-height:1.35;color:var(--text);letter-spacing:-.02em;position:relative;padding-left:2rem;font-weight:400}
@@ -99,144 +113,347 @@
     .expect-list{display:flex;flex-direction:column;gap:1rem}
     .expect-item{display:flex;gap:1rem;align-items:flex-start;background:var(--white);border-radius:var(--radius-lg);padding:1.25rem 1.5rem;border:1px solid var(--border);transition:transform .25s,box-shadow .25s}
     .expect-item:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
-    .expect-icon{width:40px;height:40px;border-radius:var(--radius-md);background:var(--gold-pale);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+    .expect-icon{width:40px;height:40px;border-radius:var(--radius-md);background:var(--gold-pale);display:flex;align-items:center;justify-content:center;flex-shrink:0}
     .expect-item h4{font-family:var(--serif);font-weight:500;font-size:.95rem;color:var(--text);margin-bottom:.3rem}
-    .expect-item p{font-size:.82rem;color:var(--muted);line-height:1.6}
-    .faq-section{background:var(--dark);padding:6rem 3rem}
+    .expect-item p{font-size:.82rem;color:var(--muted-warm);line-height:1.6}
+
+    /* FAQ */
+    .faq-section{background:var(--clay);padding:6rem 3rem}
     .faq-inner{max-width:740px;margin:0 auto}
     .faq-list{display:flex;flex-direction:column;margin-top:2.5rem}
-    .faq-item{border-bottom:1px solid rgba(255,255,255,.06)}
+    .faq-item{border-bottom:1px solid var(--border)}
     .faq-q{width:100%;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:1.25rem 0;text-align:left;gap:1rem}
-    .faq-q span{font-family:var(--serif);font-weight:500;font-size:1rem;color:var(--text-on-dark);line-height:1.4}
+    .faq-q span{font-family:var(--serif);font-weight:500;font-size:1.1rem;color:var(--text);line-height:1.4}
     .faq-q::after{content:'+';font-size:1.3rem;color:var(--gold);flex-shrink:0;transition:transform .2s;font-family:var(--sans)}
     .faq-item.open .faq-q::after{transform:rotate(45deg)}
-    .faq-a{font-size:.9rem;color:var(--sub-on-dark);line-height:1.7;max-height:0;overflow:hidden;transition:max-height .3s ease,padding .2s}
+    .faq-a{font-size:.85rem;color:var(--muted-warm);line-height:1.7;max-height:0;overflow:hidden;transition:max-height .3s ease,padding .2s}
     .faq-item.open .faq-a{max-height:300px;padding-bottom:1.25rem}
+
+    /* CTA */
     .cta-section{background:var(--gold);padding:6rem 3rem;text-align:center}
     .cta-section h2{font-family:var(--serif);font-size:clamp(2rem,3.5vw,2.8rem);color:var(--dark);line-height:1.12;margin-bottom:1.2rem;letter-spacing:-.02em;font-weight:500}
     .cta-section h2 em{font-style:italic}
     .cta-section p{font-size:1rem;color:rgba(26,21,16,.6);max-width:480px;margin:0 auto 2.5rem;line-height:1.75}
-    .cta-fine{margin-top:1.25rem;font-size:.78rem;color:rgba(26,21,16,.45)}
-    .footer{background:var(--dark);padding:4rem 3rem 2.5rem}
+    .cta-fine{margin-top:1.25rem!important;margin-bottom:0!important;font-size:.78rem;color:rgba(26,21,16,.45)}
+
+    /* FOOTER */
+    .footer{background:var(--white);padding:4rem 3rem 2.5rem}
     .footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem}
-    .footer-brand{font-family:var(--serif);font-size:1.4rem;font-weight:500;font-style:italic;color:var(--text-on-dark);letter-spacing:-.03em;margin-bottom:1rem}
-    .footer-tagline{font-size:.85rem;color:var(--sub-on-dark);line-height:1.6;max-width:280px}
     .footer-col-title{font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem}
-    .footer-col a{display:block;font-size:.85rem;color:var(--sub-on-dark);text-decoration:none;margin-bottom:.65rem;transition:color .2s}
-    .footer-col a:hover{color:var(--text-on-dark)}
-    .footer-bottom{max-width:1100px;margin:3rem auto 0;padding-top:2rem;border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;align-items:center}
-    .footer-copy{font-size:.75rem;color:rgba(255,255,255,.3)}
+    .footer-col a{display:block;font-size:.85rem;color:var(--muted-warm);text-decoration:none;margin-bottom:.65rem;transition:color .2s}
+    .footer-col a:hover{color:var(--text)}
+    .footer-tagline{font-size:.85rem;color:var(--muted-warm);line-height:1.6;max-width:280px;margin-top:.75rem}
+    .footer-social{display:flex;gap:.75rem;margin-top:1rem}
+    .footer-social-link{color:var(--muted-warm);transition:color .2s;display:flex}
+    .footer-social-link:hover{color:var(--text)}
+    .footer-bottom{max-width:1100px;margin:3rem auto 0;padding-top:2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+    .footer-copy{font-size:.75rem;color:var(--muted)}
+
+    /* ANIMATIONS */
     @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
     .fade-up{opacity:0;animation:fadeUp .7s cubic-bezier(.2,.8,.2,1) forwards}
     .fade-up:nth-child(1){animation-delay:.1s}.fade-up:nth-child(2){animation-delay:.22s}.fade-up:nth-child(3){animation-delay:.34s}.fade-up:nth-child(4){animation-delay:.46s}.fade-up:nth-child(5){animation-delay:.58s}
     .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.8,.2,1),transform .6s cubic-bezier(.2,.8,.2,1)}
     .reveal.visible{opacity:1;transform:translateY(0)}
+
+    /* RESPONSIVE */
     @media(max-width:1000px){.mentor-cards{grid-template-columns:1fr}.trust-stats{grid-template-columns:1fr 1fr}.safety-grid{grid-template-columns:repeat(3,1fr)}.parent-inner{grid-template-columns:1fr}.footer-inner{grid-template-columns:1fr 1fr}}
-    @media(max-width:768px){.nav{padding:1rem 1.5rem}.nav-links a:not(.nav-cta){display:none}.hero{padding:6rem 1.5rem 3rem;min-height:auto}.safety-grid{grid-template-columns:1fr 1fr}.safety-stat-bar{flex-direction:column;text-align:center}.trust-stats{grid-template-columns:1fr 1fr}.mentors-section,.trust-section,.how-section,.safety-section,.parent-section,.faq-section,.cta-section{padding:4rem 1.5rem}.footer-inner{grid-template-columns:1fr}.footer-bottom{flex-direction:column;gap:.5rem;text-align:center}}
+    @media(max-width:768px){.nav{padding:1rem 1.5rem}.nav-links a:not(.nav-cta){display:none}.hero{padding:6rem 1.5rem 3rem;min-height:auto}.safety-grid{grid-template-columns:1fr 1fr}.trust-stats{grid-template-columns:1fr 1fr}.mentors-section,.trust-section,.how-section,.safety-section,.parent-section,.faq-section,.cta-section{padding:4rem 1.5rem}.footer-inner{grid-template-columns:1fr}.footer-bottom{flex-direction:column;gap:.5rem;text-align:center}}
   </style>
 </head>
 <body>
-  <nav class="nav" id="nav"><a href="index.html" class="nav-logo">eldera</a><div class="nav-links"><a href="mentors.html">Mentors</a><a href="parents.html">Parents</a><a href="about.html">About</a><a href="partners.html">Partners</a><a href="#" class="nav-cta">Get Started</a></div></nav>
 
-  <section class="hero"><div class="hero-inner">
-    <span class="hero-eyebrow fade-up">For parents of children ages 6–17</span>
-    <h1 class="fade-up">Give Your Child a Mentor<br>Who’s <em>Truly Lived.</em></h1>
-    <p class="hero-sub fade-up">Weekly one-on-one conversations with a vetted, background-checked adult 60+ — someone whose only agenda is your child’s growth.</p>
-    <div class="hero-actions fade-up"><a href="#signup" class="btn-primary">Find My Child a Mentor →</a><a href="#how-it-works" class="btn-ghost">See how it works ↓</a></div>
-    <div class="safety-badges fade-up">
-      <span class="badge"><span class="badge-dot"></span>Background checked</span>
-      <span class="badge"><span class="badge-dot"></span>AI Chaperone on every call</span>
-      <span class="badge"><span class="badge-dot"></span>You’re always in the loop</span>
-      <span class="badge"><span class="badge-dot"></span>&lt;3 incidents per 10,000 sessions</span>
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-logo">
+      <svg height="32" viewBox="0 0 345 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="eldera" style="display:block;color:var(--white)">
+        <path d="M43.5 33.5C41.6 33.5 39.6 33.6 37.8 33.9C17 36.7 1 54.4 1 75.9C1 97.3 17 115 37.8 117.8C39.6 118.1 41.6 118.2 43.5 118.2H44.5V33.5H43.5ZM36.9 110C20.8 106.9 8.6 92.8 8.6 75.9C8.6 58.9 20.8 44.8 36.9 41.7V110Z" fill="currentColor" stroke="currentColor" stroke-width="2"/>
+        <path d="M38.4 100.9C40.3 100.9 42.2 100.8 44.1 100.6C69.1 97.7 88.5 76.6 88.5 50.9C88.5 25.3 69.1 4.2 44.1 1.3C42.2 1.1 40.3 1 38.4 1H37.4V100.9H38.4ZM45 9.1C65.3 12.3 80.9 29.8 80.9 50.9C80.9 72.1 65.3 89.6 45 92.8V9.1Z" fill="currentColor" stroke="currentColor" stroke-width="2"/>
+        <path d="M41.3 100.7C59.9 100.7 74.9 85.7 74.9 67.2C74.9 48.7 59.9 33.7 41.3 33.7C22.8 33.7 7.8 48.7 7.8 67.2C7.8 85.7 22.8 100.7 41.3 100.7ZM41.3 93.1C27 93.1 15.4 81.5 15.4 67.2C15.4 52.9 27 41.3 41.3 41.3C55.7 41.3 67.3 52.9 67.3 67.2C67.3 81.5 55.7 93.1 41.3 93.1Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M303.848 70.8C303.848 59.7 311.809 50.5 322.19 50.5C327.575 50.5 331.712 53.2 333.429 55.7V51.3H344.122V90.3H333.429V86C331.712 88.5 327.575 91.2 322.19 91.2C311.809 91.2 303.848 81.9 303.848 70.8ZM334.287 70.8C334.287 64.7 330.307 60.2 324.453 60.2C318.599 60.2 314.619 64.7 314.619 70.8C314.619 76.9 318.599 81.4 324.453 81.4C330.307 81.4 334.287 76.9 334.287 70.8Z" fill="currentColor"/>
+        <path d="M276.924 90.3V51.3H287.617V57.6C288.944 53.7 292.924 50.8 297.295 50.8C298.388 50.8 299.559 50.9 300.885 51.3V62.2C299.246 61.6 297.763 61.3 296.046 61.3C290.973 61.3 287.617 65.3 287.617 71.7V90.3H276.924Z" fill="currentColor"/>
+        <path d="M268.667 77.6C266.325 85.5 258.598 91.2 248.686 91.2C236.744 91.2 228.236 82.6 228.236 70.7C228.236 59.1 236.9 50.5 248.764 50.5C260.237 50.5 269.681 58.6 269.135 73.3H238.695C239.163 77.9 242.598 81.9 249.232 81.9C252.978 81.9 256.257 80.3 257.505 77.6H268.667ZM248.451 59.1C243.534 59.1 240.1 62 239.085 66.3H257.427C256.1 61.1 136.797 59.1 248.451 59.1Z" fill="currentColor"/>
+        <path d="M180.064 70.8C180.064 59.7 188.026 50.5 198.406 50.5C203.792 50.5 207.929 53.2 209.646 55.7V31.8H220.339V90.3H209.646V86C207.929 88.5 203.792 91.2 198.406 91.2C188.026 91.2 180.064 81.9 180.064 70.8ZM210.504 70.8C210.504 64.7 206.524 60.2 200.67 60.2C194.816 60.2 190.835 64.7 190.835 70.8C190.835 76.9 194.816 81.4 200.67 81.4C206.524 81.4 210.504 76.9 210.504 70.8Z" fill="currentColor"/>
+        <path d="M161.601 90.3V31.8H172.294V90.3H161.601Z" fill="currentColor"/>
+        <path d="M153.343 77.6C151.002 85.5 143.275 91.2 133.362 91.2C121.421 91.2 112.913 82.6 112.913 70.7C112.913 59.1 121.577 50.5 133.44 50.5C144.914 50.5 154.358 58.6 153.812 73.3H123.372C123.84 77.9 127.274 81.9 133.909 81.9C137.655 81.9 140.933 80.3 142.182 77.6H153.343ZM133.128 59.1C128.211 59.1 124.777 62 123.762 66.3H142.104C140.777 61.1 136.797 59.1 133.128 59.1Z" fill="currentColor"/>
+      </svg>
+    </a>
+    <div class="nav-links">
+      <a href="mentors.html">Mentors</a>
+      <a href="parents.html">Parents</a>
+      <a href="about.html">About</a>
+      <a href="partners.html">Partners</a>
+      <a href="index.html#get-started" class="nav-cta">Get Started</a>
     </div>
-  </div></section>
+  </nav>
 
-  <section class="mentors-section"><div class="mentors-inner">
-    <div class="mentors-header"><span class="section-label">Your child’s future mentor</span><h2 class="section-title">Meet a Few of Our <em>Mentors.</em></h2><p class="section-sub">Every Eldera mentor is 60+, background-checked, and here because they believe in the next generation.</p></div>
-    <div class="mentor-cards">
-      <div class="mentor-card reveal"><div class="mentor-avatar avatar-gold">M</div><div class="mentor-name">Margaret B.</div><div class="mentor-detail">Retired teacher · Portland, OR · Age 67</div><p class="mentor-quote">“I spent 35 years helping young people find their voice. I’m not done yet.”</p><span class="mentor-superpower">⚡ Listening deeply</span></div>
-      <div class="mentor-card reveal"><div class="mentor-avatar avatar-sage">J</div><div class="mentor-name">James W.</div><div class="mentor-detail">Former engineer · Austin, TX · Age 72</div><p class="mentor-quote">“Young people ask me questions I’ve spent a lifetime figuring out. I love it.”</p><span class="mentor-superpower">⚡ Problem solving</span></div>
-      <div class="mentor-card reveal"><div class="mentor-avatar avatar-warm">D</div><div class="mentor-name">Dorothy L.</div><div class="mentor-detail">Retired nurse · Chicago, IL · Age 64</div><p class="mentor-quote">“Every child deserves someone who believes in them unconditionally.”</p><span class="mentor-superpower">⚡ Encouragement</span></div>
-    </div>
-  </div></section>
-
-  <section class="trust-section"><div class="trust-inner">
-    <div class="trust-header"><span class="section-label">By the numbers</span><h2 class="section-title">Safety and Trust, <em>Measured.</em></h2><p class="section-sub">We know you need more than promises. Here’s what our track record actually shows.</p></div>
-    <div class="trust-stats">
-      <div class="trust-stat reveal"><div class="trust-stat-num">&lt;3/10k</div><div class="trust-stat-label">safety incidents per 10,000 sessions</div></div>
-      <div class="trust-stat reveal"><div class="trust-stat-num">72%</div><div class="trust-stat-label">of mentor-mentee pairs stay together 12+ months</div></div>
-      <div class="trust-stat reveal"><div class="trust-stat-num">170k+</div><div class="trust-stat-label">mentorship hours and counting</div></div>
-      <div class="trust-stat reveal"><div class="trust-stat-num">100%</div><div class="trust-stat-label">of mentors background-checked before matching</div></div>
-    </div>
-  </div></section>
-
-  <section class="how-section" id="how-it-works"><div class="how-inner">
-    <span class="section-label">The journey</span>
-    <h2 class="section-title section-title--light">From Sign-Up to First Session —<br><em>Here’s Exactly What Happens.</em></h2>
-    <div class="how-steps">
-      <div class="how-step reveal"><div class="how-num">1</div><div class="how-step-content"><h3>Create your family’s profile</h3><p>Tell us about your child — their name, age, interests, and anything you’d want a mentor to know. Takes about 10 minutes.</p></div></div>
-      <div class="how-step reveal"><div class="how-num">2</div><div class="how-step-content"><h3>We find your match</h3><p>Our team matches your child with a vetted mentor based on personality, interests, availability, and life experience. You’ll see your mentor’s full profile before committing.</p></div></div>
-      <div class="how-step reveal"><div class="how-num">3</div><div class="how-step-content"><h3>You approve, then meet</h3><p>For children under 13, you approve every session. The first session, you’re present. After that, Eldera’s AI Chaperone monitors every call — and you receive a summary.</p></div></div>
-      <div class="how-step reveal"><div class="how-num">4</div><div class="how-step-content"><h3>Weekly sessions begin</h3><p>One hour, once a week, over Eldera’s secure platform. Your child and their mentor build a real relationship at whatever pace feels right.</p></div></div>
-      <div class="how-step reveal"><div class="how-num">5</div><div class="how-step-content"><h3>You stay in the loop</h3><p>Session summaries, milestone moments, and check-ins keep you informed without intruding on your child’s growing independence.</p></div></div>
-    </div>
-  </div></section>
-
-  <section class="safety-section"><div class="safety-inner">
-    <div class="safety-header"><span class="section-label">Safety first</span><h2 class="section-title">How We Keep Your Child <em>Safe.</em></h2><p class="section-sub">Safety isn’t a feature — it’s the foundation everything else is built on.</p></div>
-    <div class="safety-grid">
-      <div class="safety-card-item reveal"><div class="safety-card-icon">🔍</div><h3>Background checks</h3><p>No exceptions. Every mentor completes secure screening before being matched.</p></div>
-      <div class="safety-card-item reveal"><div class="safety-card-icon">🛡️</div><h3>AI Chaperone</h3><p>Real-time monitoring across 12 risk categories on every session.</p></div>
-      <div class="safety-card-item reveal"><div class="safety-card-icon">👋</div><h3>You’re present</h3><p>Under 13: parent present first session, approval for all others.</p></div>
-      <div class="safety-card-item reveal"><div class="safety-card-icon">✔️</div><h3>Human review</h3><p>Every flag is reviewed by a real Eldera team member. Always.</p></div>
-      <div class="safety-card-item reveal"><div class="safety-card-icon">📋</div><h3>Orientation</h3><p>Every mentor completes training on expectations, norms, and safety guidelines.</p></div>
-    </div>
-    <div class="safety-stat-bar"><div class="stat-num">&lt;3</div><div class="stat-text">safety incidents per 10,000 sessions. Every one reviewed by a human. Every one resolved.</div></div>
-  </div></section>
-
-  <section class="parent-section"><div class="parent-inner">
-    <div>
-      <span class="section-label">From a parent</span>
-      <blockquote class="big-quote reveal">My daughter used to struggle to open up with adults. After three months with her Eldera mentor, she came home and said, <em>“I finally have someone who just gets me.”</em> I cried.</blockquote>
-      <div class="quote-attribution"><div class="attr-avatar">SK</div><div><div class="attr-name">Sarah K.</div><div class="attr-detail">Parent of a 10-year-old mentee · Member since 2023</div></div></div>
-    </div>
-    <div>
-      <span class="section-label" style="margin-bottom:1.5rem;display:block">What to expect as a parent</span>
-      <div class="expect-list">
-        <div class="expect-item reveal"><div class="expect-icon">📅</div><div><h4>A recurring weekly slot</h4><p>Sessions happen at the same time each week — easy to build into your family’s routine.</p></div></div>
-        <div class="expect-item reveal"><div class="expect-icon">📬</div><div><h4>Session summaries in your inbox</h4><p>After every session, you get a brief summary of what was discussed — so you’re always informed.</p></div></div>
-        <div class="expect-item reveal"><div class="expect-icon">🙋</div><div><h4>We ask you to be responsive</h4><p>The relationship works best when parents are engaged. Occasionally approve a session or respond to a note — usually within 24 hours.</p></div></div>
-        <div class="expect-item reveal"><div class="expect-icon">🌱</div><div><h4>Real relationships take time</h4><p>The first few sessions are warm-up. The magic tends to happen around weeks 4–6. Commitment makes it work.</p></div></div>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="hero-eyebrow fade-up">For parents of children ages 6–17</span>
+      <h1 class="fade-up">Give Your Child a Mentor<br>Who's <em>Truly Lived.</em></h1>
+      <p class="hero-sub fade-up">Weekly one-on-one conversations with a vetted, background-checked adult 60+ — someone whose only agenda is your child's growth.</p>
+      <div class="hero-actions fade-up">
+        <a href="parents-signup.html" class="btn-primary">Find My Child a Mentor &#x2192;</a>
+        <a href="#how-it-works" class="btn-ghost">See how it works &#x2193;</a>
       </div>
-    </div>
-  </div></section>
 
-  <section class="faq-section"><div class="faq-inner">
-    <span class="section-label">Common questions</span>
-    <h2 class="section-title section-title--light">Everything Parents Ask Us.</h2>
-    <div class="faq-list">
-      <div class="faq-item"><button class="faq-q"><span>How old does my child need to be?</span></button><div class="faq-a">Eldera is designed for children ages 6–17. Children under 13 have parent-managed accounts, with parental approval required for every session. Teens 13–17 have more independent access while maintaining safety monitoring.</div></div>
-      <div class="faq-item"><button class="faq-q"><span>How are mentors vetted?</span></button><div class="faq-a">Every mentor completes a background check, attends an Eldera orientation, and creates a full Wisdom Profile before being matched with any child. Our team reviews every mentor before they’re approved.</div></div>
-      <div class="faq-item"><button class="faq-q"><span>What does the AI Chaperone actually do?</span></button><div class="faq-a">It monitors every session in real time for safety. If anything concerning is detected, it flags it for human review immediately. It never interrupts a normal session — it’s a silent safeguard, not an active participant.</div></div>
-      <div class="faq-item"><button class="faq-q"><span>Do I need to be present for sessions?</span></button><div class="faq-a">For children under 13, yes — a parent or guardian must be present for the first session, and you’ll approve each subsequent one. After that, you receive session summaries but don’t need to be in the room.</div></div>
-      <div class="faq-item"><button class="faq-q"><span>What if my child doesn’t click with their mentor?</span></button><div class="faq-a">We take matching seriously, but if it’s not the right fit, we’ll rematch. No pressure, no awkwardness — just a new introduction.</div></div>
-      <div class="faq-item"><button class="faq-q"><span>How long does matching take?</span></button><div class="faq-a">After your profile is complete, matching typically takes 1–2 weeks. You’ll see their full profile before anything is confirmed.</div></div>
-      <div class="faq-item"><button class="faq-q"><span>Does it really cost nothing?</span></button><div class="faq-a">Your child’s sessions are fully funded by Eldera’s member community. There is no required payment. If you’d like to contribute, you’re welcome to — but it’s entirely optional.</div></div>
     </div>
-  </div></section>
-
-  <section class="cta-section">
-    <h2>Your Child’s Mentor<br>Is <em>Already Here.</em></h2>
-    <p>Sign up takes about 10 minutes. We’ll handle everything from matching to first session.</p>
-    <a href="#signup" class="btn-dark">Find My Child a Mentor →</a>
-    <p class="cta-fine">Ages 6–17 · Background-checked mentors · Free for families</p>
   </section>
 
-  <footer class="footer"><div class="footer-inner"><div><div class="footer-brand">eldera</div><p class="footer-tagline">Turning older adults into social infrastructure. One conversation at a time.</p></div><div class="footer-col"><div class="footer-col-title">Platform</div><a href="mentors.html">For Mentors</a><a href="parents.html">For Parents</a><a href="membership.html">Membership</a><a href="#">How It Works</a></div><div class="footer-col"><div class="footer-col-title">Company</div><a href="about.html">About</a><a href="partners.html">Partners</a><a href="#">Safety</a><a href="#">Stories</a></div><div class="footer-col"><div class="footer-col-title">Connect</div><a href="#">Contact Us</a><a href="#">Newsletter</a><a href="#">Careers</a></div></div><div class="footer-bottom"><span class="footer-copy">© 2026 Eldera. All rights reserved.</span><span class="footer-copy">Privacy · Terms · Accessibility</span></div></footer>
+  <!-- MENTOR SHOWCASE -->
+  <section class="mentors-section">
+    <div class="mentors-inner">
+      <div class="mentors-header">
+        <span class="section-label">Your child&#x2019;s future mentor</span>
+        <h2 class="section-title">Meet a Few of Our <em>Mentors.</em></h2>
+        <p class="section-sub">Every Eldera mentor is 60+, background-checked, and here because they believe in the next generation.</p>
+      </div>
+      <div class="mentor-cards">
+        <div class="mentor-card reveal">
+          <div class="mentor-avatar avatar-gold">M</div>
+          <div class="mentor-name">Margaret B.</div>
+          <div class="mentor-detail">Retired teacher &middot; Portland, OR &middot; Age 67</div>
+          <p class="mentor-quote">&#x201C;I spent 35 years helping young people find their voice. I&#x2019;m not done yet.&#x201D;</p>
+          <span class="mentor-superpower">Listening deeply</span>
+        </div>
+        <div class="mentor-card reveal">
+          <div class="mentor-avatar avatar-sage">J</div>
+          <div class="mentor-name">James W.</div>
+          <div class="mentor-detail">Former engineer &middot; Austin, TX &middot; Age 72</div>
+          <p class="mentor-quote">&#x201C;Young people ask me questions I&#x2019;ve spent a lifetime figuring out. I love it.&#x201D;</p>
+          <span class="mentor-superpower">Problem solving</span>
+        </div>
+        <div class="mentor-card reveal">
+          <div class="mentor-avatar avatar-warm">D</div>
+          <div class="mentor-name">Dorothy L.</div>
+          <div class="mentor-detail">Retired nurse &middot; Chicago, IL &middot; Age 64</div>
+          <p class="mentor-quote">&#x201C;Every child deserves someone who believes in them unconditionally.&#x201D;</p>
+          <span class="mentor-superpower">Encouragement</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST STATS -->
+  <section class="trust-section">
+    <div class="trust-inner">
+      <div class="trust-header">
+        <span class="section-label">By the numbers</span>
+        <h2 class="section-title">A Track Record<br><em>Worth Trusting.</em></h2>
+        <p class="section-sub">We know you need more than promises. Here&#x2019;s what our community has built.</p>
+      </div>
+      <div class="trust-stats">
+        <div class="trust-stat reveal">
+          <div class="trust-stat-num">100%</div>
+          <div class="trust-stat-label">of mentors background-checked before any match</div>
+        </div>
+        <div class="trust-stat reveal">
+          <div class="trust-stat-num">72%</div>
+          <div class="trust-stat-label">of mentor-mentee pairs stay together 12+ months</div>
+        </div>
+        <div class="trust-stat reveal">
+          <div class="trust-stat-num">170k+</div>
+          <div class="trust-stat-label">mentorship hours logged on the platform</div>
+        </div>
+        <div class="trust-stat reveal">
+          <div class="trust-stat-num">4.9/5</div>
+          <div class="trust-stat-label">average member rating across our community</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-section" id="how-it-works">
+    <div class="how-inner">
+      <span class="section-label">The journey</span>
+      <h2 class="section-title section-title--light">From Sign-Up to First Session &#x2014;<br><em>Here&#x2019;s Exactly What Happens.</em></h2>
+      <div class="how-steps">
+        <div class="how-step reveal"><div class="how-num">1</div><div class="how-step-content"><h3>Create your family&#x2019;s profile</h3><p>Tell us about your child &#x2014; their name, age, interests, and anything you&#x2019;d want a mentor to know. Takes about 10 minutes.</p></div></div>
+        <div class="how-step reveal"><div class="how-num">2</div><div class="how-step-content"><h3>We find your match</h3><p>Our team matches your child with a vetted mentor based on personality, interests, availability, and life experience. You&#x2019;ll see their full profile before anything is confirmed.</p></div></div>
+        <div class="how-step reveal"><div class="how-num">3</div><div class="how-step-content"><h3>You approve, then meet</h3><p>For children under 13, you approve every session. You&#x2019;re present for the first one. After that, Eldera&#x2019;s AI Chaperone monitors every call and sends you a summary.</p></div></div>
+        <div class="how-step reveal"><div class="how-num">4</div><div class="how-step-content"><h3>Weekly sessions begin</h3><p>One hour, once a week, over Eldera&#x2019;s secure platform. Your child and their mentor build a real relationship at whatever pace feels right.</p></div></div>
+        <div class="how-step reveal"><div class="how-num">5</div><div class="how-step-content"><h3>You stay in the loop</h3><p>Session summaries, milestone moments, and check-ins keep you informed without intruding on your child&#x2019;s growing independence.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAFETY -->
+  <section class="safety-section">
+    <div class="safety-inner">
+      <div class="safety-header">
+        <span class="section-label">Safety first</span>
+        <h2 class="section-title">How We Keep Your Child <em>Safe.</em></h2>
+        <p class="section-sub">Safety isn&#x2019;t a feature &#x2014; it&#x2019;s the foundation everything else is built on.</p>
+      </div>
+      <div class="safety-grid">
+        <div class="safety-card-item reveal">
+          <div class="safety-card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="#C49A2A"><path d="M440.5-500Q378-500 334-544.06 290-588.13 290-650q0-63 44.06-106.5Q378.13-800 440-800q63 0 106.5 43.5t43.5 106q0 62.5-43.5 106.5t-106 44Zm-.5-60q38 0 64-26.44T530-650q0-38-26-64t-63.5-26q-37.5 0-64 26T350-650.5q0 37.5 26.44 64T440-560ZM898-20 758-160q-23 17-47.5 23.5t-50.07 6.5q-71.01 0-120.72-49.62Q490-229.24 490-300.12t49.62-120.38q49.62-49.5 120.5-49.5t120.38 49.71Q830-370.58 830-299.57q0 25.57-6.5 50.07T800-202L940-62l-42 42ZM738.5-221.5Q770-253 770-300t-31.5-78.5Q707-410 660-410t-78.5 31.5Q550-347 550-300t31.5 78.5Q613-190 660-190t78.5-31.5ZM120-160v-94q0-37 17.5-63t50.5-43q47-23 122.5-43.5T464-419q-8 13-15 28.5T438-360q-78-1-136 18.5T212-306q-14 8-23 21.5t-9 30.5v34h258q11 17 20 31.5t20 28.5H120Zm320-490Zm-2 430Z"/></svg>
+          </div>
+          <h3>Background check &#x2014; every mentor</h3>
+          <p>No exceptions, no shortcuts. Every mentor is fully screened before being matched with any child.</p>
+        </div>
+        <div class="safety-card-item reveal">
+          <div class="safety-card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="#C49A2A"><path d="M480-81q-140-35-230-162.5T160-523v-238l320-120 320 120v238q0 152-90 279.5T480-81Zm0-62q115-38 187.5-143.5T740-523v-196l-260-98-260 98v196q0 131 72.5 236.5T480-143Zm0-337Z"/></svg>
+          </div>
+          <h3>AI Chaperone on every call</h3>
+          <p>Real-time monitoring across 12 risk categories. A silent safeguard &#x2014; never an active participant.</p>
+        </div>
+        <div class="safety-card-item reveal">
+          <div class="safety-card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="#C49A2A"><path d="M870-779q0-44-25-77.5T779-890v-50q62 0 101.5 48T920-779h-50ZM220-40q-75 0-127.5-52.65T40-220h50q0 54 38.07 92T220-90v50Zm182 0q-27 0-51.5-12.5T311-88L54-468l20-16q17-15 39.5-19t44.57 13.19L280-397v-413q0-12.75 8.68-21.38 8.67-8.62 21.5-8.62 12.82 0 21.32 8.62 8.5 8.63 8.5 21.38v528L166-410l195 288q7 11 17.5 16.5T402-100h288q38 0 64-26t26-64v-580q0-12.75 8.68-21.38 8.67-8.62 21.5-8.62 12.82 0 21.32 8.62 8.5 8.63 8.5 21.38v580q0 63-43.5 106.5T690-40H402Zm45-440v-410q0-12.75 8.68-21.38 8.67-8.62 21.5-8.62 12.82 0 21.32 8.62 8.5 8.63 8.5 21.38v410h-60Zm167 0v-370q0-12.75 8.68-21.38 8.67-8.62 21.5-8.62 12.82 0 21.32 8.62 8.5 8.63 8.5 21.38v370h-60ZM473-290Z"/></svg>
+          </div>
+          <h3>Parents always in control</h3>
+          <p>You approve sessions and receive summaries after every call. Children under 13 have fully parent-managed accounts.</p>
+        </div>
+        <div class="safety-card-item reveal">
+          <div class="safety-card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="#C49A2A"><path d="M702-494 575-622l42-42 85 85 170-170 42 43-212 212Zm-450-29q-42-42-42-108t42-108q42-42 108-42t108 42q42 42 42 108t-42 108q-42 42-108 42t-108-42ZM40-160v-94q0-35 17.5-63.5T108-360q75-33 133.5-46.5T360-420q60 0 118 13.5T611-360q33 15 51 43t18 63v94H40Zm60-60h520v-34q0-16-9-30.5T587-306q-71-33-120-43.5T360-360q-58 0-107.5 10.5T132-306q-15 7-23.5 21.5T100-254v34Zm324.5-346.5Q450-592 450-631t-25.5-64.5Q399-721 360-721t-64.5 25.5Q270-670 270-631t25.5 64.5Q321-541 360-541t64.5-25.5ZM360-290Zm0-341Z"/></svg>
+          </div>
+          <h3>Human review on every flag</h3>
+          <p>Every safety escalation is reviewed by a real Eldera team member. No automated-only responses, ever.</p>
+        </div>
+        <div class="safety-card-item reveal">
+          <div class="safety-card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="#C49A2A"><path d="M480-120 200-272v-240L40-600l440-240 440 240v320h-80v-276l-80 44v240L480-120Zm0-332 274-148-274-148-274 148 274 148Zm0 241 200-108v-151L480-360 280-471v151l200 108Zm0-241Zm0 90Zm0 0Z"/></svg>
+          </div>
+          <h3>Mentor training &amp; orientation</h3>
+          <p>Every mentor completes training on expectations, safe communication, and child development before their first session.</p>
+        </div>
+      </div>
+      <p style="max-width:1100px;margin:3rem auto 0;font-family:var(--serif);font-style:italic;font-size:1.05rem;color:var(--muted);line-height:1.7;text-align:center;">Eldera operates under an active MOU with the California Commission on Aging and meets<br>WHO Social Prescription standards for safe intergenerational programming.</p>
+    </div>
+  </section>
+
+  <!-- PARENT QUOTE + WHAT TO EXPECT -->
+  <section class="parent-section">
+    <div class="parent-inner">
+      <div>
+        <span class="section-label">From a parent</span>
+        <blockquote class="big-quote reveal">My daughter used to struggle to open up with adults. After three months with her Eldera mentor, she came home and said, <em>&#x201C;I finally have someone who just gets me.&#x201D;</em> I cried.</blockquote>
+        <div class="quote-attribution">
+          <div class="attr-avatar">SK</div>
+          <div>
+            <div class="attr-name">Sarah K.</div>
+            <div class="attr-detail">Parent of a 10-year-old mentee &middot; Member since 2023</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <span class="section-label" style="margin-bottom:1.5rem;display:block">What to expect as a parent</span>
+        <div class="expect-list">
+          <div class="expect-item reveal">
+            <div class="expect-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 -960 960 960" width="22px" fill="#C49A2A"><path d="M180-80q-24 0-42-18t-18-42v-620q0-24 18-42t42-18h65v-60h65v60h340v-60h65v60h65q24 0 42 18t18 42v620q0 24-18 42t-42 18H180Zm0-60h600v-430H180v430Zm0-490h600v-130H180v130Zm0 0v-130 130Zm100 210v-60h400v60H280Zm0 180v-60h279v60H280Z"/></svg>
+            </div>
+            <div>
+              <h4>A recurring weekly slot</h4>
+              <p>Sessions happen at the same time each week &#x2014; easy to build into your family&#x2019;s routine.</p>
+            </div>
+          </div>
+          <div class="expect-item reveal">
+            <div class="expect-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 -960 960 960" width="22px" fill="#C49A2A"><path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z"/></svg>
+            </div>
+            <div>
+              <h4>Session summaries in your inbox</h4>
+              <p>After every session, you get a brief summary of what was discussed &#x2014; so you&#x2019;re always informed.</p>
+            </div>
+          </div>
+          <div class="expect-item reveal">
+            <div class="expect-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 -960 960 960" width="22px" fill="#C49A2A"><path d="M160-200v-80h80v-280q0-83 50-147.5T420-792v-28q0-25 17.5-42.5T480-880q25 0 42.5 17.5T540-820v28q80 20 130 84.5T720-560v280h80v80H160Zm320-300Zm0 420q-33 0-56.5-23.5T400-160h160q0 33-23.5 56.5T480-80ZM320-280h320v-280q0-66-47-113t-113-47q-66 0-113 47t-47 113v280Z"/></svg>
+            </div>
+            <div>
+              <h4>We ask you to stay engaged</h4>
+              <p>The relationship works best when parents are involved. Occasionally approve a session or respond to a note &#x2014; usually within 24 hours.</p>
+            </div>
+          </div>
+          <div class="expect-item reveal">
+            <div class="expect-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 -960 960 960" width="22px" fill="#C49A2A"><path d="M440-183v-257q-60-5-110-25.5T245-521q-51-46-78-110t-27-149v-60h60q72 0 135 26t109 72q30-66 83.5-109T640-880h60v60q0 85-27 149t-78 110q-48 43-98.5 63.5T400-440v257h-40Zm0-297q0-57-19.5-105T365-671q-35-38-81-60.5T200-760q0 57 19.5 105T265-569q35 38 81 60.5T440-480Zm40-52q35-9 65.5-26.5T600-602q44-47 62-100.5T680-820q-57 0-110 18.5T481-748q-44 47-62 100.5T400-532Zm0 0Zm-40-48Z"/></svg>
+            </div>
+            <div>
+              <h4>Real relationships take time</h4>
+              <p>The first few sessions are warm-up. The magic tends to happen around weeks 4&#x2013;6. Commitment makes it work.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="faq-inner">
+      <span class="section-label">Common questions</span>
+      <h2 class="section-title">Everything Parents Ask Us.</h2>
+      <div class="faq-list">
+        <div class="faq-item"><button class="faq-q"><span>How old does my child need to be?</span></button><div class="faq-a">Eldera is designed for children ages 6&#x2013;17. Children under 13 have parent-managed accounts, with parental approval required for every session. Teens 13&#x2013;17 have more independent access while maintaining full safety monitoring.</div></div>
+        <div class="faq-item"><button class="faq-q"><span>How are mentors vetted?</span></button><div class="faq-a">Every mentor completes a background check, attends an Eldera orientation, and builds a full Wisdom Profile before being matched with any child. Our team reviews every mentor before they&#x2019;re approved.</div></div>
+        <div class="faq-item"><button class="faq-q"><span>What does the AI Chaperone actually do?</span></button><div class="faq-a">It monitors every session in real time across 12 safety categories. If anything concerning is detected, it flags it immediately for human review. It never interrupts a normal session &#x2014; it&#x2019;s a silent safeguard, not an active participant.</div></div>
+        <div class="faq-item"><button class="faq-q"><span>Do I need to be present for sessions?</span></button><div class="faq-a">For children under 13, yes &#x2014; a parent or guardian must be present for the first session, and you&#x2019;ll approve each subsequent one. After that, you receive session summaries but don&#x2019;t need to be in the room.</div></div>
+        <div class="faq-item"><button class="faq-q"><span>What if my child doesn&#x2019;t click with their mentor?</span></button><div class="faq-a">We take matching seriously, but if it&#x2019;s not the right fit, we&#x2019;ll rematch. No pressure, no awkwardness &#x2014; just a new introduction.</div></div>
+        <div class="faq-item"><button class="faq-q"><span>How long does matching take?</span></button><div class="faq-a">After your profile is complete, matching typically takes 1&#x2013;2 weeks. You&#x2019;ll see your mentor&#x2019;s full profile before anything is confirmed.</div></div>
+        <div class="faq-item"><button class="faq-q"><span>Does it really cost nothing?</span></button><div class="faq-a">Your child&#x2019;s sessions are fully funded by Eldera&#x2019;s member community. There is no required payment. If you&#x2019;d like to contribute, you&#x2019;re welcome to &#x2014; but it&#x2019;s entirely optional.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>Your Child&#x2019;s Mentor<br>Is <em>Already Here.</em></h2>
+    <p>Sign-up takes about 10 minutes. We&#x2019;ll handle everything from matching to first session.</p>
+    <a href="parents-signup.html" class="btn-dark">Find My Child a Mentor &#x2192;</a>
+    <p class="cta-fine">Ages 6&#x2013;17 &middot; Background-checked mentors &middot; Free for families</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <a href="index.html" style="display:flex;align-items:center;text-decoration:none;color:var(--dark);margin-bottom:1rem">
+          <svg height="32" viewBox="0 0 345 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="eldera" style="display:block;color:var(--dark)">
+            <path d="M43.5 33.5C41.6 33.5 39.6 33.6 37.8 33.9C17 36.7 1 54.4 1 75.9C1 97.3 17 115 37.8 117.8C39.6 118.1 41.6 118.2 43.5 118.2H44.5V33.5H43.5ZM36.9 110C20.8 106.9 8.6 92.8 8.6 75.9C8.6 58.9 20.8 44.8 36.9 41.7V110Z" fill="currentColor" stroke="currentColor" stroke-width="2"/>
+            <path d="M38.4 100.9C40.3 100.9 42.2 100.8 44.1 100.6C69.1 97.7 88.5 76.6 88.5 50.9C88.5 25.3 69.1 4.2 44.1 1.3C42.2 1.1 40.3 1 38.4 1H37.4V100.9H38.4ZM45 9.1C65.3 12.3 80.9 29.8 80.9 50.9C80.9 72.1 65.3 89.6 45 92.8V9.1Z" fill="currentColor" stroke="currentColor" stroke-width="2"/>
+            <path d="M41.3 100.7C59.9 100.7 74.9 85.7 74.9 67.2C74.9 48.7 59.9 33.7 41.3 33.7C22.8 33.7 7.8 48.7 7.8 67.2C7.8 85.7 22.8 100.7 41.3 100.7ZM41.3 93.1C27 93.1 15.4 81.5 15.4 67.2C15.4 52.9 27 41.3 41.3 41.3C55.7 41.3 67.3 52.9 67.3 67.2C67.3 81.5 55.7 93.1 41.3 93.1Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M303.848 70.8C303.848 59.7 311.809 50.5 322.19 50.5C327.575 50.5 331.712 53.2 333.429 55.7V51.3H344.122V90.3H333.429V86C331.712 88.5 327.575 91.2 322.19 91.2C311.809 91.2 303.848 81.9 303.848 70.8ZM334.287 70.8C334.287 64.7 330.307 60.2 324.453 60.2C318.599 60.2 314.619 64.7 314.619 70.8C314.619 76.9 318.599 81.4 324.453 81.4C330.307 81.4 334.287 76.9 334.287 70.8Z" fill="currentColor"/>
+            <path d="M276.924 90.3V51.3H287.617V57.6C288.944 53.7 292.924 50.8 297.295 50.8C298.388 50.8 299.559 50.9 300.885 51.3V62.2C299.246 61.6 297.763 61.3 296.046 61.3C290.973 61.3 287.617 65.3 287.617 71.7V90.3H276.924Z" fill="currentColor"/>
+            <path d="M268.667 77.6C266.325 85.5 258.598 91.2 248.686 91.2C236.744 91.2 228.236 82.6 228.236 70.7C228.236 59.1 236.9 50.5 248.764 50.5C260.237 50.5 269.681 58.6 269.135 73.3H238.695C239.163 77.9 242.598 81.9 249.232 81.9C252.978 81.9 256.257 80.3 257.505 77.6H268.667ZM248.451 59.1C243.534 59.1 240.1 62 239.085 66.3H257.427C256.1 61.1 136.797 59.1 248.451 59.1Z" fill="currentColor"/>
+            <path d="M180.064 70.8C180.064 59.7 188.026 50.5 198.406 50.5C203.792 50.5 207.929 53.2 209.646 55.7V31.8H220.339V90.3H209.646V86C207.929 88.5 203.792 91.2 198.406 91.2C188.026 91.2 180.064 81.9 180.064 70.8ZM210.504 70.8C210.504 64.7 206.524 60.2 200.67 60.2C194.816 60.2 190.835 64.7 190.835 70.8C190.835 76.9 194.816 81.4 200.67 81.4C206.524 81.4 210.504 76.9 210.504 70.8Z" fill="currentColor"/>
+            <path d="M161.601 90.3V31.8H172.294V90.3H161.601Z" fill="currentColor"/>
+            <path d="M153.343 77.6C151.002 85.5 143.275 91.2 133.362 91.2C121.421 91.2 112.913 82.6 112.913 70.7C112.913 59.1 121.577 50.5 133.44 50.5C144.914 50.5 154.358 58.6 153.812 73.3H123.372C123.84 77.9 127.274 81.9 133.909 81.9C137.655 81.9 140.933 80.3 142.182 77.6H153.343ZM133.128 59.1C128.211 59.1 124.777 62 123.762 66.3H142.104C140.777 61.1 136.797 59.1 133.128 59.1Z" fill="currentColor"/>
+          </svg>
+        </a>
+        <p class="footer-tagline">Turning older adults into social infrastructure. One conversation at a time.</p>
+      </div>
+      <div class="footer-col"><div class="footer-col-title">Platform</div><a href="mentors.html">For Mentors</a><a href="parents.html">For Parents</a><a href="membership.html">Membership</a><a href="#">How It Works</a></div>
+      <div class="footer-col"><div class="footer-col-title">Company</div><a href="about.html">About</a><a href="partners.html">Partners</a><a href="#">Safety</a><a href="#">Stories</a></div>
+      <div class="footer-col"><div class="footer-col-title">Connect</div><a href="#">Contact Us</a><a href="#">Newsletter</a><a href="#">Careers</a>
+        <div class="footer-social">
+          <a href="#" class="footer-social-link" aria-label="Eldera on Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" class="footer-social-link" aria-label="Eldera on LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">&#169; 2026 Eldera. All rights reserved.</span>
+      <span class="footer-copy">Privacy &middot; Terms &middot; Accessibility</span>
+    </div>
+  </footer>
 
   <script>
-    const nav=document.getElementById('nav');window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60)});
-    const reveals=document.querySelectorAll('.reveal');const observer=new IntersectionObserver((entries)=>{entries.forEach((entry,i)=>{if(entry.isIntersecting){setTimeout(()=>entry.target.classList.add('visible'),i*80);observer.unobserve(entry.target)}})},{threshold:.15});reveals.forEach(el=>observer.observe(el));
+    const nav=document.getElementById('nav');
+    window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60)});
+    const reveals=document.querySelectorAll('.reveal');
+    const observer=new IntersectionObserver((entries)=>{entries.forEach((entry,i)=>{if(entry.isIntersecting){setTimeout(()=>entry.target.classList.add('visible'),i*80);observer.unobserve(entry.target)}})},{threshold:.15});
+    reveals.forEach(el=>observer.observe(el));
     document.querySelectorAll('.faq-q').forEach(btn=>{btn.addEventListener('click',()=>{const item=btn.closest('.faq-item');const isOpen=item.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));if(!isOpen)item.classList.add('open')})});
     document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
   </script>
