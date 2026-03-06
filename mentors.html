@@ -128,8 +128,11 @@
     .footer-brand{font-family:var(--serif);font-size:1.4rem;font-weight:500;font-style:italic;color:var(--text-on-dark);letter-spacing:-.03em;margin-bottom:1rem}
     .footer-tagline{font-size:.85rem;color:var(--sub-on-dark);line-height:1.6;max-width:280px}
     .footer-col-title{font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem}
-    .footer-col a{display:block;font-size:.85rem;color:var(--sub-on-dark);text-decoration:none;margin-bottom:.65rem;transition:color .2s}
+    .footer-col a{display:block;font-size:.85rem;color:#625E5B;text-decoration:none;margin-bottom:.65rem;transition:color .2s}
     .footer-col a:hover{color:var(--text-on-dark)}
+    .footer-social{display:flex;gap:.75rem;margin-top:1rem}
+    .footer-social-link{color:#625E5B;transition:color .2s;display:flex;align-items:center}
+    .footer-social-link:hover{color:var(--white)}
     .footer-bottom{max-width:1100px;margin:3rem auto 0;padding-top:2rem;border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;align-items:center}
     .footer-copy{font-size:.75rem;color:rgba(255,255,255,.3)}
     @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
@@ -142,20 +145,35 @@
   </style>
 </head>
 <body>
-  <nav class="nav" id="nav"><a href="index.html" class="nav-logo">eldera</a><div class="nav-links"><a href="mentors.html">Mentors</a><a href="parents.html">Parents</a><a href="about.html">About</a><a href="partners.html">Partners</a><a href="#" class="nav-cta">Get Started</a></div></nav>
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-logo" style="display:flex;align-items:center;text-decoration:none;color:white;flex-shrink:0">
+      <svg height="32" viewBox="0 0 345 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="eldera" style="display:block;color:white">
+        <path d="M43.4966 33.4844C41.5547 33.4844 39.6427 33.6144 37.769 33.8662C17.0152 36.6551 1.00838 54.3827 1.0083 75.8447C1.0083 97.3069 17.0133 115.036 37.769 117.824C39.6427 118.076 41.5547 118.206 43.4966 118.206L44.5044 118.206L44.5044 33.4844L43.4966 33.4844ZM36.895 109.973C20.7759 106.898 8.61767 92.7739 8.61767 75.8447C8.61776 58.9159 20.7772 44.791 36.895 41.7158L36.895 109.973Z" fill="currentColor" stroke="currentColor" stroke-width="2.01607"/>
+        <path d="M38.375 100.883C40.3042 100.883 42.2088 100.774 44.082 100.562C69.0559 97.7379 88.4668 76.6032 88.4668 50.9424C88.4666 25.2817 69.058 4.14762 44.082 1.32324C42.2089 1.11143 40.3042 1.00293 38.375 1.00293H37.3672L37.3672 100.883H38.375ZM44.9766 9.12109C65.3172 12.2816 80.8572 29.8164 80.8574 50.9424C80.8574 72.0681 65.3155 89.6038 44.9766 92.7646L44.9766 9.12109Z" fill="currentColor" stroke="currentColor" stroke-width="2.01607"/>
+        <path d="M41.3379 100.68C59.8808 100.68 74.9178 85.6935 74.918 67.2002C74.918 48.7068 59.8809 33.7197 41.3379 33.7197C22.7949 33.7197 7.75781 48.7068 7.75781 67.2002C7.75794 85.6935 22.795 100.68 41.3379 100.68ZM41.3379 93.0703C26.9756 93.0703 15.3673 81.469 15.3672 67.2002C15.3672 52.9313 26.9755 41.3291 41.3379 41.3291C55.7003 41.3291 67.3086 52.9313 67.3086 67.2002C67.3085 81.469 55.7002 93.0703 41.3379 93.0703Z" fill="currentColor" stroke="currentColor" stroke-width="2.01607" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M303.848 70.8244C303.848 59.7412 311.809 50.4531 322.19 50.4531C327.575 50.4531 331.712 53.1849 333.429 55.6825V51.3117H344.122V90.337H333.429V85.9662C331.712 88.4638 327.575 91.1956 322.19 91.1956C311.809 91.1956 303.848 81.9076 303.848 70.8244ZM334.287 70.8244C334.287 64.7364 330.307 60.2095 324.453 60.2095C318.599 60.2095 314.619 64.7364 314.619 70.8244C314.619 76.9123 318.599 81.4393 324.453 81.4393C330.307 81.4393 334.287 76.9123 334.287 70.8244Z" fill="currentColor"/>
+        <path d="M276.924 90.3374V51.3121H287.617V57.5561C288.944 53.7316 292.924 50.8438 297.295 50.8438C298.388 50.8438 299.559 50.9218 300.885 51.3121V62.1611C299.246 61.6148 297.763 61.3025 296.046 61.3025C290.973 61.3025 287.617 65.2831 287.617 71.6833V90.3374H276.924Z" fill="currentColor"/>
+        <path d="M268.667 77.6148C266.325 85.4979 258.598 91.1956 248.686 91.1956C236.744 91.1956 228.236 82.61 228.236 70.7463C228.236 59.1168 236.9 50.4531 248.764 50.4531C260.237 50.4531 269.681 58.6485 269.135 73.322H238.695C239.163 77.927 242.598 81.9076 249.232 81.9076C252.978 81.9076 256.257 80.2685 257.505 77.6148H268.667ZM248.451 59.1168C243.534 59.1168 240.1 62.0046 239.085 66.2974H257.427C256.1 61.068 252.12 59.1168 248.451 59.1168Z" fill="currentColor"/>
+        <path d="M180.064 70.8222C180.064 59.739 188.026 50.451 198.406 50.451C203.792 50.451 207.929 53.1828 209.646 55.6804V31.7969H220.339V90.3349H209.646V85.9641C207.929 88.4617 203.792 91.1935 198.406 91.1935C188.026 91.1935 180.064 81.9054 180.064 70.8222ZM210.504 70.8222C210.504 64.7343 206.524 60.2073 200.67 60.2073C194.816 60.2073 190.835 64.7343 190.835 70.8222C190.835 76.9102 194.816 81.4371 200.67 81.4371C206.524 81.4371 210.504 76.9102 210.504 70.8222Z" fill="currentColor"/>
+        <path d="M161.601 90.3349V31.7969H172.294V90.3349H161.601Z" fill="currentColor"/>
+        <path d="M153.343 77.6148C151.002 85.4979 143.275 91.1956 133.362 91.1956C121.421 91.1956 112.913 82.61 112.913 70.7463C112.913 59.1168 121.577 50.4531 133.44 50.4531C144.914 50.4531 154.358 58.6485 153.812 73.322H123.372C123.84 77.927 127.274 81.9076 133.909 81.9076C137.655 81.9076 140.933 80.2685 142.182 77.6148H153.343ZM133.128 59.1168C128.211 59.1168 124.777 62.0046 123.762 66.2974H142.104C140.777 61.068 136.797 59.1168 133.128 59.1168Z" fill="currentColor"/>
+      </svg>
+    </a>
+    <div class="nav-links"><a href="mentors.html">Mentors</a><a href="parents.html">Parents</a><a href="about.html">About</a><a href="partners.html">Partners</a><a href="index.html#get-started" class="nav-cta">Get Started</a></div>
+  </nav>
 
   <section class="hero"><div class="hero-inner">
     <span class="hero-eyebrow fade-up">For adults 60+</span>
     <h1 class="fade-up">Your Story Is Someone&#x2019;s<br><em>Turning Point.</em></h1>
     <p class="hero-sub fade-up">One hour a week. One young person who needs exactly what you&#x2019;ve lived through. A community of people doing the same.</p>
-    <div class="hero-actions fade-up"><a href="#signup" class="btn-primary">Become a Mentor &#x2192;</a><a href="#how-it-works" class="btn-ghost">See how it works &#x2193;</a></div>
+    <div class="hero-actions fade-up"><a href="mentor-signup.html" class="btn-primary">Join Eldera &#x2192;</a><a href="#how-it-works" class="btn-ghost">See how it works &#x2193;</a></div>
   </div></section>
 
   <section class="profile-section"><div class="profile-inner">
     <div class="profile-header"><span class="section-label">Meet an Eldera mentor</span><h2 class="section-title">This Is What You&#x2019;re <em>Building.</em></h2><p class="section-sub">Your Wisdom Profile captures who you are &#x2014; your story, your strengths, and the experience only a full life can give. Here&#x2019;s what one looks like.</p></div>
     <div class="profile-layout">
       <div class="wisdom-profile reveal"><div class="wp-header"><div class="wp-avatar">R</div><div><div class="wp-name">Robert M.</div><div class="wp-meta">Retired aerospace engineer &#xb7; Age 71 &#xb7; San Jose, CA</div></div></div><div class="wp-superpower">&#x26a1; Superpower: Curiosity and patience</div><div class="wp-tags"><span class="wp-tag">Engineering</span><span class="wp-tag">Space</span><span class="wp-tag">Chess</span><span class="wp-tag">Problem solving</span><span class="wp-tag">Woodworking</span></div><p class="wp-quote">&#x201c;I spent 40 years solving problems that didn&#x2019;t seem solvable. I want to help a young person believe that the impossible is just the unsolved.&#x201d;</p></div>
-      <div class="profile-stats"><div class="profile-stat-card reveal"><div class="profile-stat-num">127</div><div class="profile-stat-label">hours of support given</div></div><div class="profile-stat-card reveal"><div class="profile-stat-num">89</div><div class="profile-stat-label">questions answered</div></div><div class="profile-stat-card reveal"><div class="profile-stat-num">32</div><div class="profile-stat-label">lives impacted</div></div></div>
+      <div class="profile-stats"><div class="profile-stat-card reveal"><div class="profile-stat-num">127</div><div class="profile-stat-label">mentoring hours given</div></div><div class="profile-stat-card reveal"><div class="profile-stat-num">3</div><div class="profile-stat-label">young people mentored</div></div><div class="profile-stat-card reveal"><div class="profile-stat-num">2+ yrs</div><div class="profile-stat-label">active on Eldera</div></div></div>
     </div>
   </div></section>
 
@@ -225,9 +243,41 @@
     </div>
   </div></section>
 
-  <section class="cta-section"><h2>One Hour a Week.<br><em>Two Lives Better.</em></h2><p>The sign-up process takes about 15 minutes. We&#x2019;ll handle matching, safety, and everything in between.</p><a href="#signup" class="btn-dark">Become a Mentor &#x2192;</a></section>
+  <section class="cta-section"><h2>One Hour a Week.<br><em>Two Lives Better.</em></h2><p>The sign-up process takes about 15 minutes. We&#x2019;ll handle matching, safety, and everything in between.</p><a href="mentor-signup.html" class="btn-dark">Start your journey &#x2192;</a></section>
 
-  <footer class="footer"><div class="footer-inner"><div><div class="footer-brand">eldera</div><p class="footer-tagline">Turning older adults into social infrastructure. One conversation at a time.</p></div><div class="footer-col"><div class="footer-col-title">Platform</div><a href="mentors.html">For Mentors</a><a href="parents.html">For Parents</a><a href="membership.html">Membership</a><a href="#">How It Works</a></div><div class="footer-col"><div class="footer-col-title">Company</div><a href="about.html">About</a><a href="partners.html">Partners</a><a href="#">Safety</a><a href="#">Stories</a></div><div class="footer-col"><div class="footer-col-title">Connect</div><a href="#">Contact Us</a><a href="#">Newsletter</a><a href="#">Careers</a></div></div><div class="footer-bottom"><span class="footer-copy">&#xa9; 2026 Eldera. All rights reserved.</span><span class="footer-copy">Privacy &#xb7; Terms &#xb7; Accessibility</span></div></footer>
+  <footer class="footer">
+    <div class="footer-inner">
+      <div><a href="index.html" style="display:flex;align-items:center;text-decoration:none;color:var(--white);margin-bottom:1rem">
+        <svg height="32" viewBox="0 0 345 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="eldera" style="display:block;color:var(--white)">
+          <path d="M43.5 33.5C41.6 33.5 39.6 33.6 37.8 33.9C17 36.7 1 54.4 1 75.9C1 97.3 17 115 37.8 117.8C39.6 118.1 41.6 118.2 43.5 118.2H44.5V33.5H43.5ZM36.9 110C20.8 106.9 8.6 92.8 8.6 75.9C8.6 58.9 20.8 44.8 36.9 41.7V110Z" fill="currentColor" stroke="currentColor" stroke-width="2"/>
+          <path d="M38.4 100.9C40.3 100.9 42.2 100.8 44.1 100.6C69.1 97.7 88.5 76.6 88.5 50.9C88.5 25.3 69.1 4.2 44.1 1.3C42.2 1.1 40.3 1 38.4 1H37.4V100.9H38.4ZM45 9.1C65.3 12.3 80.9 29.8 80.9 50.9C80.9 72.1 65.3 89.6 45 92.8V9.1Z" fill="currentColor" stroke="currentColor" stroke-width="2"/>
+          <path d="M41.3 100.7C59.9 100.7 74.9 85.7 74.9 67.2C74.9 48.7 59.9 33.7 41.3 33.7C22.8 33.7 7.8 48.7 7.8 67.2C7.8 85.7 22.8 100.7 41.3 100.7ZM41.3 93.1C27 93.1 15.4 81.5 15.4 67.2C15.4 52.9 27 41.3 41.3 41.3C55.7 41.3 67.3 52.9 67.3 67.2C67.3 81.5 55.7 93.1 41.3 93.1Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M303.848 70.8C303.848 59.7 311.809 50.5 322.19 50.5C327.575 50.5 331.712 53.2 333.429 55.7V51.3H344.122V90.3H333.429V86C331.712 88.5 327.575 91.2 322.19 91.2C311.809 91.2 303.848 81.9 303.848 70.8ZM334.287 70.8C334.287 64.7 330.307 60.2 324.453 60.2C318.599 60.2 314.619 64.7 314.619 70.8C314.619 76.9 318.599 81.4 324.453 81.4C330.307 81.4 334.287 76.9 334.287 70.8Z" fill="currentColor"/>
+          <path d="M276.924 90.3V51.3H287.617V57.6C288.944 53.7 292.924 50.8 297.295 50.8C298.388 50.8 299.559 50.9 300.885 51.3V62.2C299.246 61.6 297.763 61.3 296.046 61.3C290.973 61.3 287.617 65.3 287.617 71.7V90.3H276.924Z" fill="currentColor"/>
+          <path d="M268.667 77.6C266.325 85.5 258.598 91.2 248.686 91.2C236.744 91.2 228.236 82.6 228.236 70.7C228.236 59.1 236.9 50.5 248.764 50.5C260.237 50.5 269.681 58.6 269.135 73.3H238.695C239.163 77.9 242.598 81.9 249.232 81.9C252.978 81.9 256.257 80.3 257.505 77.6H268.667ZM248.451 59.1C243.534 59.1 240.1 62 239.085 66.3H257.427C256.1 61.1 136.797 59.1 248.451 59.1Z" fill="currentColor"/>
+          <path d="M180.064 70.8C180.064 59.7 188.026 50.5 198.406 50.5C203.792 50.5 207.929 53.2 209.646 55.7V31.8H220.339V90.3H209.646V86C207.929 88.5 203.792 91.2 198.406 91.2C188.026 91.2 180.064 81.9 180.064 70.8ZM210.504 70.8C210.504 64.7 206.524 60.2 200.67 60.2C194.816 60.2 190.835 64.7 190.835 70.8C190.835 76.9 194.816 81.4 200.67 81.4C206.524 81.4 210.504 76.9 210.504 70.8Z" fill="currentColor"/>
+          <path d="M161.601 90.3V31.8H172.294V90.3H161.601Z" fill="currentColor"/>
+          <path d="M153.343 77.6C151.002 85.5 143.275 91.2 133.362 91.2C121.421 91.2 112.913 82.6 112.913 70.7C112.913 59.1 121.577 50.5 133.44 50.5C144.914 50.5 154.358 58.6 153.812 73.3H123.372C123.84 77.9 127.274 81.9 133.909 81.9C137.655 81.9 140.933 80.3 142.182 77.6H153.343ZM133.128 59.1C128.211 59.1 124.777 62 123.762 66.3H142.104C140.777 61.1 136.797 59.1 133.128 59.1Z" fill="currentColor"/>
+        </svg>
+      </a></div>
+      <div class="footer-col"><div class="footer-col-title">Platform</div><a href="mentors.html">For Mentors</a><a href="parents.html">For Parents</a><a href="membership.html">Membership</a><a href="#">How It Works</a></div>
+      <div class="footer-col"><div class="footer-col-title">Company</div><a href="about.html">About</a><a href="partners.html">Partners</a><a href="#">Safety</a><a href="#">Stories</a></div>
+      <div class="footer-col"><div class="footer-col-title">Connect</div><a href="#">Contact Us</a><a href="#">Newsletter</a><a href="#">Careers</a>
+        <div class="footer-social">
+          <a href="#" class="footer-social-link" aria-label="Eldera on Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" class="footer-social-link" aria-label="Eldera on LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Eldera. All rights reserved.</span>
+      <span class="footer-copy">Privacy · Terms · Accessibility</span>
+    </div>
+  </footer>
 
   <script>
     const nav=document.getElementById('nav');window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60)});
