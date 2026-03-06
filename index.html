@@ -27,18 +27,17 @@
     }
     body { font-family: var(--sans); background: var(--clay); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
 
-    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 3rem; transition: background 0.3s, box-shadow 0.3s; }
-    .nav.scrolled { background: rgba(26,21,16,0.92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); box-shadow: 0 1px 0 rgba(255,255,255,0.06); }
-    .nav-logo { display: flex; align-items: center; text-decoration: none; color: var(--white); flex-shrink: 0; transition: color 0.3s; }
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 3rem; transition: background 0.4s ease; }
+    .nav.scrolled { background: rgba(247,243,233,0.82); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); }
+    .nav-logo { display: flex; align-items: center; text-decoration: none; color: var(--white); flex-shrink: 0; transition: color 0.4s ease; }
+    .nav.scrolled .nav-logo { color: var(--dark); }
     .nav-links { display: flex; align-items: center; gap: 2.25rem; }
-    .nav-links a { font-size: 0.82rem; font-weight: 500; color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.2s; }
+    .nav-links a { font-size: 0.82rem; font-weight: 500; color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.4s ease; }
+    .nav.scrolled .nav-links a:not(.nav-cta) { color: rgba(26,21,16,0.55); }
     .nav-links a:hover { color: var(--white); }
+    .nav.scrolled .nav-links a:not(.nav-cta):hover { color: var(--dark); }
     .nav-cta { background: var(--gold) !important; color: var(--dark) !important; font-weight: 600 !important; padding: 0.5rem 1.25rem !important; border-radius: var(--radius-pill) !important; transition: background 0.2s !important; }
     .nav-cta:hover { background: var(--gold-hover) !important; }
-    .nav.nav-light .nav-logo { color: var(--dark); }
-    .nav.nav-light .nav-links a:not(.nav-cta) { color: rgba(26,21,16,0.55); }
-    .nav.nav-light .nav-links a:not(.nav-cta):hover { color: var(--dark); }
-    .nav.nav-light.scrolled { background: rgba(255,255,255,0.95); box-shadow: none; }
 
     .hero { min-height: 100vh; background: var(--dark); display: flex; flex-direction: column; align-items: flex-start; justify-content: center; padding: 8rem 5rem 5rem; position: relative; overflow: hidden; }
     .hero > *:not(.hero-photo):not(.hero-overlay) { position: relative; z-index: 2; }
@@ -109,13 +108,13 @@
     .membership-model p { font-size: 1rem; color: var(--sub-on-dark); line-height: 1.8; }
     .membership-model strong { color: var(--text-on-dark); }
     .membership-tiers { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; margin-top: 4rem; }
-    .membership-footnote { margin-top: 3rem; text-align: center; max-width: 620px; margin-left: auto; margin-right: auto; }
+    .membership-footnote { margin-top: 1.5rem; text-align: center; max-width: 620px; margin-left: auto; margin-right: auto; }
     .footnote-gold { color: var(--gold); font-style: italic; }
     .membership-footnote em { font-family: var(--serif); font-size: 1.25rem; font-style: italic; color: var(--muted); line-height: 1.5; font-weight: 400; }
     .footnote-gold { color: var(--gold); font-weight: 600; font-style: normal; }
     .tier { background: var(--white); border-radius: var(--radius-lg); padding: 2.25rem 1.75rem; border: none; text-align: left; transition: transform 0.25s, box-shadow 0.25s; }
     .tier:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
-    .tier-name { font-family: var(--serif); font-size: 1.5rem; color: var(--text); margin-bottom: 0.2rem; font-weight: 500; }
+    .tier-name { font-family: var(--serif); font-size: 1.5rem; color: var(--text); margin-bottom: 0; font-weight: 500; }
     .tier-subtitle { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; }
     .tier-price { font-size: 0.88rem; color: var(--text); font-weight: 600; margin-bottom: 1rem; }
     .tier-desc { font-size: 0.84rem; color: #625E5B; line-height: 1.65; }
@@ -123,7 +122,7 @@
     .cta-section { padding: 7rem 3rem; position: relative; overflow: hidden; }
     .cta-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; position: relative; z-index: 1; }
     .cta-card { border-radius: var(--radius-xl); overflow: hidden; text-decoration: none; display: flex; flex-direction: column; transition: transform 0.3s cubic-bezier(0.2,0.8,0.2,1); }
-    .cta-card:hover { transform: translateY(-4px); }
+    .cta-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
     .cta-card--mentor { background: var(--white); }
     .cta-card--parent { background: var(--white); }
     .cta-card-img { width: 100%; height: 240px; object-fit: cover; object-position: center 20%; display: block; flex-shrink: 0; }
@@ -144,7 +143,7 @@
     .cta-card--mentor .cta-card-btn { background: var(--gold); color: var(--dark); }
     .cta-card--parent .cta-card-btn { background: var(--gold); color: var(--dark); }
 
-    .footer { background: var(--white); padding: 4rem 3rem 2.5rem; }
+    .footer { background: var(--clay); padding: 4rem 3rem 2.5rem; }
     .footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; }
     .footer-brand { font-family: var(--serif); font-size: 1.4rem; font-weight: 500; font-style: italic; color: var(--text); letter-spacing: -0.03em; margin-bottom: 1rem; }
     .footer-tagline { font-size: 0.85rem; color: var(--muted); line-height: 1.6; max-width: 280px; }
@@ -155,9 +154,9 @@
     .footer-copy { font-size: 0.75rem; color: var(--muted); }
 
     /* ── How It Works tabs ─────────────────────────────── */
-    .how-tabs { display: inline-flex; gap: 0; margin: 2.5rem auto 3rem; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-pill); padding: 0.3rem; }
-    .how-tab { background: transparent; border: none; cursor: pointer; font-family: var(--sans); font-size: 0.88rem; font-weight: 600; color: var(--muted); padding: 0.6rem 1.75rem; border-radius: var(--radius-pill); transition: all 0.2s; }
-    .how-tab.active { background: var(--white); color: var(--text); box-shadow: var(--shadow-sm); }
+    .how-tabs { display: inline-flex; gap: 0; margin: 2.5rem auto 3rem; background: transparent; border: 1px solid var(--border); border-radius: var(--radius-pill); padding: 0.3rem; }
+    .how-tab { background: transparent; border: 1px solid transparent; cursor: pointer; font-family: var(--sans); font-size: 0.88rem; font-weight: 600; color: var(--muted); padding: 0.6rem 1.75rem; border-radius: var(--radius-pill); transition: all 0.2s; }
+    .how-tab.active { background: transparent; color: var(--text); border-color: var(--gold); box-shadow: none; }
     .how-tab:hover:not(.active) { color: var(--text); }
 
     /* ── By the Numbers strip ──────────────────────────── */
@@ -212,7 +211,7 @@
     .marquee-track { display: flex; width: max-content; animation: marquee-scroll 42s linear infinite; }
     .marquee-track:hover { animation-play-state: paused; }
     .marquee-set { display: flex; align-items: center; gap: 4rem; padding: 0 2rem; }
-    .press-logo-img { height: 38px; width: auto; filter: grayscale(100%) opacity(0.45); transition: filter 0.25s ease; display: block; }
+    .press-logo-img { height: 38px; width: auto; filter: grayscale(100%) opacity(0.45); mix-blend-mode: multiply; transition: filter 0.25s ease; display: block; }
     .marquee-item:hover .press-logo-img { filter: grayscale(100%) opacity(0.75); }
     @keyframes marquee-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
   </style>
@@ -485,8 +484,6 @@
   <script>
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); });
-    const hero = document.querySelector('.hero');
-    if(hero){const heroObserver=new IntersectionObserver((entries)=>{nav.classList.toggle('nav-light',!entries[0].isIntersecting)},{threshold:0.1});heroObserver.observe(hero)}
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry, i) => {
