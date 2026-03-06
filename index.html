@@ -108,9 +108,9 @@
     .membership-model p { font-size: 1rem; color: var(--sub-on-dark); line-height: 1.8; }
     .membership-model strong { color: var(--text-on-dark); }
     .membership-tiers { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; margin-top: 4rem; }
-    .membership-footnote { margin-top: 1.5rem; text-align: center; max-width: 620px; margin-left: auto; margin-right: auto; }
+    .membership-footnote { margin-top: 3.5rem; text-align: center; max-width: 620px; margin-left: auto; margin-right: auto; }
     .footnote-gold { color: var(--gold); font-style: italic; }
-    .membership-footnote em { font-family: var(--serif); font-size: 1.25rem; font-style: italic; color: var(--muted); line-height: 1.5; font-weight: 400; }
+    .membership-footnote em { font-family: var(--serif); font-size: 1.6rem; font-style: italic; color: var(--muted-warm); line-height: 1.4; font-weight: 400; }
     .footnote-gold { color: var(--gold); font-weight: 600; font-style: normal; }
     .tier { background: var(--white); border-radius: var(--radius-lg); padding: 2.25rem 1.75rem; border: none; text-align: left; transition: transform 0.25s, box-shadow 0.25s; }
     .tier:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
@@ -154,9 +154,9 @@
     .footer-copy { font-size: 0.75rem; color: var(--muted); }
 
     /* ── How It Works tabs ─────────────────────────────── */
-    .how-tabs { display: inline-flex; gap: 0; margin: 2.5rem auto 3rem; background: transparent; border: 1px solid var(--border); border-radius: var(--radius-pill); padding: 0.3rem; }
+    .how-tabs { display: inline-flex; gap: 0; margin: 2.5rem auto 3rem; background: transparent; border: 1px solid var(--gold-border); border-radius: var(--radius-pill); padding: 0.3rem; }
     .how-tab { background: transparent; border: 1px solid transparent; cursor: pointer; font-family: var(--sans); font-size: 0.88rem; font-weight: 600; color: var(--muted); padding: 0.6rem 1.75rem; border-radius: var(--radius-pill); transition: all 0.2s; }
-    .how-tab.active { background: transparent; color: var(--text); border-color: var(--gold); box-shadow: none; }
+    .how-tab.active { background: var(--white); color: var(--text); border-color: transparent; box-shadow: var(--shadow-sm); }
     .how-tab:hover:not(.active) { color: var(--text); }
 
     /* ── By the Numbers strip ──────────────────────────── */
@@ -413,7 +413,7 @@
         <div class="tier reveal"><div class="tier-name">Impact</div><div class="tier-subtitle">Organizational Partner</div><div class="tier-price">$400 / pair / year</div><div class="tier-desc">Bring Eldera to your school or community with full support and reporting.</div></div>
         <div class="tier reveal"><div class="tier-name">Curiosity</div><div class="tier-subtitle">Sponsored Access</div><div class="tier-price">Free</div><div class="tier-desc">Join at no cost when you need support. No questions asked.</div></div>
       </div>
-      <p class="membership-footnote"><em><span class="footnote-gold">150,000+</span> safe connection hours funded thanks to members like you.</em></p>
+      <p class="membership-footnote"><em><span class="footnote-gold"><em style="color:var(--gold)">150,000+</em></span> safe connection hours funded<br>thanks to members like you.</em></p>
     </div>
   </section>
 
