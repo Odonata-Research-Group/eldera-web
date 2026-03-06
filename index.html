@@ -204,13 +204,12 @@
       .membership-model { padding: 1.75rem; }
     }
   
-    /* ── Press marquee ─────────────────────────────────── */
-    .press-bar { border-bottom: 1px solid var(--border); padding: 3.5rem 0 3rem; overflow: hidden; }
+    .press-bar { border-bottom: 1px solid var(--border); padding: 3.5rem 0 3rem; overflow: hidden; background: var(--clay); }
     .press-bar-label-row { text-align: center; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 2rem; }
-    .marquee-outer { overflow: hidden; width: 100%; }
-    .marquee-track { display: flex; width: max-content; animation: marquee-scroll 42s linear infinite; }
+    .marquee-outer { overflow: hidden; width: 100%; background: var(--clay); }
+    .marquee-track { display: flex; width: max-content; animation: marquee-scroll 42s linear infinite; background: var(--clay); }
     .marquee-track:hover { animation-play-state: paused; }
-    .marquee-set { display: flex; align-items: center; gap: 4rem; padding: 0 2rem; }
+    .marquee-set { display: flex; align-items: center; gap: 4rem; padding: 0 2rem; background: var(--clay); }
     .press-logo-img { height: 38px; width: auto; filter: grayscale(100%) opacity(0.45); mix-blend-mode: multiply; transition: filter 0.25s ease; display: block; }
     .marquee-item:hover .press-logo-img { filter: grayscale(100%) opacity(0.75); }
     @keyframes marquee-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
