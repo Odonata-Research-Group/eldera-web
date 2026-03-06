@@ -77,7 +77,7 @@
     .trust-stat-label{font-size:.85rem;color:var(--muted-warm);line-height:1.5}
 
     /* HOW IT WORKS */
-    .how-section{padding:6rem 3rem;background:var(--dark)}
+    .how-section{padding:6rem 3rem;background:var(--clay)}
     .how-inner{max-width:700px;margin:0 auto}
     .how-inner .section-title,.how-inner .section-label{text-align:center}
     .how-steps{display:flex;flex-direction:column;margin-top:3.5rem}
@@ -85,8 +85,8 @@
     .how-step:last-child{padding-bottom:0}
     .how-step:not(:last-child)::before{content:'';position:absolute;left:19px;top:44px;bottom:0;width:2px;background:linear-gradient(to bottom,var(--gold),transparent)}
     .how-num{width:40px;height:40px;border-radius:50%;background:rgba(196,154,42,.12);color:var(--gold);font-family:var(--serif);font-size:1rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1;font-weight:500}
-    .how-step-content h3{font-family:var(--serif);font-weight:500;font-size:1.1rem;color:var(--text-on-dark);margin-bottom:.4rem;padding-top:.5rem}
-    .how-step-content p{font-size:.88rem;color:var(--sub-on-dark);line-height:1.65}
+    .how-step-content h3{font-family:var(--serif);font-weight:500;font-size:1.1rem;color:var(--text);margin-bottom:.4rem;padding-top:.5rem}
+    .how-step-content p{font-size:.88rem;color:var(--muted-warm);line-height:1.65}
 
     /* SAFETY */
     .safety-section{padding:6rem 3rem;background:var(--white)}
@@ -130,11 +130,10 @@
     .faq-item.open .faq-a{max-height:300px;padding-bottom:1.25rem}
 
     /* CTA */
-    .cta-section{background:var(--gold);padding:6rem 3rem;text-align:center}
-    .cta-section h2{font-family:var(--serif);font-size:clamp(2rem,3.5vw,2.8rem);color:var(--dark);line-height:1.12;margin-bottom:1.2rem;letter-spacing:-.02em;font-weight:500}
-    .cta-section h2 em{font-style:italic}
-    .cta-section p{font-size:1rem;color:rgba(26,21,16,.6);max-width:480px;margin:0 auto 2.5rem;line-height:1.75}
-    .cta-fine{margin-top:1.25rem!important;margin-bottom:0!important;font-size:.78rem;color:rgba(26,21,16,.45)}
+    .cta-section{background:var(--white);padding:6rem 3rem;text-align:center}
+    .cta-section h2{font-family:var(--serif);font-size:clamp(2rem,3.5vw,2.8rem);color:var(--text);line-height:1.12;margin-bottom:1.2rem;letter-spacing:-.02em;font-weight:500}
+    .cta-section h2 em{font-style:italic;color:var(--gold)}
+    .cta-section p{font-size:1rem;color:var(--muted-warm);max-width:480px;margin:0 auto 2.5rem;line-height:1.75}
 
     /* FOOTER */
     .footer{background:var(--white);padding:4rem 3rem 2.5rem}
@@ -269,7 +268,7 @@
   <section class="how-section" id="how-it-works">
     <div class="how-inner">
       <span class="section-label">The journey</span>
-      <h2 class="section-title section-title--light">From Sign-Up to First Session:<br><em>Here&#x2019;s Exactly What Happens.</em></h2>
+      <h2 class="section-title">From Sign-Up to First Session:<br><em>Here&#x2019;s Exactly What Happens.</em></h2>
       <div class="how-steps">
         <div class="how-step reveal"><div class="how-num">1</div><div class="how-step-content"><h3>Create your family&#x2019;s profile</h3><p>Tell us about your child: their name, age, interests, and anything you&#x2019;d want a mentor to know.</p></div></div>
         <div class="how-step reveal"><div class="how-num">2</div><div class="how-step-content"><h3>We find your match</h3><p>Our team matches your child with a vetted mentor based on personality, interests, availability, and life experience. You&#x2019;ll see their full profile before anything is confirmed.</p></div></div>
@@ -409,7 +408,6 @@
     <h2>Your Child&#x2019;s Mentor<br>Is <em>Already Here.</em></h2>
     <p>Sign-up takes about 10 minutes. We&#x2019;ll handle everything from matching to first session.</p>
     <a href="parents-signup.html" class="btn-dark">Find My Child a Mentor &#x2192;</a>
-    <p class="cta-fine">Ages 6&#x2013;17 &middot; Background-checked mentors &middot; Free for families</p>
   </section>
 
   <!-- FOOTER -->
@@ -429,7 +427,6 @@
             <path d="M153.343 77.6C151.002 85.5 143.275 91.2 133.362 91.2C121.421 91.2 112.913 82.6 112.913 70.7C112.913 59.1 121.577 50.5 133.44 50.5C144.914 50.5 154.358 58.6 153.812 73.3H123.372C123.84 77.9 127.274 81.9 133.909 81.9C137.655 81.9 140.933 80.3 142.182 77.6H153.343ZM133.128 59.1C128.211 59.1 124.777 62 123.762 66.3H142.104C140.777 61.1 136.797 59.1 133.128 59.1Z" fill="currentColor"/>
           </svg>
         </a>
-        <p class="footer-tagline">Turning older adults into social infrastructure. One conversation at a time.</p>
       </div>
       <div class="footer-col"><div class="footer-col-title">Platform</div><a href="mentors.html">For Mentors</a><a href="parents.html">For Parents</a><a href="membership.html">Membership</a><a href="#">How It Works</a></div>
       <div class="footer-col"><div class="footer-col-title">Company</div><a href="about.html">About</a><a href="partners.html">Partners</a><a href="#">Safety</a><a href="#">Stories</a></div>
