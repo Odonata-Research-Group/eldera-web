@@ -892,9 +892,26 @@ function MentorSignupFlow() {
     <div style={{ fontFamily:"'Inter', system-ui, sans-serif", WebkitFontSmoothing:"antialiased" }}>
       <style>{`button:hover [data-arrow], a:hover [data-arrow] { transform: translateX(4px) !important; }`}</style>
       <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400;1,6..72,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-      <div style={{ position:"fixed", top:0, left:0, right:0, zIndex:100, display:"flex", alignItems:"center", justifyContent:"space-between", padding:"1.25rem 2rem" }}>
-        <ElderaWordmark color={onLight?DARK:WHITE} height={28} />
-      </div>
+      {(() => {
+        const prevScreen = { mirror: null, claim: "mirror", bgcheck: "claim", portrait: "bgcheck" }[screen];
+        const showBack = ["mirror","claim","bgcheck","portrait"].includes(screen);
+        return (
+          <div style={{ position:"fixed", top:0, left:0, right:0, zIndex:100, display:"flex", alignItems:"center", justifyContent:"space-between", padding:"1.25rem 3rem" }}>
+            <a href="index.html" style={{ textDecoration:"none", display:"flex", alignItems:"center" }}>
+              <ElderaWordmark color={onLight?DARK:WHITE} height={32} />
+            </a>
+            {showBack && (
+              <button
+                onClick={() => prevScreen ? setScreen(prevScreen) : (window.location.href = "index.html")}
+                style={{ background:"none", border:`1px solid ${onLight?"rgba(26,21,16,0.15)":"rgba(255,255,255,0.15)"}`, borderRadius:100, padding:"0.45rem 1.1rem", fontSize:"0.78rem", fontWeight:500, color:onLight?DARK:WHITE, cursor:"pointer", fontFamily:"'Inter', system-ui, sans-serif", display:"flex", alignItems:"center", gap:"0.4rem", transition:"all 0.2s", opacity:0.75 }}
+                onMouseEnter={(e) => { e.currentTarget.style.opacity="1"; e.currentTarget.style.borderColor=onLight?"rgba(26,21,16,0.3)":"rgba(255,255,255,0.3)"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.opacity="0.75"; e.currentTarget.style.borderColor=onLight?"rgba(26,21,16,0.15)":"rgba(255,255,255,0.15)"; }}>
+                ← Back
+              </button>
+            )}
+          </div>
+        );
+      })()}
       {screen==="entry"&&<EntryScreen onNext={() => setScreen("mirror")} />}
       {screen==="mirror"&&<MirrorScreen onNext={() => setScreen("claim")} answers={answers} setAnswers={setAnswers} />}
       {screen==="claim"&&<IdentityClaimScreen onNext={(name) => { setUserName(name); setScreen("bgcheck"); }} />}
