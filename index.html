@@ -141,12 +141,12 @@
     .cta-card--mentor .cta-card-btn { background: var(--gold); color: var(--dark); }
     .cta-card--parent .cta-card-btn { background: var(--gold); color: var(--dark); }
 
-    .footer { background: var(--white); border-top: 1px solid var(--border); padding: 4rem 3rem 2.5rem; }
+    .footer { background: var(--white); padding: 4rem 3rem 2.5rem; }
     .footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; }
     .footer-brand { font-family: var(--serif); font-size: 1.4rem; font-weight: 500; font-style: italic; color: var(--text); letter-spacing: -0.03em; margin-bottom: 1rem; }
     .footer-tagline { font-size: 0.85rem; color: var(--muted); line-height: 1.6; max-width: 280px; }
     .footer-col-title { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; }
-    .footer-col a { display: block; font-size: 0.85rem; color: var(--muted); text-decoration: none; margin-bottom: 0.65rem; transition: color 0.2s; }
+    .footer-col a { display: block; font-size: 0.85rem; color: var(--muted-warm); text-decoration: none; margin-bottom: 0.65rem; transition: color 0.2s; }
     .footer-col a:hover { color: var(--text); }
     .footer-bottom { max-width: 1100px; margin: 3rem auto 0; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
     .footer-copy { font-size: 0.75rem; color: var(--muted); }
@@ -167,8 +167,8 @@
 
     /* ── Footer social ─────────────────────────────────── */
     .footer-social { display: flex; gap: 0.75rem; margin-top: 1.25rem; }
-    .footer-social-link { display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: var(--radius-sm); border: 1px solid var(--border); color: var(--muted); transition: color 0.2s, border-color 0.2s; }
-    .footer-social-link:hover { color: var(--text); border-color: var(--text); }
+    .footer-social-link { display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: var(--radius-sm); color: var(--muted-warm); transition: color 0.2s; }
+    .footer-social-link:hover { color: var(--text); }
 
     @keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
     .fade-up { opacity: 0; animation: fadeUp 0.7s cubic-bezier(0.2,0.8,0.2,1) forwards; }
@@ -448,7 +448,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <div><a href="index.html" style="display:flex;align-items:center;text-decoration:none;color:var(--dark);margin-bottom:1rem">
-        <svg height="28" viewBox="0 0 345 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="eldera" style="display:block;color:var(--dark)">
+        <svg height="32" viewBox="0 0 345 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="eldera" style="display:block;color:var(--dark)">
           <path d="M43.5 33.5C41.6 33.5 39.6 33.6 37.8 33.9C17 36.7 1 54.4 1 75.9C1 97.3 17 115 37.8 117.8C39.6 118.1 41.6 118.2 43.5 118.2H44.5V33.5H43.5ZM36.9 110C20.8 106.9 8.6 92.8 8.6 75.9C8.6 58.9 20.8 44.8 36.9 41.7V110Z" fill="currentColor" stroke="currentColor" stroke-width="2"/>
           <path d="M38.4 100.9C40.3 100.9 42.2 100.8 44.1 100.6C69.1 97.7 88.5 76.6 88.5 50.9C88.5 25.3 69.1 4.2 44.1 1.3C42.2 1.1 40.3 1 38.4 1H37.4V100.9H38.4ZM45 9.1C65.3 12.3 80.9 29.8 80.9 50.9C80.9 72.1 65.3 89.6 45 92.8V9.1Z" fill="currentColor" stroke="currentColor" stroke-width="2"/>
           <path d="M41.3 100.7C59.9 100.7 74.9 85.7 74.9 67.2C74.9 48.7 59.9 33.7 41.3 33.7C22.8 33.7 7.8 48.7 7.8 67.2C7.8 85.7 22.8 100.7 41.3 100.7ZM41.3 93.1C27 93.1 15.4 81.5 15.4 67.2C15.4 52.9 27 41.3 41.3 41.3C55.7 41.3 67.3 52.9 67.3 67.2C67.3 81.5 55.7 93.1 41.3 93.1Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
