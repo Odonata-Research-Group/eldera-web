@@ -11,17 +11,17 @@
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{--serif:'Newsreader',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--gold:#C49A2A;--gold-hover:#A67E1E;--gold-pale:rgba(196,154,42,0.10);--gold-border:rgba(196,154,42,0.25);--dark:#1A1510;--white:#fff;--clay:#F7F3E9;--text:#1A1510;--text-on-dark:#fff;--sub-on-dark:rgba(255,255,255,0.65);--muted:#666666;--muted-warm:#625E5B;--border:#E8E3D9;--radius-md:0.875rem;--radius-lg:1.25rem;--radius-xl:1.75rem;--radius-pill:100px;--shadow-sm:0 1px 3px rgba(26,21,16,0.06);--shadow-md:0 4px 16px rgba(26,21,16,0.08)}
     body{font-family:var(--sans);background:var(--clay);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
-    .nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.25rem 3rem;transition:background .3s,box-shadow .3s}
-    .nav.scrolled{background:rgba(26,21,16,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 1px 0 rgba(255,255,255,.06)}
-    .nav-logo{display:flex;align-items:center;text-decoration:none;color:var(--white);flex-shrink:0;transition:color .3s}
+    .nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.25rem 3rem;transition:background 0.4s ease}
+    .nav.scrolled{background:rgba(247,243,233,0.82);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}
+    .nav-logo{display:flex;align-items:center;text-decoration:none;color:var(--white);flex-shrink:0;transition:color 0.4s ease}
+    .nav.scrolled .nav-logo{color:var(--dark)}
     .nav-links{display:flex;align-items:center;gap:2.25rem}
-    .nav-links a{font-size:.82rem;font-weight:500;color:rgba(255,255,255,.65);text-decoration:none;transition:color .2s}
+    .nav-links a{font-size:.82rem;font-weight:500;color:rgba(255,255,255,.7);text-decoration:none;transition:color 0.4s ease}
+    .nav.scrolled .nav-links a:not(.nav-cta){color:rgba(26,21,16,.55)}
     .nav-links a:hover{color:var(--white)}
-    .nav-cta{background:var(--gold)!important;color:var(--dark)!important;font-weight:600!important;padding:.5rem 1.25rem!important;border-radius:var(--radius-pill)!important}
-    .nav.nav-light .nav-logo{color:var(--dark)}
-    .nav.nav-light .nav-links a:not(.nav-cta){color:rgba(26,21,16,.55)}
-    .nav.nav-light .nav-links a:not(.nav-cta):hover{color:var(--dark)}
-    .nav.nav-light.scrolled{background:rgba(255,255,255,.95);box-shadow:none}
+    .nav.scrolled .nav-links a:not(.nav-cta):hover{color:var(--dark)}
+    .nav-cta{background:var(--gold)!important;color:var(--dark)!important;font-weight:600!important;padding:.5rem 1.25rem!important;border-radius:var(--radius-pill)!important;transition:background .2s!important}
+    .nav-cta:hover{background:var(--gold-hover)!important}
     .section-label{display:block;font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
     .section-title{font-family:var(--serif);font-size:clamp(2rem,3.5vw,2.8rem);font-weight:500;color:var(--text);letter-spacing:-.02em;line-height:1.12;margin-bottom:1rem}
     .section-title em{font-style:italic;color:var(--gold)}
@@ -290,8 +290,6 @@
 
   <script>
     const nav=document.getElementById('nav');window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60)});
-    const hero=document.querySelector('.hero');
-    if(hero){const heroObserver=new IntersectionObserver((entries)=>{nav.classList.toggle('nav-light',!entries[0].isIntersecting)},{threshold:0.1});heroObserver.observe(hero)}
     const reveals=document.querySelectorAll('.reveal');const observer=new IntersectionObserver((entries)=>{entries.forEach((entry,i)=>{if(entry.isIntersecting){setTimeout(()=>entry.target.classList.add('visible'),i*80);observer.unobserve(entry.target)}})},{threshold:.15});reveals.forEach(el=>observer.observe(el));
     document.querySelectorAll('.faq-q').forEach(btn=>{btn.addEventListener('click',()=>{const item=btn.closest('.faq-item');const isOpen=item.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));if(!isOpen)item.classList.add('open')})});
     document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
