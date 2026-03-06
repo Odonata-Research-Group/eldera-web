@@ -29,12 +29,16 @@
 
     .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 3rem; transition: background 0.3s, box-shadow 0.3s; }
     .nav.scrolled { background: rgba(26,21,16,0.92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); box-shadow: 0 1px 0 rgba(255,255,255,0.06); }
-    .nav-logo { display: flex; align-items: center; text-decoration: none; color: var(--white); flex-shrink: 0; }
+    .nav-logo { display: flex; align-items: center; text-decoration: none; color: var(--white); flex-shrink: 0; transition: color 0.3s; }
     .nav-links { display: flex; align-items: center; gap: 2.25rem; }
     .nav-links a { font-size: 0.82rem; font-weight: 500; color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.2s; }
     .nav-links a:hover { color: var(--white); }
     .nav-cta { background: var(--gold) !important; color: var(--dark) !important; font-weight: 600 !important; padding: 0.5rem 1.25rem !important; border-radius: var(--radius-pill) !important; transition: background 0.2s !important; }
     .nav-cta:hover { background: var(--gold-hover) !important; }
+    .nav.nav-light .nav-logo { color: var(--dark); }
+    .nav.nav-light .nav-links a:not(.nav-cta) { color: rgba(26,21,16,0.55); }
+    .nav.nav-light .nav-links a:not(.nav-cta):hover { color: var(--dark); }
+    .nav.nav-light.scrolled { background: rgba(255,255,255,0.95); }
 
     .hero { min-height: 100vh; background: var(--dark); display: flex; flex-direction: column; align-items: flex-start; justify-content: center; padding: 8rem 5rem 5rem; position: relative; overflow: hidden; }
     .hero > *:not(.hero-photo):not(.hero-overlay) { position: relative; z-index: 2; }
@@ -77,15 +81,14 @@
     .step-card h3 { font-family: var(--serif); font-weight: 500; font-size: 1.3rem; color: var(--text); margin-bottom: 0.6rem; line-height: 1.2; letter-spacing: -0.02em; }
     .step-card p { font-size: 0.82rem; color: #625E5B; line-height: 1.6; }
 
-    .different-section { background: var(--dark); padding: 7rem 3rem; }
+    .different-section { background: var(--clay); padding: 7rem 3rem; }
     .different-inner { max-width: 1100px; margin: 0 auto; text-align: center; }
-    .different-inner .section-title { color: var(--text-on-dark); }
     .diff-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 4rem; text-align: left; }
-    .diff-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: var(--radius-lg); padding: 2.25rem 1.75rem; transition: all 0.25s; }
-    .diff-card:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.1); transform: translateY(-2px); }
-    .diff-icon { width: 44px; height: 44px; border-radius: var(--radius-md); background: rgba(196,154,42,0.12); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; margin-bottom: 1.25rem; }
-    .diff-card h3 { font-family: var(--serif); font-size: 1.15rem; color: var(--text-on-dark); margin-bottom: 0.6rem; font-weight: 500; }
-    .diff-card p { font-size: 0.84rem; color: var(--sub-on-dark); line-height: 1.65; }
+    .diff-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2.25rem 1.75rem; transition: all 0.25s; }
+    .diff-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .diff-icon { width: 44px; height: 44px; border-radius: var(--radius-md); background: var(--gold-pale); display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; }
+    .diff-card h3 { font-family: var(--serif); font-size: 1.15rem; color: var(--text); margin-bottom: 0.6rem; font-weight: 500; }
+    .diff-card p { font-size: 0.84rem; color: var(--muted-warm); line-height: 1.65; }
 
     .testimonial-section { padding: 7rem 3rem; background: var(--clay); }
     .testimonial-inner { max-width: 1100px; margin: 0 auto; text-align: center; }
@@ -217,8 +220,8 @@
 <body>
 
   <nav class="nav" id="nav">
-    <a href="index.html" class="nav-logo" style="display:flex;align-items:center;text-decoration:none;color:white;flex-shrink:0">
-      <svg height="32" viewBox="0 0 345 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="eldera" style="display:block;color:white">
+    <a href="index.html" class="nav-logo" style="display:flex;align-items:center;text-decoration:none;flex-shrink:0">
+      <svg height="32" viewBox="0 0 345 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="eldera" style="display:block">
 <path d="M43.4966 33.4844C41.5547 33.4844 39.6427 33.6144 37.769 33.8662C17.0152 36.6551 1.00838 54.3827 1.0083 75.8447C1.0083 97.3069 17.0133 115.036 37.769 117.824C39.6427 118.076 41.5547 118.206 43.4966 118.206L44.5044 118.206L44.5044 33.4844L43.4966 33.4844ZM36.895 109.973C20.7759 106.898 8.61767 92.7739 8.61767 75.8447C8.61776 58.9159 20.7772 44.791 36.895 41.7158L36.895 109.973Z" fill="currentColor" stroke="currentColor" stroke-width="2.01607"/>
 <path d="M38.375 100.883C40.3042 100.883 42.2088 100.774 44.082 100.562C69.0559 97.7379 88.4668 76.6032 88.4668 50.9424C88.4666 25.2817 69.058 4.14762 44.082 1.32324C42.2089 1.11143 40.3042 1.00293 38.375 1.00293H37.3672L37.3672 100.883H38.375ZM44.9766 9.12109C65.3172 12.2816 80.8572 29.8164 80.8574 50.9424C80.8574 72.0681 65.3155 89.6038 44.9766 92.7646L44.9766 9.12109Z" fill="currentColor" stroke="currentColor" stroke-width="2.01607"/>
 <path d="M41.3379 100.68C59.8808 100.68 74.9178 85.6935 74.918 67.2002C74.918 48.7068 59.8809 33.7197 41.3379 33.7197C22.7949 33.7197 7.75781 48.7068 7.75781 67.2002C7.75794 85.6935 22.795 100.68 41.3379 100.68ZM41.3379 93.0703C26.9756 93.0703 15.3673 81.469 15.3672 67.2002C15.3672 52.9313 26.9755 41.3291 41.3379 41.3291C55.7003 41.3291 67.3086 52.9313 67.3086 67.2002C67.3085 81.469 55.7002 93.0703 41.3379 93.0703Z" fill="currentColor" stroke="currentColor" stroke-width="2.01607" stroke-linecap="round" stroke-linejoin="round"/>
@@ -244,18 +247,18 @@
     <div class="hero-overlay" style="position:absolute;inset:0;background:linear-gradient(to right, rgba(26,21,16,0.92) 0%, rgba(26,21,16,0.75) 55%, rgba(26,21,16,0.30) 100%);z-index:1;"></div>
     <h1 class="fade-up"><span style="white-space:nowrap">One Hour. Once a Week.</span><br><em>Two Lives Better.</em></h1>
     <p class="hero-sub fade-up">Eldera connects adults 60+ with young people ages 6–17 for weekly mentoring sessions that fight loneliness, build wisdom, and create genuine human connection.</p>
-    <div class="path-cards fade-up">
+    <div class="path-cards fade-up" id="get-started">
       <a href="mentors.html" class="path-card">
         <div class="path-card-label">I’m 60 or older</div>
         <div class="path-card-title">I want to share<br><em>my wisdom</em></div>
         <div class="path-card-desc">One hour a week. One young person who needs exactly what you’ve lived through.</div>
-        <div class="path-card-cta">Learn more <span class="arrow">→</span></div>
+        <div class="path-card-cta">Become a mentor <span class="arrow">→</span></div>
       </a>
       <a href="parents.html" class="path-card">
         <div class="path-card-label">I’m a parent</div>
         <div class="path-card-title">I want a mentor<br><em>for my child</em></div>
         <div class="path-card-desc">Background-checked, vetted adults who genuinely want to help your child grow.</div>
-        <div class="path-card-cta">Learn more <span class="arrow">→</span></div>
+        <div class="path-card-cta">Find a mentor <span class="arrow">→</span></div>
       </a>
     </div>
   </section>
@@ -322,8 +325,8 @@
   <section class="different-section">
     <div class="different-inner">
       <span class="section-label">Why Eldera</span>
-      <h2 class="section-title" style="color:var(--text-on-dark)">Not a Tutoring App. Not a Volunteer Program.<br><em>Something New.</em></h2>
-      <p class="section-sub centered" style="color:var(--sub-on-dark)">Eldera is social infrastructure built to solve loneliness at both ends of the generational divide, at scale.</p>
+      <h2 class="section-title">Not a Tutoring App. Not a Volunteer Program.<br><em>Something New.</em></h2>
+      <p class="section-sub centered">Eldera is social infrastructure built to solve loneliness at both ends of the generational divide, at scale.</p>
             <div class="diff-grid">
         <div class="diff-card reveal">
           <div class="diff-icon" style="color:var(--gold)"><svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="currentColor"><path d="M480-81q-140-35-230-162.5T160-523v-238l320-120 320 120v238q0 152-90 279.5T480-81Zm0-62q115-38 187.5-143.5T740-523v-196l-260-98-260 98v196q0 131 72.5 236.5T480-143Zm0-337Z"/></svg></div>
@@ -416,7 +419,7 @@
     </div>
   </section>
 
-  <section class="cta-section" id="get-started">
+  <section class="cta-section">
     <div style="max-width:1100px;margin:0 auto;">
       <div style="text-align:center;margin-bottom:4rem;">
         <h2 class="section-title" style="color:var(--text);">Your Story <em>Starts Here.</em></h2>
@@ -482,6 +485,8 @@
   <script>
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); });
+    const hero = document.querySelector('.hero');
+    if(hero){const heroObserver=new IntersectionObserver((entries)=>{nav.classList.toggle('nav-light',!entries[0].isIntersecting)},{threshold:0.1});heroObserver.observe(hero)}
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry, i) => {
