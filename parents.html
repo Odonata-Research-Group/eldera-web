@@ -13,14 +13,18 @@
     body{font-family:var(--sans);background:var(--white);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
 
     /* NAV */
-    .nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.25rem 3rem;transition:background .3s}
+    .nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.25rem 3rem;transition:background .3s,box-shadow .3s}
     .nav.scrolled{background:rgba(26,21,16,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 1px 0 rgba(255,255,255,.06)}
-    .nav-logo{display:flex;align-items:center;text-decoration:none;color:var(--white);flex-shrink:0}
+    .nav-logo{display:flex;align-items:center;text-decoration:none;color:var(--white);flex-shrink:0;transition:color .3s}
     .nav-links{display:flex;align-items:center;gap:2.25rem}
     .nav-links a{font-size:.82rem;font-weight:500;color:rgba(255,255,255,.65);text-decoration:none;transition:color .2s}
     .nav-links a:hover{color:var(--white)}
     .nav-cta{background:var(--gold)!important;color:var(--dark)!important;font-weight:600!important;padding:.5rem 1.25rem!important;border-radius:var(--radius-pill)!important;transition:background .2s!important}
     .nav-cta:hover{background:var(--gold-hover)!important}
+    .nav.nav-light .nav-logo{color:var(--dark)}
+    .nav.nav-light .nav-links a:not(.nav-cta){color:rgba(26,21,16,.55)}
+    .nav.nav-light .nav-links a:not(.nav-cta):hover{color:var(--dark)}
+    .nav.nav-light.scrolled{background:rgba(255,255,255,.95);box-shadow:0 1px 0 rgba(26,21,16,.08)}
 
     /* SHARED */
     .section-label{display:block;font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
@@ -164,7 +168,7 @@
 
   <nav class="nav" id="nav">
     <a href="index.html" class="nav-logo">
-      <svg height="32" viewBox="0 0 345 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="eldera" style="display:block;color:var(--white)">
+      <svg height="32" viewBox="0 0 345 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="eldera" style="display:block">
         <path d="M43.5 33.5C41.6 33.5 39.6 33.6 37.8 33.9C17 36.7 1 54.4 1 75.9C1 97.3 17 115 37.8 117.8C39.6 118.1 41.6 118.2 43.5 118.2H44.5V33.5H43.5ZM36.9 110C20.8 106.9 8.6 92.8 8.6 75.9C8.6 58.9 20.8 44.8 36.9 41.7V110Z" fill="currentColor" stroke="currentColor" stroke-width="2"/>
         <path d="M38.4 100.9C40.3 100.9 42.2 100.8 44.1 100.6C69.1 97.7 88.5 76.6 88.5 50.9C88.5 25.3 69.1 4.2 44.1 1.3C42.2 1.1 40.3 1 38.4 1H37.4V100.9H38.4ZM45 9.1C65.3 12.3 80.9 29.8 80.9 50.9C80.9 72.1 65.3 89.6 45 92.8V9.1Z" fill="currentColor" stroke="currentColor" stroke-width="2"/>
         <path d="M41.3 100.7C59.9 100.7 74.9 85.7 74.9 67.2C74.9 48.7 59.9 33.7 41.3 33.7C22.8 33.7 7.8 48.7 7.8 67.2C7.8 85.7 22.8 100.7 41.3 100.7ZM41.3 93.1C27 93.1 15.4 81.5 15.4 67.2C15.4 52.9 27 41.3 41.3 41.3C55.7 41.3 67.3 52.9 67.3 67.2C67.3 81.5 55.7 93.1 41.3 93.1Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -450,6 +454,8 @@
   <script>
     const nav=document.getElementById('nav');
     window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60)});
+    const hero=document.querySelector('.hero');
+    if(hero){const heroObserver=new IntersectionObserver((entries)=>{nav.classList.toggle('nav-light',!entries[0].isIntersecting)},{threshold:0.1});heroObserver.observe(hero)}
     const reveals=document.querySelectorAll('.reveal');
     const observer=new IntersectionObserver((entries)=>{entries.forEach((entry,i)=>{if(entry.isIntersecting){setTimeout(()=>entry.target.classList.add('visible'),i*80);observer.unobserve(entry.target)}})},{threshold:.15});
     reveals.forEach(el=>observer.observe(el));
