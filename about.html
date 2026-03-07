@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Eldera — The Era of the Elders</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400;1,6..72,500;1,6..72,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --serif: 'Newsreader', Georgia, serif;
+      --sans: 'Inter', system-ui, sans-serif;
+      --gold: #C49A2A; --gold-hover: #A67E1E;
+      --gold-pale: rgba(196,154,42,0.10); --gold-border: rgba(196,154,42,0.25);
+      --dark: #1A1510; --white: #ffffff;
+      --clay: #F7F3E9; --clay-dark: #EDE9DF;
+      --text: #1A1510; --text-on-dark: #ffffff;
+      --sub-on-dark: rgba(255,255,255,0.65); --muted: #666666; --muted-warm: #625E5B;
+      --border: #E8E3D9;
+      --radius-sm: 0.5rem; --radius-md: 0.875rem; --radius-lg: 1.25rem;
+      --radius-xl: 1.75rem; --radius-pill: 100px;
+      --shadow-sm: 0 1px 3px rgba(26,21,16,0.06);
+      --shadow-md: 0 4px 16px rgba(26,21,16,0.08);
+      --shadow-lg: 0 12px 40px rgba(26,21,16,0.12);
+    }
+    body { font-family: var(--sans); background: var(--clay); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+    /* ── NAV ── */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 3rem; transition: background 0.4s ease; background: rgba(247,243,233,0.82); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); }
+    .nav-logo { display: flex; align-items: center; text-decoration: none; color: var(--dark); flex-shrink: 0; }
+    .nav-links { display: flex; align-items: center; gap: 2.25rem; }
+    .nav-links a { font-size: 0.82rem; font-weight: 500; color: rgba(26,21,16,0.55); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--dark); }
+    .nav-cta { background: var(--gold) !important; color: var(--dark) !important; font-weight: 600 !important; padding: 0.5rem 1.25rem !important; border-radius: var(--radius-pill) !important; transition: background 0.2s !important; }
+    .nav-cta:hover { background: var(--gold-hover) !important; }
+
+    /* ── SHARED ── */
+    .section-label { display: block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+    .section-title { font-family: var(--serif); font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 500; color: var(--text); letter-spacing: -0.02em; line-height: 1.12; margin-bottom: 1rem; }
+    .section-title em { font-style: italic; color: var(--gold); }
+    .section-title--light { color: var(--text-on-dark); }
+    .section-sub { font-size: 1rem; color: var(--muted-warm); max-width: 520px; line-height: 1.65; }
+    .btn-primary { display: inline-block; background: var(--gold); color: var(--dark); font-weight: 600; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: var(--radius-pill); text-decoration: none; transition: all 0.2s; }
+    .btn-primary:hover { background: var(--gold-hover); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(196,154,42,0.3); }
+    .btn-ghost { display: inline-block; background: transparent; color: var(--dark); font-weight: 600; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: var(--radius-pill); text-decoration: none; border: 1px solid var(--border); transition: all 0.2s; }
+    .btn-ghost:hover { border-color: var(--gold-border); background: var(--white); }
+
+    /* ── HERO — two column, Function-style ── */
+    .about-hero { background: var(--clay); padding: 10rem 3rem 8rem; position: relative; overflow: hidden; }
+    .about-hero::before { content: ''; position: absolute; top: -10%; right: -5%; width: 700px; height: 700px; background: radial-gradient(circle, rgba(196,154,42,0.04) 0%, transparent 65%); pointer-events: none; }
+    .hero-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 7rem; align-items: start; position: relative; z-index: 1; }
+    .hero-eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; padding: 0.4rem 1.1rem; border: 1px solid var(--gold-border); border-radius: var(--radius-pill); }
+    .hero-left h1 { font-family: var(--serif); font-size: clamp(3.5rem, 5.8vw, 5.5rem); line-height: 1.0; color: var(--text); letter-spacing: -0.03em; font-weight: 400; }
+    .hero-left h1 em { font-style: italic; color: var(--gold); }
+    .hero-right p { font-size: 0.98rem; color: var(--muted-warm); line-height: 1.85; margin-bottom: 1.35rem; }
+    .hero-right p:last-child { margin-bottom: 0; }
+    .hero-sign { font-family: var(--serif); font-size: 1rem; font-weight: 600 !important; color: var(--text) !important; font-style: normal !important; margin-top: 1.75rem !important; margin-bottom: 0 !important; }
+
+    /* ── REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s cubic-bezier(0.2,0.8,0.2,1), transform 0.6s cubic-bezier(0.2,0.8,0.2,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── WHY NOW ── */
+    .why-section { padding: 7rem 3rem; }
+    .why-inner { max-width: 1100px; margin: 0 auto; }
+    .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 4rem; }
+    .why-card { background: var(--white); border-radius: var(--radius-lg); padding: 2.25rem 1.75rem; transition: transform 0.25s, box-shadow 0.25s; }
+    .why-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .why-card-num { font-family: var(--serif); font-size: 2.8rem; color: var(--text); line-height: 1; margin-bottom: 0.75rem; font-weight: 400; }
+    .why-card-num span { color: var(--gold); }
+    .why-card p { font-size: 0.84rem; color: var(--muted-warm); line-height: 1.65; }
+    .why-card-source { font-size: 0.7rem; color: #bbb; font-style: italic; margin-top: 0.75rem; }
+
+    /* ── TIMELINE ── */
+    .timeline-section { padding: 7rem 3rem; background: var(--clay); }
+    .timeline-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 340px 1fr; gap: 6rem; align-items: start; }
+    .timeline-header { position: sticky; top: 8rem; }
+    .timeline-header .section-label { color: var(--gold); }
+    .timeline-header .section-title { color: var(--text); }
+    .timeline-header .section-sub { color: var(--muted-warm); }
+    .timeline { position: relative; padding-left: 1.5rem; }
+    .timeline::before { content: ''; position: absolute; left: 0; top: 0.5rem; bottom: 0; width: 1px; background: linear-gradient(to bottom, var(--gold), rgba(196,154,42,0.1)); }
+    .timeline-item { position: relative; padding: 0 0 3rem 2.5rem; }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-dot { position: absolute; left: -0.35rem; top: 0.4rem; width: 10px; height: 10px; border-radius: 50%; background: var(--gold); border: 2px solid var(--clay); box-shadow: 0 0 0 2px var(--gold); }
+    .timeline-year { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+    .timeline-item h3 { font-family: var(--serif); font-size: 1.2rem; color: var(--text); margin-bottom: 0.5rem; letter-spacing: -0.01em; font-weight: 500; line-height: 1.25; }
+    .timeline-item p { font-size: 0.84rem; color: var(--muted-warm); line-height: 1.7; }
+
+    /* ── STEWARDSHIP ── */
+    .stewardship-section { padding: 7rem 3rem; }
+    .stewardship-inner { max-width: 1100px; margin: 0 auto; }
+    .stewardship-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 4rem; }
+    .stewardship-card { background: var(--white); border-radius: var(--radius-lg); padding: 2.25rem 1.75rem; }
+    .stew-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; display: block; }
+    .stewardship-card h3 { font-family: var(--serif); font-size: 1.15rem; color: var(--text); margin-bottom: 1.25rem; font-weight: 500; line-height: 1.25; letter-spacing: -0.01em; }
+    .stewardship-card ul { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+    .stewardship-card ul li { font-size: 0.82rem; color: var(--muted-warm); display: flex; gap: 0.75rem; align-items: flex-start; line-height: 1.6; }
+    .stewardship-card ul li::before { content: '—'; color: var(--gold); flex-shrink: 0; }
+
+    /* ── TEAM ── */
+    .team-section { padding: 7rem 3rem; background: var(--clay); }
+    .team-inner { max-width: 1100px; margin: 0 auto; }
+    .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; margin-top: 4rem; }
+    .team-card { background: var(--white); border-radius: var(--radius-lg); padding: 1.75rem; transition: transform 0.2s, box-shadow 0.2s; }
+    .team-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .team-avatar { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, var(--dark), #2d2318); display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 1rem; color: var(--gold); margin-bottom: 1rem; font-weight: 500; }
+    .team-card h4 { font-weight: 600; font-size: 0.92rem; color: var(--text); margin-bottom: 0.15rem; }
+    .team-role { font-size: 0.7rem; color: var(--gold); font-weight: 600; letter-spacing: 0.04em; margin-bottom: 0.6rem; }
+    .team-card p { font-size: 0.78rem; color: var(--muted-warm); line-height: 1.55; }
+
+    /* ── WISDOM BOARD ── */
+    .wisdom-section { padding: 7rem 3rem; }
+    .wisdom-inner { max-width: 1100px; margin: 0 auto; }
+    .wisdom-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; margin-top: 4rem; }
+    .wisdom-card { background: var(--white); border-radius: var(--radius-lg); padding: 1.75rem; transition: transform 0.2s, box-shadow 0.2s; }
+    .wisdom-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .wisdom-avatar { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--gold), var(--gold-hover)); display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 0.88rem; color: var(--dark); margin-bottom: 1rem; font-weight: 500; }
+    .wisdom-card h4 { font-weight: 600; font-size: 0.88rem; color: var(--text); }
+    .wisdom-role { font-size: 0.68rem; color: var(--gold); font-weight: 600; letter-spacing: 0.04em; margin: 0.2rem 0 0.5rem; }
+    .wisdom-card p { font-size: 0.78rem; color: var(--muted-warm); line-height: 1.55; }
+
+    /* ── ENDORSEMENT ── */
+    .endorsement-section { background: var(--clay); padding: 7rem 3rem; text-align: center; }
+    .endorsement-inner { max-width: 820px; margin: 0 auto; }
+    .endorsement-quote { font-family: var(--serif); font-size: clamp(1.2rem, 2vw, 1.6rem); color: var(--text); line-height: 1.6; letter-spacing: -0.01em; position: relative; padding: 0 2rem; font-weight: 400; font-style: italic; }
+    .endorsement-quote::before { content: '"'; position: absolute; left: 0; top: -0.75rem; font-size: 4rem; color: var(--gold); opacity: 0.25; line-height: 1; font-style: normal; }
+    .endorsement-quote em { color: var(--gold); font-style: italic; }
+    .endorsement-attr { margin-top: 2.5rem; }
+    .endorsement-name { font-weight: 600; font-size: 0.92rem; color: var(--text); }
+    .endorsement-title { font-size: 0.78rem; color: var(--muted); margin-top: 0.35rem; line-height: 1.6; }
+
+    /* ── PRESS ── */
+    .press-section { padding: 5rem 3rem; border-top: 1px solid var(--border); background: var(--clay); }
+    .press-inner { max-width: 1100px; margin: 0 auto; text-align: center; }
+    .press-logos-large { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 2.5rem 3.5rem; margin-top: 2.5rem; }
+    .press-name { font-size: 0.92rem; font-weight: 700; color: #c0bab0; letter-spacing: 0.04em; transition: color 0.2s; }
+    .press-name:hover { color: var(--text); }
+    .press-name--serif { font-family: var(--serif); font-style: italic; letter-spacing: 0; font-weight: 500; font-size: 1rem; }
+
+    /* ── FAQ ── */
+    .faq-section { padding: 7rem 3rem; }
+    .faq-inner { max-width: 1100px; margin: 0 auto; }
+    .faq-list { max-width: 740px; margin: 3.5rem auto 0; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-q { width: 100%; background: none; border: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; padding: 1.5rem 0; text-align: left; gap: 1.5rem; font-family: var(--sans); }
+    .faq-q span { font-weight: 600; font-size: 0.95rem; color: var(--text); line-height: 1.4; }
+    .faq-icon { width: 26px; height: 26px; border-radius: 50%; background: var(--clay-dark); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1rem; color: var(--gold); transition: transform 0.3s, background 0.2s; line-height: 1; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); background: var(--gold); color: var(--dark); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    .faq-a-inner { padding: 0 0 1.5rem; font-size: 0.9rem; color: var(--muted-warm); line-height: 1.8; }
+    .faq-a-inner a { color: var(--gold); text-decoration: underline; }
+    .faq-item.open .faq-a { max-height: 400px; }
+
+    /* ── CLOSING CTA ── */
+    .about-cta { padding: 7rem 3rem; background: var(--clay); text-align: center; position: relative; overflow: hidden; }
+    .about-cta::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 800px; height: 800px; background: radial-gradient(circle, rgba(196,154,42,0.06) 0%, transparent 65%); pointer-events: none; }
+    .about-cta h2 { font-family: var(--serif); font-size: clamp(2rem, 3.5vw, 2.8rem); color: var(--text); line-height: 1.12; margin-bottom: 1.25rem; letter-spacing: -0.02em; max-width: 680px; margin-left: auto; margin-right: auto; font-weight: 400; position: relative; z-index: 1; }
+    .about-cta h2 em { font-style: italic; color: var(--gold); }
+    .about-cta p { font-size: 1rem; color: var(--muted-warm); max-width: 480px; margin: 0 auto 2.5rem; line-height: 1.75; position: relative; z-index: 1; }
+    .about-cta-btns { display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap; position: relative; z-index: 1; }
+    .btn-dark { display: inline-block; background: var(--dark); color: var(--gold); font-weight: 600; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: var(--radius-pill); text-decoration: none; border: 1px solid rgba(196,154,42,0.3); transition: all 0.2s; }
+    .btn-dark:hover { background: #2a2318; transform: translateY(-2px); }
+
+    /* ── FOOTER ── */
+    .footer { background: var(--clay); padding: 4rem 3rem 2.5rem; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; }
+    .footer-col-title { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; }
+    .footer-col a { display: block; font-size: 0.85rem; color: var(--muted-warm); text-decoration: none; margin-bottom: 0.65rem; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--text); }
+    .footer-bottom { max-width: 1100px; margin: 3rem auto 0; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+    .footer-copy { font-size: 0.75rem; color: var(--muted); }
+    .footer-social { display: flex; gap: 0.75rem; margin-top: 1.25rem; }
+    .footer-social-link { display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: var(--radius-sm); color: var(--muted-warm); transition: color 0.2s; }
+    .footer-social-link:hover { color: var(--text); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1000px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .timeline-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .timeline-header { position: static; }
+      .team-grid { grid-template-columns: 1fr 1fr; }
+      .wisdom-grid { grid-template-columns: 1fr 1fr; }
+      .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    }
+    @media (max-width: 768px) {
+      .nav { padding: 1rem 1.5rem; }
+      .nav-links a:not(.nav-cta) { display: none; }
+      .about-hero { padding: 8rem 1.5rem 5rem; }
+      .why-grid, .stewardship-grid { grid-template-columns: 1fr; }
+      .team-grid { grid-template-columns: 1fr 1fr; }
+      .wisdom-grid { grid-template-columns: 1fr 1fr; }
+      .why-section, .timeline-section, .stewardship-section, .team-section, .wisdom-section, .endorsement-section, .press-section, .faq-section, .about-cta { padding: 4rem 1.5rem; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-logo" style="display:flex;align-items:center;text-decoration:none;flex-shrink:0">
+      <svg height="32" viewBox="0 0 345 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="eldera" style="display:block">
+        <path d="M43.4966 33.4844C41.5547 33.4844 39.6427 33.6144 37.769 33.8662C17.0152 36.6551 1.00838 54.3827 1.0083 75.8447C1.0083 97.3069 17.0133 115.036 37.769 117.824C39.6427 118.076 41.5547 118.206 43.4966 118.206L44.5044 118.206L44.5044 33.4844L43.4966 33.4844ZM36.895 109.973C20.7759 106.898 8.61767 92.7739 8.61767 75.8447C8.61776 58.9159 20.7772 44.791 36.895 41.7158L36.895 109.973Z" fill="currentColor" stroke="currentColor" stroke-width="2.01607"/>
+        <path d="M38.375 100.883C40.3042 100.883 42.2088 100.774 44.082 100.562C69.0559 97.7379 88.4668 76.6032 88.4668 50.9424C88.4666 25.2817 69.058 4.14762 44.082 1.32324C42.2089 1.11143 40.3042 1.00293 38.375 1.00293H37.3672L37.3672 100.883H38.375ZM44.9766 9.12109C65.3172 12.2816 80.8572 29.8164 80.8574 50.9424C80.8574 72.0681 65.3155 89.6038 44.9766 92.7646L44.9766 9.12109Z" fill="currentColor" stroke="currentColor" stroke-width="2.01607"/>
+        <path d="M41.3379 100.68C59.8808 100.68 74.9178 85.6935 74.918 67.2002C74.918 48.7068 59.8809 33.7197 41.3379 33.7197C22.7949 33.7197 7.75781 48.7068 7.75781 67.2002C7.75794 85.6935 22.795 100.68 41.3379 100.68ZM41.3379 93.0703C26.9756 93.0703 15.3673 81.469 15.3672 67.2002C15.3672 52.9313 26.9755 41.3291 41.3379 41.3291C55.7003 41.3291 67.3086 52.9313 67.3086 67.2002C67.3085 81.469 55.7002 93.0703 41.3379 93.0703Z" fill="currentColor" stroke="currentColor" stroke-width="2.01607" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M303.848 70.8244C303.848 59.7412 311.809 50.4531 322.19 50.4531C327.575 50.4531 331.712 53.1849 333.429 55.6825V51.3117H344.122V90.337H333.429V85.9662C331.712 88.4638 327.575 91.1956 322.19 91.1956C311.809 91.1956 303.848 81.9076 303.848 70.8244ZM334.287 70.8244C334.287 64.7364 330.307 60.2095 324.453 60.2095C318.599 60.2095 314.619 64.7364 314.619 70.8244C314.619 76.9123 318.599 81.4393 324.453 81.4393C330.307 81.4393 334.287 76.9123 334.287 70.8244Z" fill="currentColor"/>
+        <path d="M276.924 90.3374V51.3121H287.617V57.5561C288.944 53.7316 292.924 50.8438 297.295 50.8438C298.388 50.8438 299.559 50.9218 300.885 51.3121V62.1611C299.246 61.6148 297.763 61.3025 296.046 61.3025C290.973 61.3025 287.617 65.2831 287.617 71.6833V90.3374H276.924Z" fill="currentColor"/>
+        <path d="M268.667 77.6148C266.325 85.4979 258.598 91.1956 248.686 91.1956C236.744 91.1956 228.236 82.61 228.236 70.7463C228.236 59.1168 236.9 50.4531 248.764 50.4531C260.237 50.4531 269.681 58.6485 269.135 73.322H238.695C239.163 77.927 242.598 81.9076 249.232 81.9076C252.978 81.9076 256.257 80.2685 257.505 77.6148H268.667ZM248.451 59.1168C243.534 59.1168 240.1 62.0046 239.085 66.2974H257.427C256.1 61.068 252.12 59.1168 248.451 59.1168Z" fill="currentColor"/>
+        <path d="M180.064 70.8222C180.064 59.739 188.026 50.451 198.406 50.451C203.792 50.451 207.929 53.1828 209.646 55.6804V31.7969H220.339V90.3349H209.646V85.9641C207.929 88.4617 203.792 91.1935 198.406 91.1935C188.026 91.1935 180.064 81.9054 180.064 70.8222ZM210.504 70.8222C210.504 64.7343 206.524 60.2073 200.67 60.2073C194.816 60.2073 190.835 64.7343 190.835 70.8222C190.835 76.9102 194.816 81.4371 200.67 81.4371C206.524 81.4371 210.504 76.9102 210.504 70.8222Z" fill="currentColor"/>
+        <path d="M161.601 90.3349V31.7969H172.294V90.3349H161.601Z" fill="currentColor"/>
+        <path d="M153.343 77.6148C151.002 85.4979 143.275 91.1956 133.362 91.1956C121.421 91.1956 112.913 82.61 112.913 70.7463C112.913 59.1168 121.577 50.4531 133.44 50.4531C144.914 50.4531 154.358 58.6485 153.812 73.322H123.372C123.84 77.927 127.274 81.9076 133.909 81.9076C137.655 81.9076 140.933 80.2685 142.182 77.6148H153.343ZM133.128 59.1168C128.211 59.1168 124.777 62.0046 123.762 66.2974H142.104C140.777 61.068 136.797 59.1168 133.128 59.1168Z" fill="currentColor"/>
+      </svg>
+    </a>
+    <div class="nav-links">
+      <a href="mentors.html">Mentors</a>
+      <a href="parents.html">Parents</a>
+      <a href="about.html">About</a>
+      <a href="partners.html">Partners</a>
+      <a href="mentor-signup.html" class="nav-cta">Get Started</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="about-hero">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="hero-eyebrow">The Era of the Elders</div>
+        <h1>Unlocking the Time and Wisdom of Older Adults as <em>a New Natural Resource.</em></h1>
+      </div>
+      <div class="hero-right">
+        <p>Eldera was founded with a singular conviction: older adults aren't causing the loneliness epidemic. They are the cure.</p>
+        <p>Our mission is to unlock the time and wisdom of older adults as a new natural resource for all generations to thrive. We do this by connecting vetted adults 60+ with youth ages 6–17 for weekly virtual mentoring sessions, building protective relationships that reduce loneliness on both sides of the connection.</p>
+        <p>Safety is our primary infrastructure. Every session is monitored in real time by our proprietary AI Chaperone, not to surveil, but to protect. Every mentor is vetted, background-checked, and trained before their first session. Every family is kept in the loop.</p>
+        <p>Across the Eldera team, we have each been shaped by the gap between generations, as grandchildren, as parents, as people who have felt the particular loneliness of being overlooked. It drives everything we build.</p>
+        <p class="hero-sign">Welcome to the era of the elders.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY NOW -->
+  <section class="why-section">
+    <div class="why-inner">
+      <span class="section-label">Why this matters</span>
+      <h2 class="section-title">Two Epidemics.<br><em>One Untapped Resource.</em></h2>
+      <p class="section-sub">The healthcare cost crisis, youth mental health emergency, and older-adult isolation are colliding at the same moment that 1 in 4 Californians will be 60+ by 2030.</p>
+      <div class="why-grid">
+        <div class="why-card reveal">
+          <div class="why-card-num">1 in 2<span></span></div>
+          <p>young people are lonely. 1 in 3 older adults are lonely. The middle generation carries a double caregiving burden.</p>
+          <div class="why-card-source">U.S. Surgeon General, 2023</div>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-card-num">$5.5<span>T</span></div>
+          <p>cost of loneliness across healthcare and workforce globally — a figure that grows every year without structural intervention.</p>
+          <div class="why-card-source">WHO Global Call to Action</div>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-card-num">1.4<span>B</span></div>
+          <p>people over 60 worldwide — the fastest-growing demographic on earth, and the most underutilized human resource we have.</p>
+          <div class="why-card-source">UN Population Division</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="timeline-section">
+    <div class="timeline-inner">
+      <div class="timeline-header">
+        <span class="section-label">Our journey</span>
+        <h2 class="section-title">Six Years Building<br><em>the Infrastructure.</em></h2>
+        <p class="section-sub">Founded in 2020 with a bold conviction: that older adults are one of the most underutilized resources in the world.</p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2020</div>
+          <h3>Launched the Intergenerational Mentoring Platform</h3>
+          <p>Founded with a bold vision: unlock the time and wisdom of older generations to build a more connected, resilient world. First 500 members. First connections made.</p>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2021</div>
+          <h3>Built a Global Community</h3>
+          <p>Created a social platform uniting older adults across geographies around shared purpose — not just mentoring pairs, but a living community of contributors.</p>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2022</div>
+          <h3>Introduced Eldera Socials & Task Forces</h3>
+          <p>Launched community initiatives led by and for older adults — virtual book clubs, councils, and social gatherings that deepen belonging beyond the 1:1 session.</p>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2023</div>
+          <h3>Recognized by CNN as a Good News Story of the Year</h3>
+          <p>National media attention across TIME, Washington Post, NPR, PBS, CNN, and The Atlantic. "It's a win-win: Elders get a way to combat loneliness, teachers and parents get help they desperately need, and children get another grown-up to guide them."</p>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2024</div>
+          <h3>Qualified Under WHO Social Prescription Standards</h3>
+          <p>Eldera formally qualifies as a Social Prescription intervention under WHO 2024 standards. Research partnership established with Robert N. Butler Columbia Aging Center under Dean Linda P. Fried.</p>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2025</div>
+          <h3>Launched the Wisdom Portrait, AI Chaperone & Social Wellness Tracker</h3>
+          <p>Introduced proprietary AI safety infrastructure and personal impact tracking. Completed 12-week pilot with California Commission on Aging across 5 counties. 0 safety incidents. 170,000+ safe connection hours accumulated.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEWARDSHIP -->
+  <section class="stewardship-section">
+    <div class="stewardship-inner">
+      <span class="section-label">How we're built</span>
+      <h2 class="section-title">Built to Serve.<br><em>Not to Sell.</em></h2>
+      <p class="section-sub">We are transitioning to a Public Benefit Corporation — a governance model designed for public partnership, not monetization. Every structural decision reflects this commitment.</p>
+      <div class="stewardship-grid">
+        <div class="stewardship-card reveal">
+          <span class="stew-label">How we protect our impact</span>
+          <h3>Public Benefit Corporation</h3>
+          <ul>
+            <li>Human benefit is the primary driver of every decision</li>
+            <li>Governance model designed for public partnership</li>
+            <li>Mission-locked structure that persists beyond any leadership change</li>
+          </ul>
+        </div>
+        <div class="stewardship-card reveal">
+          <span class="stew-label">How we protect our data</span>
+          <h3>Repository of Human Wisdom — Held in Trust</h3>
+          <ul>
+            <li>Member data used only for program delivery and reporting</li>
+            <li>Never sold, never used for advertising</li>
+            <li>De-identified aggregate reporting only, with small-cell suppression</li>
+          </ul>
+        </div>
+        <div class="stewardship-card reveal">
+          <span class="stew-label">How we protect our people</span>
+          <h3>Golden Share for Community</h3>
+          <ul>
+            <li>A percentage of profits flows back to the community that makes Eldera possible</li>
+            <li>Pay-it-forward model ensures free access for those who need it</li>
+            <li>Safety-first operations: screening, vetting, training, escalation, auditability</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="team-section" id="team">
+    <div class="team-inner">
+      <span class="section-label">The humans of Eldera</span>
+      <h2 class="section-title">Led by Experts in Technology,<br><em>Design, and Human Connection.</em></h2>
+      <div class="team-grid">
+        <div class="team-card reveal"><div class="team-avatar">DG</div><h4>Dana Griffin</h4><div class="team-role">Co-Founder / CEO</div><p>Director, AI for Good at AI Commons. Director, BrightFocus Foundation. AdAge "40 Under 40." Raised by her grandparents. San Francisco, CA.</p></div>
+        <div class="team-card reveal"><div class="team-avatar">JO</div><h4>Jules Olleon</h4><div class="team-role">Co-Founder / Engineering</div><p>Engineering Manager, People.ai. Lead Architect, Ring.com. Senior Software Engineer, Yelp. Grenoble, France.</p></div>
+        <div class="team-card reveal"><div class="team-avatar">NR</div><h4>Nick Ruzhnikov</h4><div class="team-role">Co-Founder / Design</div><p>Former Design Director, Lumosity. VP of Design, Originate. Creative Director, Deutsche Telekom. Eldera Parent. Surrey, UK.</p></div>
+        <div class="team-card reveal"><div class="team-avatar">CL</div><h4>Carl Lavin</h4><div class="team-role">Trust & Safety</div><p>Former Manager, Business Integrity at Meta. VP, News & Opinion at CNN. Berkeley, CA.</p></div>
+        <div class="team-card reveal"><div class="team-avatar">JO</div><h4>Jackson Otto</h4><div class="team-role">Engineer</div><p>Former Eldera Mentee. Santa Clara University. Santa Clara, CA.</p></div>
+        <div class="team-card reveal"><div class="team-avatar">KB</div><h4>Kent Brewster</h4><div class="team-role">Web / Consumer UI</div><p>Buttons & Widgets, Pinterest. First Mobile Developer, Netflix. Hack Day Enthusiast, Yahoo. Kawaii, HI.</p></div>
+        <div class="team-card reveal"><div class="team-avatar">SW</div><h4>Sherry Woods</h4><div class="team-role">Community</div><p>Classically trained executive assistant with 23 years of experience. Canton, OH.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WISDOM BOARD -->
+  <section class="wisdom-section" id="wisdom-board">
+    <div class="wisdom-inner">
+      <span class="section-label">Wisdom Board</span>
+      <h2 class="section-title">Guided by Global Leaders in<br><em>Longevity, AI, and Social Innovation.</em></h2>
+      <div class="wisdom-grid">
+        <div class="wisdom-card reveal"><div class="wisdom-avatar">LF</div><h4>Dr. Linda P. Fried</h4><div class="wisdom-role">Public Health + Research</div><p>Dean, Columbia University Mailman School of Public Health. Founder, Experience Corps (now AARP). Head of Aging, World Economic Forum.</p></div>
+        <div class="wisdom-card reveal"><div class="wisdom-avatar">KD</div><h4>Ken Dychtwald, PhD</h4><div class="wisdom-role">Aging / Investor</div><p>Co-Founder, AgeWave. International Council on Aging. Eldera Mentor and Investor.</p></div>
+        <div class="wisdom-card reveal"><div class="wisdom-avatar">MD</div><h4>Maddy Dychtwald</h4><div class="wisdom-role">Aging / Investor</div><p>Co-Founder, AgeWave. Co-Founder, Women Against Alzheimer's. Eldera Mentor and Investor.</p></div>
+        <div class="wisdom-card reveal"><div class="wisdom-avatar">CC</div><h4>Chip Conley</h4><div class="wisdom-role">Community / Investor</div><p>Founder, Modern Elder Academy. Former Head of Strategy, Airbnb. Eldera Investor.</p></div>
+        <div class="wisdom-card reveal"><div class="wisdom-avatar">AM</div><h4>Adam Myers MD</h4><div class="wisdom-role">Clinical / Payor</div><p>Former Chief Clinical Transformation, Blue Cross Blue Shield. Chief of Population Health, Cleveland Clinic.</p></div>
+        <div class="wisdom-card reveal"><div class="wisdom-avatar">SS</div><h4>Steve Smith</h4><div class="wisdom-role">Wisdom Board</div><p>Veteran NASA Astronaut. Stanford Engineer. Global Space Diplomat.</p></div>
+        <div class="wisdom-card reveal"><div class="wisdom-avatar">AO</div><h4>Adrian Otto</h4><div class="wisdom-role">Technology + AI</div><p>Technical Director, Office of the CTO, Google AI for Good. Former Distinguished Architect, Rackspace. Eldera Parent.</p></div>
+        <div class="wisdom-card reveal"><div class="wisdom-avatar">JB</div><h4>Jen Beighley, PhD</h4><div class="wisdom-role">Childhood Development</div><p>Professor, Seattle University Hospital. Eldera Parent.</p></div>
+        <div class="wisdom-card reveal"><div class="wisdom-avatar">PF</div><h4>Pat Ford</h4><div class="wisdom-role">Communications</div><p>Former CEO USA, Burson-Marsteller. Eldera Mentor.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENDORSEMENT -->
+  <section class="endorsement-section">
+    <div class="endorsement-inner">
+      <blockquote class="endorsement-quote reveal">
+        Eldera really is <em>revolutionary care.</em> By pairing adults 60+ with youth for regular, safe conversations, it strengthens both purpose in life and social connectedness — two fundamental factors linked to mental well-being, cognitive resilience, and reduced risk of dementia, stroke, and depression.
+      </blockquote>
+      <div class="endorsement-attr reveal">
+        <div class="endorsement-name">Jonathan Rosand MD, MSC</div>
+        <div class="endorsement-title">Professor of Neurology, Harvard · Endowed Chair, Massachusetts General Hospital<br>Associate Member, Broad Institute of MIT and Harvard</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRESS -->
+  <section class="press-section">
+    <div class="press-inner">
+      <span class="section-label" style="display:block;text-align:center">As seen in</span>
+      <div class="press-logos-large">
+        <span class="press-name press-name--serif">The Atlantic</span>
+        <span class="press-name press-name--bold">TIME</span>
+        <span class="press-name">The Washington Post</span>
+        <span class="press-name press-name--bold">CNN</span>
+        <span class="press-name">The Boston Globe</span>
+        <span class="press-name press-name--bold">PBS</span>
+        <span class="press-name">Wall Street Journal</span>
+        <span class="press-name">NPR</span>
+        <span class="press-name press-name--bold">MSNBC</span>
+        <span class="press-name">USA Today</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="faq-inner">
+      <div style="text-align:center">
+        <span class="section-label">Common questions</span>
+        <h2 class="section-title">Everything You Need to Know.</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item"><button class="faq-q"><span>What is Eldera's mission?</span><div class="faq-icon">+</div></button><div class="faq-a"><div class="faq-a-inner">Eldera's mission is to unlock the time and wisdom of older adults as a new natural resource for all generations to thrive. We do this by connecting vetted adults 60+ with youth ages 6–17 for weekly virtual mentoring sessions — building protective relationships that reduce loneliness on both sides of the connection.</div></div></div>
+        <div class="faq-item"><button class="faq-q"><span>How does Eldera keep everyone safe?</span><div class="faq-icon">+</div></button><div class="faq-a"><div class="faq-a-inner">Safety is our primary infrastructure — not an afterthought. Every adult undergoes multi-factor identity verification and a background check before being approved. All sessions are monitored in real-time by our proprietary AI Chaperone, which runs 4 parallel models across 12 risk categories and flags concerns to a human reviewer. Our incident rate is under 3 in 10,000 sessions. Parents are always in the loop.</div></div></div>
+        <div class="faq-item"><button class="faq-q"><span>How does Eldera use AI?</span><div class="faq-icon">+</div></button><div class="faq-a"><div class="faq-a-inner">Our AI is pro-social — it exists to protect and amplify human connection, never to replace it. The AI Chaperone monitors sessions for safety signals across video, voice, text, and sentiment without disrupting the natural flow of conversation. We also use AI for matching and for post-session summaries that help mentors and parents stay connected to the relationship.</div></div></div>
+        <div class="faq-item"><button class="faq-q"><span>How does matching work?</span><div class="faq-icon">+</div></button><div class="faq-a"><div class="faq-a-inner">Matching is handled by our AI-assisted MatchMaker, which considers a mentor's wisdom profile (background, interests, expertise, communication style) alongside a young person's interests and needs. Parents and mentors both have visibility into who they've been matched with before the first session. You can always request a rematch if the connection isn't working.</div></div></div>
+        <div class="faq-item"><button class="faq-q"><span>What do I need to become a mentor?</span><div class="faq-icon">+</div></button><div class="faq-a"><div class="faq-a-inner">You need to be 60 or older, have access to a device with a camera, and be willing to commit to one hour per week. You'll go through a background check, complete a short orientation, and build your Wisdom Profile before being matched. The whole process takes about two weeks from sign-up to first session.</div></div></div>
+        <div class="faq-item"><button class="faq-q"><span>How much does Eldera cost?</span><div class="faq-icon">+</div></button><div class="faq-a"><div class="faq-a-inner">Eldera operates on a pay-it-forward model. Individual memberships start at $20/month. If cost is a barrier, join at no cost under our Sponsored Access tier — no questions asked. See our <a href="membership.html">Membership page</a> for full details.</div></div></div>
+        <div class="faq-item"><button class="faq-q"><span>How can I offer Eldera to my community or as an employee benefit?</span><div class="faq-icon">+</div></button><div class="faq-a"><div class="faq-a-inner">Eldera offers organizational partnerships starting at $400/pair/year for groups of 100+ seats. For county and government partners, we have a full deployment infrastructure — see our <a href="partners.html">Partners page</a> for details.</div></div></div>
+        <div class="faq-item"><button class="faq-q"><span>What happens during a mentoring session?</span><div class="faq-icon">+</div></button><div class="faq-a"><div class="faq-a-inner">Sessions happen weekly via Eldera's secure virtual meeting room — no third-party apps needed. The AI Chaperone runs in the background throughout. After each session, both mentor and mentee receive a brief summary and prompts for next time. Average session length is 44 minutes. Most mentors and mentees describe their sessions as the highlight of their week.</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING CTA -->
+  <section class="about-cta">
+    <h2 class="reveal">We Are Building More Than a Company.<br><em>We Are Building New Social Infrastructure.</em></h2>
+    <p class="reveal">Where aging is an opportunity and the wisdom of older adults is an asset to all of society.</p>
+    <div class="about-cta-btns reveal">
+      <a href="mentor-signup.html" class="btn-primary">Become a Mentor →</a>
+      <a href="partners.html" class="btn-dark">Partner with Us</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div><a href="index.html" style="display:flex;align-items:center;text-decoration:none;color:var(--dark);margin-bottom:1rem">
+        <svg height="32" viewBox="0 0 345 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="eldera" style="display:block;color:var(--dark)">
+          <path d="M43.5 33.5C41.6 33.5 39.6 33.6 37.8 33.9C17 36.7 1 54.4 1 75.9C1 97.3 17 115 37.8 117.8C39.6 118.1 41.6 118.2 43.5 118.2H44.5V33.5H43.5ZM36.9 110C20.8 106.9 8.6 92.8 8.6 75.9C8.6 58.9 20.8 44.8 36.9 41.7V110Z" fill="currentColor" stroke="currentColor" stroke-width="2"/>
+          <path d="M38.4 100.9C40.3 100.9 42.2 100.8 44.1 100.6C69.1 97.7 88.5 76.6 88.5 50.9C88.5 25.3 69.1 4.2 44.1 1.3C42.2 1.1 40.3 1 38.4 1H37.4V100.9H38.4ZM45 9.1C65.3 12.3 80.9 29.8 80.9 50.9C80.9 72.1 65.3 89.6 45 92.8V9.1Z" fill="currentColor" stroke="currentColor" stroke-width="2"/>
+          <path d="M41.3 100.7C59.9 100.7 74.9 85.7 74.9 67.2C74.9 48.7 59.9 33.7 41.3 33.7C22.8 33.7 7.8 48.7 7.8 67.2C7.8 85.7 22.8 100.7 41.3 100.7ZM41.3 93.1C27 93.1 15.4 81.5 15.4 67.2C15.4 52.9 27 41.3 41.3 41.3C55.7 41.3 67.3 52.9 67.3 67.2C67.3 81.5 55.7 93.1 41.3 93.1Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M303.848 70.8C303.848 59.7 311.809 50.5 322.19 50.5C327.575 50.5 331.712 53.2 333.429 55.7V51.3H344.122V90.3H333.429V86C331.712 88.5 327.575 91.2 322.19 91.2C311.809 91.2 303.848 81.9 303.848 70.8ZM334.287 70.8C334.287 64.7 330.307 60.2 324.453 60.2C318.599 60.2 314.619 64.7 314.619 70.8C314.619 76.9 318.599 81.4 324.453 81.4C330.307 81.4 334.287 76.9 334.287 70.8Z" fill="currentColor"/>
+          <path d="M276.924 90.3V51.3H287.617V57.6C288.944 53.7 292.924 50.8 297.295 50.8C298.388 50.8 299.559 50.9 300.885 51.3V62.2C299.246 61.6 297.763 61.3 296.046 61.3C290.973 61.3 287.617 65.3 287.617 71.7V90.3H276.924Z" fill="currentColor"/>
+          <path d="M268.667 77.6C266.325 85.5 258.598 91.2 248.686 91.2C236.744 91.2 228.236 82.6 228.236 70.7C228.236 59.1 236.9 50.5 248.764 50.5C260.237 50.5 269.681 58.6 269.135 73.3H238.695C239.163 77.9 242.598 81.9 249.232 81.9C252.978 81.9 256.257 80.3 257.505 77.6H268.667ZM248.451 59.1C243.534 59.1 240.1 62 239.085 66.3H257.427C256.1 61.1 252.12 59.1 248.451 59.1Z" fill="currentColor"/>
+          <path d="M180.064 70.8C180.064 59.7 188.026 50.5 198.406 50.5C203.792 50.5 207.929 53.2 209.646 55.7V31.8H220.339V90.3H209.646V86C207.929 88.5 203.792 91.2 198.406 91.2C188.026 91.2 180.064 81.9 180.064 70.8ZM210.504 70.8C210.504 64.7 206.524 60.2 200.67 60.2C194.816 60.2 190.835 64.7 190.835 70.8C190.835 76.9 194.816 81.4 200.67 81.4C206.524 81.4 210.504 76.9 210.504 70.8Z" fill="currentColor"/>
+          <path d="M161.601 90.3V31.8H172.294V90.3H161.601Z" fill="currentColor"/>
+          <path d="M153.343 77.6C151.002 85.5 143.275 91.2 133.362 91.2C121.421 91.2 112.913 82.6 112.913 70.7C112.913 59.1 121.577 50.5 133.44 50.5C144.914 50.5 154.358 58.6 153.812 73.3H123.372C123.84 77.9 127.274 81.9 133.909 81.9C137.655 81.9 140.933 80.3 142.182 77.6H153.343ZM133.128 59.1C128.211 59.1 124.777 62 123.762 66.3H142.104C140.777 61.1 136.797 59.1 133.128 59.1Z" fill="currentColor"/>
+        </svg>
+      </a></div>
+      <div class="footer-col"><div class="footer-col-title">Platform</div><a href="mentors.html">For Mentors</a><a href="parents.html">For Parents</a><a href="membership.html">Membership</a><a href="#">How It Works</a></div>
+      <div class="footer-col"><div class="footer-col-title">Company</div><a href="about.html">About</a><a href="partners.html">Partners</a><a href="#">Safety</a><a href="#">Stories</a></div>
+      <div class="footer-col"><div class="footer-col-title">Connect</div><a href="#">Contact Us</a><a href="#">Newsletter</a><a href="#">Careers</a>
+        <div class="footer-social">
+          <a href="#" class="footer-social-link" aria-label="Eldera on Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="#" class="footer-social-link" aria-label="Eldera on LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Eldera. All rights reserved.</span>
+      <span class="footer-copy">Privacy · Terms · Accessibility</span>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); });
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) { setTimeout(() => entry.target.classList.add('visible'), i * 80); observer.unobserve(entry.target); }
+      });
+    }, { threshold: 0.15 });
+    reveals.forEach(el => observer.observe(el));
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+  </script>
+</body>
+</html>
