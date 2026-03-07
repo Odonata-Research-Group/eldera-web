@@ -68,7 +68,7 @@
     .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 4rem; }
     .why-card { background: var(--white); border-radius: var(--radius-lg); padding: 2.25rem 1.75rem; transition: transform 0.25s, box-shadow 0.25s; }
     .why-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
-    .why-card-num { font-family: var(--serif); font-size: 2.8rem; color: var(--text); line-height: 1; margin-bottom: 0.75rem; font-weight: 400; }
+    .why-card-num { font-family: var(--serif); font-size: 2.8rem; color: var(--gold); line-height: 1; margin-bottom: 0.75rem; font-weight: 400; }
     .why-card-num span { color: var(--gold); }
     .why-card p { font-size: 0.84rem; color: var(--muted-warm); line-height: 1.65; }
     .why-card-source { font-size: 0.7rem; color: #bbb; font-style: italic; margin-top: 0.75rem; }
@@ -132,13 +132,18 @@
     .endorsement-name { font-weight: 600; font-size: 0.92rem; color: var(--text); }
     .endorsement-title { font-size: 0.78rem; color: var(--muted); margin-top: 0.35rem; line-height: 1.6; }
 
-    /* ── PRESS ── */
-    .press-section { padding: 5rem 3rem; border-top: 1px solid var(--border); background: var(--clay); }
-    .press-inner { max-width: 1100px; margin: 0 auto; text-align: center; }
-    .press-logos-large { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 2.5rem 3.5rem; margin-top: 2.5rem; }
-    .press-name { font-size: 0.92rem; font-weight: 700; color: #c0bab0; letter-spacing: 0.04em; transition: color 0.2s; }
-    .press-name:hover { color: var(--text); }
-    .press-name--serif { font-family: var(--serif); font-style: italic; letter-spacing: 0; font-weight: 500; font-size: 1rem; }
+    /* ── RECOGNIZED BY ── */
+    .recognized-section { padding: 6rem 3rem; border-top: 1px solid var(--border); background: var(--clay); }
+    .recognized-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+    .recognized-left h2 { font-family: var(--serif); font-size: clamp(1.8rem, 2.8vw, 2.4rem); color: var(--text); letter-spacing: -0.02em; line-height: 1.15; font-weight: 400; margin-bottom: 1.25rem; }
+    .recognized-left h2 em { font-style: italic; color: var(--gold); }
+    .recognized-left p { font-size: 0.9rem; color: var(--muted-warm); line-height: 1.75; }
+    .recognized-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .recognized-card { background: var(--white); border-radius: var(--radius-lg); padding: 1.75rem; display: flex; flex-direction: column; gap: 0.75rem; transition: transform 0.2s, box-shadow 0.2s; }
+    .recognized-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+    .recognized-logo { height: 36px; display: flex; align-items: center; }
+    .recognized-logo-text { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+    .recognized-card p { font-size: 0.78rem; color: var(--muted-warm); line-height: 1.6; margin: 0; }
 
     /* ── FAQ ── */
     .faq-section { padding: 7rem 3rem; }
@@ -178,6 +183,7 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 1000px) {
+      .recognized-inner { grid-template-columns: 1fr; gap: 3rem; }
       .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
       .timeline-inner { grid-template-columns: 1fr; gap: 3rem; }
       .timeline-header { position: static; }
@@ -245,7 +251,7 @@
     <div class="why-inner">
       <span class="section-label">Why this matters</span>
       <h2 class="section-title">Two Epidemics.<br><em>One Untapped Resource.</em></h2>
-      <p class="section-sub">The healthcare cost crisis, youth mental health emergency, and older-adult isolation are colliding at the same moment that 1 in 4 Californians will be 60+ by 2030.</p>
+      <p class="section-sub">The youth mental health crisis, the older-adult isolation epidemic, and the collapse of intergenerational connection are converging into a single global emergency — at the precise moment the world's 60+ population is set to double.</p>
       <div class="why-grid">
         <div class="why-card reveal">
           <div class="why-card-num">1 in 2<span></span></div>
@@ -402,21 +408,31 @@
     </div>
   </section>
 
-  <!-- PRESS -->
-  <section class="press-section">
-    <div class="press-inner">
-      <span class="section-label" style="display:block;text-align:center">As seen in</span>
-      <div class="press-logos-large">
-        <span class="press-name press-name--serif">The Atlantic</span>
-        <span class="press-name press-name--bold">TIME</span>
-        <span class="press-name">The Washington Post</span>
-        <span class="press-name press-name--bold">CNN</span>
-        <span class="press-name">The Boston Globe</span>
-        <span class="press-name press-name--bold">PBS</span>
-        <span class="press-name">Wall Street Journal</span>
-        <span class="press-name">NPR</span>
-        <span class="press-name press-name--bold">MSNBC</span>
-        <span class="press-name">USA Today</span>
+  <!-- RECOGNIZED BY -->
+  <section class="recognized-section">
+    <div class="recognized-inner">
+      <div class="recognized-left">
+        <span class="section-label">Recognized by</span>
+        <h2>Validated by Global Leaders in <em>Aging, Health, and Social Innovation.</em></h2>
+        <p>Eldera's model has been recognized by the world's foremost institutions working on loneliness, aging, and population health — from the WHO to Harvard to the California Master Plan on Aging.</p>
+      </div>
+      <div class="recognized-grid">
+        <div class="recognized-card reveal">
+          <div class="recognized-logo"><span class="recognized-logo-text">Milken Institute</span></div>
+          <p>Center for the Future of Aging made the case for scaling Eldera as an intergenerational solution to the U.S. Surgeon General's declaration of the Loneliness and Social Isolation Epidemic.</p>
+        </div>
+        <div class="recognized-card reveal">
+          <div class="recognized-logo"><span class="recognized-logo-text">WHO</span></div>
+          <p>Eldera formally qualifies as a Social Prescription intervention under the World Health Organization's 2024 standards for social health.</p>
+        </div>
+        <div class="recognized-card reveal">
+          <div class="recognized-logo"><span class="recognized-logo-text">Harvard</span></div>
+          <p>Research partnership with the Harvard Global Brain Care Coalition under the leadership of Professor Jonathan Rosand, Massachusetts General Hospital.</p>
+        </div>
+        <div class="recognized-card reveal">
+          <div class="recognized-logo"><span class="recognized-logo-text">CA Master Plan</span></div>
+          <p>California Master Plan on Aging Implementation Partner, working with the California Commission on Aging across 5 counties.</p>
+        </div>
       </div>
     </div>
   </section>
