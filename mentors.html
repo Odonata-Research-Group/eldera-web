@@ -11,17 +11,23 @@
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{--serif:'Newsreader',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--gold:#C49A2A;--gold-hover:#A67E1E;--gold-pale:rgba(196,154,42,0.10);--gold-border:rgba(196,154,42,0.25);--dark:#1A1510;--white:#fff;--clay:#F7F3E9;--text:#1A1510;--text-on-dark:#fff;--sub-on-dark:rgba(255,255,255,0.65);--muted:#666666;--muted-warm:#625E5B;--border:#E8E3D9;--radius-md:0.875rem;--radius-lg:1.25rem;--radius-xl:1.75rem;--radius-pill:100px;--shadow-sm:0 1px 3px rgba(26,21,16,0.06);--shadow-md:0 4px 16px rgba(26,21,16,0.08)}
     body{font-family:var(--sans);background:var(--clay);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
-    .nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.25rem 3rem;transition:background 0.4s ease}
+    .nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;padding:1.25rem 3rem;transition:background 0.4s ease}
     .nav.scrolled{background:rgba(247,243,233,0.82);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}
-    .nav-logo{display:flex;align-items:center;text-decoration:none;color:var(--white);flex-shrink:0;transition:color 0.4s ease}
+    .nav-logo{display:flex;align-items:center;text-decoration:none;color:var(--white);flex:1;transition:color 0.4s ease}
     .nav.scrolled .nav-logo{color:var(--dark)}
-    .nav-links{display:flex;align-items:center;gap:2.25rem}
-    .nav-links a{font-size:.82rem;font-weight:500;color:rgba(255,255,255,.7);text-decoration:none;transition:color 0.4s ease}
-    .nav.scrolled .nav-links a:not(.nav-cta){color:rgba(26,21,16,.55)}
-    .nav-links a:hover{color:var(--white)}
-    .nav.scrolled .nav-links a:not(.nav-cta):hover{color:var(--dark)}
+    .nav-center{display:flex;align-items:center;gap:2.25rem}
+    .nav-center a{font-size:.82rem;font-weight:500;color:rgba(255,255,255,.7);text-decoration:none;transition:color 0.4s ease}
+    .nav.scrolled .nav-center a{color:var(--muted-warm)}
+    .nav-center a:hover{color:var(--white)}
+    .nav.scrolled .nav-center a:hover{color:var(--dark)}
+    .nav-auth{display:flex;align-items:center;gap:1.25rem;flex:1;justify-content:flex-end}
+    .nav-auth a{font-size:.82rem;font-weight:500;color:rgba(255,255,255,.7);text-decoration:none;transition:color 0.4s ease}
+    .nav.scrolled .nav-auth a:not(.nav-cta){color:var(--muted-warm)}
+    .nav-auth a:hover{color:var(--white)}
+    .nav.scrolled .nav-auth a:not(.nav-cta):hover{color:var(--dark)}
     .nav-cta{background:var(--gold)!important;color:var(--dark)!important;font-weight:600!important;padding:.5rem 1.25rem!important;border-radius:var(--radius-pill)!important;transition:background .2s!important}
     .nav-cta:hover{background:var(--gold-hover)!important}
+    .nav-login{opacity:.7}.nav.scrolled .nav-login{opacity:1}
     .section-label{display:block;font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
     .section-title{font-family:var(--serif);font-size:clamp(2rem,3.5vw,2.8rem);font-weight:500;color:var(--text);letter-spacing:-.02em;line-height:1.12;margin-bottom:1rem}
     .section-title em{font-style:italic;color:var(--gold)}
@@ -147,7 +153,7 @@
     .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.8,.2,1),transform .6s cubic-bezier(.2,.8,.2,1)}
     .reveal.visible{opacity:1;transform:translateY(0)}
     @media(max-width:1000px){.profile-layout{grid-template-columns:1fr}.profile-stats{flex-direction:row}.profile-stat-card{flex:1}.why-grid{grid-template-columns:1fr}.safety-grid{grid-template-columns:1fr 1fr}.do-grid{grid-template-columns:1fr 1fr}.footer-inner{grid-template-columns:1fr 1fr}}
-    @media(max-width:768px){.nav{padding:1rem 1.5rem}.nav-links a:not(.nav-cta){display:none}.hero{padding:6rem 1.5rem 3rem;min-height:auto}.profile-stats{flex-direction:column}.safety-grid{grid-template-columns:1fr}.safety-stat-bar{flex-direction:column;text-align:center}.do-grid,.testimonial-grid{grid-template-columns:1fr}.profile-section,.why-section,.how-section,.safety-section,.do-section,.testimonial-section,.faq-section,.cta-section{padding:4rem 1.5rem}.footer-inner{grid-template-columns:1fr}.footer-bottom{flex-direction:column;gap:.5rem;text-align:center}}
+    @media(max-width:768px){.nav{padding:1rem 1.5rem}.nav-center{display:none}.nav-auth a:not(.nav-cta){display:none}.hero{padding:6rem 1.5rem 3rem;min-height:auto}.profile-stats{flex-direction:column}.safety-grid{grid-template-columns:1fr}.safety-stat-bar{flex-direction:column;text-align:center}.do-grid,.testimonial-grid{grid-template-columns:1fr}.profile-section,.why-section,.how-section,.safety-section,.do-section,.testimonial-section,.faq-section,.cta-section{padding:4rem 1.5rem}.footer-inner{grid-template-columns:1fr}.footer-bottom{flex-direction:column;gap:.5rem;text-align:center}}
   </style>
 </head>
 <body>
@@ -165,7 +171,7 @@
         <path d="M153.343 77.6148C151.002 85.4979 143.275 91.1956 133.362 91.1956C121.421 91.1956 112.913 82.61 112.913 70.7463C112.913 59.1168 121.577 50.4531 133.44 50.4531C144.914 50.4531 154.358 58.6485 153.812 73.322H123.372C123.84 77.927 127.274 81.9076 133.909 81.9076C137.655 81.9076 140.933 80.2685 142.182 77.6148H153.343ZM133.128 59.1168C128.211 59.1168 124.777 62.0046 123.762 66.2974H142.104C140.777 61.068 136.797 59.1168 133.128 59.1168Z" fill="currentColor"/>
       </svg>
     </a>
-    <div class="nav-links"><a href="mentors.html">Mentors</a><a href="parents.html">Parents</a><a href="about.html">About</a><a href="partners.html">Partners</a><a href="index.html#get-started" class="nav-cta">Get Started</a></div>
+    <div class="nav-center"><a href="mentors.html">Mentors</a><a href="parents.html">Parents</a><a href="partners.html">Partners</a><a href="about.html">About</a></div><div class="nav-auth"><a href="mentor-signup.html" class="nav-login">Log In</a><a href="index.html#get-started" class="nav-cta">Get Started</a></div>
   </nav>
 
   <section class="hero">
@@ -263,7 +269,7 @@
           <path d="M41.3 100.7C59.9 100.7 74.9 85.7 74.9 67.2C74.9 48.7 59.9 33.7 41.3 33.7C22.8 33.7 7.8 48.7 7.8 67.2C7.8 85.7 22.8 100.7 41.3 100.7ZM41.3 93.1C27 93.1 15.4 81.5 15.4 67.2C15.4 52.9 27 41.3 41.3 41.3C55.7 41.3 67.3 52.9 67.3 67.2C67.3 81.5 55.7 93.1 41.3 93.1Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           <path d="M303.848 70.8C303.848 59.7 311.809 50.5 322.19 50.5C327.575 50.5 331.712 53.2 333.429 55.7V51.3H344.122V90.3H333.429V86C331.712 88.5 327.575 91.2 322.19 91.2C311.809 91.2 303.848 81.9 303.848 70.8ZM334.287 70.8C334.287 64.7 330.307 60.2 324.453 60.2C318.599 60.2 314.619 64.7 314.619 70.8C314.619 76.9 318.599 81.4 324.453 81.4C330.307 81.4 334.287 76.9 334.287 70.8Z" fill="currentColor"/>
           <path d="M276.924 90.3V51.3H287.617V57.6C288.944 53.7 292.924 50.8 297.295 50.8C298.388 50.8 299.559 50.9 300.885 51.3V62.2C299.246 61.6 297.763 61.3 296.046 61.3C290.973 61.3 287.617 65.3 287.617 71.7V90.3H276.924Z" fill="currentColor"/>
-          <path d="M268.667 77.6C266.325 85.5 258.598 91.2 248.686 91.2C236.744 91.2 228.236 82.6 228.236 70.7C228.236 59.1 236.9 50.5 248.764 50.5C260.237 50.5 269.681 58.6 269.135 73.3H238.695C239.163 77.9 242.598 81.9 249.232 81.9C252.978 81.9 256.257 80.3 257.505 77.6H268.667ZM248.451 59.1C243.534 59.1 240.1 62 239.085 66.3H257.427C256.1 61.1 136.797 59.1 248.451 59.1Z" fill="currentColor"/>
+          <path d="M268.667 77.6C266.325 85.5 258.598 91.2 248.686 91.2C236.744 91.2 228.236 82.6 228.236 70.7C228.236 59.1 236.9 50.5 248.764 50.5C260.237 50.5 269.681 58.6 269.135 73.3H238.695C239.163 77.9 242.598 81.9 249.232 81.9C252.978 81.9 256.257 80.3 257.505 77.6H268.667ZM248.451 59.1C243.534 59.1 240.1 62 239.085 66.3H257.427C256.1 61.1 252.12 59.1 248.451 59.1Z" fill="currentColor"/>
           <path d="M180.064 70.8C180.064 59.7 188.026 50.5 198.406 50.5C203.792 50.5 207.929 53.2 209.646 55.7V31.8H220.339V90.3H209.646V86C207.929 88.5 203.792 91.2 198.406 91.2C188.026 91.2 180.064 81.9 180.064 70.8ZM210.504 70.8C210.504 64.7 206.524 60.2 200.67 60.2C194.816 60.2 190.835 64.7 190.835 70.8C190.835 76.9 194.816 81.4 200.67 81.4C206.524 81.4 210.504 76.9 210.504 70.8Z" fill="currentColor"/>
           <path d="M161.601 90.3V31.8H172.294V90.3H161.601Z" fill="currentColor"/>
           <path d="M153.343 77.6C151.002 85.5 143.275 91.2 133.362 91.2C121.421 91.2 112.913 82.6 112.913 70.7C112.913 59.1 121.577 50.5 133.44 50.5C144.914 50.5 154.358 58.6 153.812 73.3H123.372C123.84 77.9 127.274 81.9 133.909 81.9C137.655 81.9 140.933 80.3 142.182 77.6H153.343ZM133.128 59.1C128.211 59.1 124.777 62 123.762 66.3H142.104C140.777 61.1 136.797 59.1 133.128 59.1Z" fill="currentColor"/>

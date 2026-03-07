@@ -28,13 +28,17 @@
     body { font-family: var(--sans); background: var(--clay); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
 
     /* ── NAV ── */
-    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 3rem; transition: background 0.4s ease; background: rgba(247,243,233,0.82); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); }
-    .nav-logo { display: flex; align-items: center; text-decoration: none; color: var(--dark); flex-shrink: 0; }
-    .nav-links { display: flex; align-items: center; gap: 2.25rem; }
-    .nav-links a { font-size: 0.82rem; font-weight: 500; color: rgba(26,21,16,0.55); text-decoration: none; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--dark); }
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; padding: 1.25rem 3rem; transition: background 0.4s ease; background: rgba(247,243,233,0.82); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); }
+    .nav-logo { display: flex; align-items: center; text-decoration: none; color: var(--dark); flex: 1; }
+    .nav-center { display: flex; align-items: center; gap: 2.25rem; }
+    .nav-center a { font-size: 0.82rem; font-weight: 500; color: var(--muted-warm); text-decoration: none; transition: color 0.2s; }
+    .nav-center a:hover { color: var(--dark); }
+    .nav-auth { display: flex; align-items: center; gap: 1.25rem; flex: 1; justify-content: flex-end; }
+    .nav-auth a { font-size: 0.82rem; font-weight: 500; color: var(--muted-warm); text-decoration: none; transition: color 0.2s; }
+    .nav-auth a:hover { color: var(--dark); }
     .nav-cta { background: var(--gold) !important; color: var(--dark) !important; font-weight: 600 !important; padding: 0.5rem 1.25rem !important; border-radius: var(--radius-pill) !important; transition: background 0.2s !important; }
     .nav-cta:hover { background: var(--gold-hover) !important; }
+    .nav-login { opacity: 0.7; }
 
     /* ── SHARED ── */
     .section-label { display: block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
@@ -193,7 +197,8 @@
     }
     @media (max-width: 768px) {
       .nav { padding: 1rem 1.5rem; }
-      .nav-links a:not(.nav-cta) { display: none; }
+      .nav-center { display: none; }
+      .nav-auth a:not(.nav-cta) { display: none; }
       .about-hero { padding: 8rem 1.5rem 5rem; }
       .why-grid, .stewardship-grid { grid-template-columns: 1fr; }
       .team-grid { grid-template-columns: 1fr 1fr; }
@@ -220,11 +225,14 @@
         <path d="M153.343 77.6148C151.002 85.4979 143.275 91.1956 133.362 91.1956C121.421 91.1956 112.913 82.61 112.913 70.7463C112.913 59.1168 121.577 50.4531 133.44 50.4531C144.914 50.4531 154.358 58.6485 153.812 73.322H123.372C123.84 77.927 127.274 81.9076 133.909 81.9076C137.655 81.9076 140.933 80.2685 142.182 77.6148H153.343ZM133.128 59.1168C128.211 59.1168 124.777 62.0046 123.762 66.2974H142.104C140.777 61.068 136.797 59.1168 133.128 59.1168Z" fill="currentColor"/>
       </svg>
     </a>
-    <div class="nav-links">
+    <div class="nav-center">
       <a href="mentors.html">Mentors</a>
       <a href="parents.html">Parents</a>
-      <a href="about.html">About</a>
       <a href="partners.html">Partners</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-auth">
+      <a href="mentor-signup.html" class="nav-login">Log In</a>
       <a href="mentor-signup.html" class="nav-cta">Get Started</a>
     </div>
   </nav>
