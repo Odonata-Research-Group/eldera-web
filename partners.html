@@ -73,9 +73,9 @@
     .proof-label{font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem}
     .proof-stats{display:grid;grid-template-columns:1fr 1fr;gap:.875rem;margin-bottom:1rem}
     .proof-stat{background:var(--white);border-radius:var(--radius-lg);padding:1.5rem;box-shadow:var(--shadow-sm)}
-    .proof-stat-num{font-family:var(--serif);font-size:2.2rem;color:var(--text);line-height:1;font-weight:400}
+    .proof-stat-num{font-family:var(--serif);font-size:2.2rem;color:var(--gold);line-height:1;font-weight:400}
     .proof-stat-num span{color:var(--gold);font-size:1.1rem}
-    .proof-stat-label{font-size:.75rem;color:var(--muted);margin-top:.4rem;line-height:1.4}
+    .proof-stat-label{font-size:.75rem;color:var(--muted-warm);margin-top:.4rem;line-height:1.4}
     .not-card{background:var(--white);border-radius:var(--radius-lg);padding:1.25rem 1.5rem;box-shadow:var(--shadow-sm)}
     .not-card-label{font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:.75rem}
     .not-tags{display:flex;flex-wrap:wrap;gap:.5rem}
@@ -86,8 +86,8 @@
     .problem-section{padding:6rem 3rem}
     .problem-inner{max-width:1100px;margin:0 auto}
     .problem-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-top:3.5rem}
-    .problem-stat{border-left:2px solid var(--gold);padding-left:1.5rem}
-    .problem-stat-num{font-family:var(--serif);font-size:2.6rem;color:var(--text);line-height:1;margin-bottom:.5rem;font-weight:400}
+    .problem-stat{border-left:1px solid var(--border);padding-left:1.5rem}
+    .problem-stat-num{font-family:var(--serif);font-size:2.6rem;color:var(--gold);line-height:1;margin-bottom:.5rem;font-weight:400}
     .problem-stat-desc{font-size:.88rem;color:var(--muted-warm);line-height:1.55;margin-bottom:.4rem}
     .problem-stat-source{font-size:.72rem;color:var(--muted);font-style:italic}
 
@@ -97,11 +97,11 @@
     .pilot-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;margin-top:3.5rem;align-items:start}
     .pilot-numbers{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(26,21,16,.08);border-radius:var(--radius-xl);overflow:hidden}
     .pilot-num{background:var(--white);padding:1.75rem 1.5rem}
-    .pilot-num.highlight{background:var(--dark)}
-    .pilot-num-val{font-family:var(--serif);font-size:2.4rem;color:var(--text);line-height:1;margin-bottom:.3rem;font-weight:400}
+    .pilot-num.highlight{background:#E8E4DC}
+    .pilot-num-val{font-family:var(--serif);font-size:2.4rem;color:var(--gold);line-height:1;margin-bottom:.3rem;font-weight:400}
     .pilot-num.highlight .pilot-num-val{color:var(--gold)}
     .pilot-num-label{font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-    .pilot-num.highlight .pilot-num-label{color:rgba(255,255,255,.4)}
+    .pilot-num.highlight .pilot-num-label{color:var(--muted-warm)}
     .counties-row{margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--border)}
     .counties-label{font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.75rem}
     .counties-tags{display:flex;flex-wrap:wrap;gap:.5rem}
@@ -111,17 +111,6 @@
     .pilot-learning:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
     .pilot-learning h4{font-family:var(--serif);font-weight:500;font-size:1.05rem;color:var(--text);margin-bottom:.5rem}
     .pilot-learning p{font-size:.85rem;color:var(--muted-warm);line-height:1.65}
-
-    /* ── POLICY ── */
-    .policy-section{padding:6rem 3rem}
-    .policy-inner{max-width:1100px;margin:0 auto}
-    .policy-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:3.5rem}
-    .policy-card{background:var(--white);border-radius:var(--radius-lg);padding:2rem;display:flex;flex-direction:column;gap:.875rem;transition:transform .25s,box-shadow .25s}
-    .policy-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
-    .policy-win{display:inline-block;padding:.3rem .75rem;background:var(--gold-pale);border-radius:var(--radius-pill);font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
-    .policy-card h3{font-family:var(--serif);font-weight:500;font-size:1.05rem;color:var(--text);line-height:1.4}
-    .policy-card p{font-size:.85rem;color:var(--muted-warm);line-height:1.65}
-    .policy-metric{margin-top:auto;padding-top:1rem;border-top:1px solid var(--border);font-size:.82rem;color:var(--muted-warm);font-style:italic}
 
     /* ── ROI ── */
     .roi-section{padding:6rem 3rem}
@@ -133,36 +122,9 @@
     .roi-table tr:hover td{background:rgba(196,154,42,.03)}
     .roi-table td:first-child{font-weight:600;color:var(--text)}
     .roi-table td:last-child{font-weight:600;color:var(--gold);font-family:var(--serif);font-size:1rem}
-    .roi-total{margin-top:1.25rem;padding:1.5rem 2rem;background:var(--dark);border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:space-between}
-    .roi-total-label{font-size:.88rem;color:rgba(255,255,255,.6)}
+    .roi-total{margin-top:1.25rem;padding:1.5rem 2rem;background:var(--white);border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:space-between;box-shadow:var(--shadow-sm)}
+    .roi-total-label{font-size:.88rem;color:var(--muted-warm)}
     .roi-total-val{font-family:var(--serif);font-size:1.8rem;color:var(--gold);font-weight:400}
-
-    /* ── HELEN'S STORY ── */
-    .helen-section{padding:6rem 3rem}
-    .helen-inner{max-width:1100px;margin:0 auto}
-    .helen-stages{display:grid;grid-template-columns:repeat(3,1fr);margin-top:3.5rem;border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-sm)}
-    .helen-stage{padding:2.5rem;position:relative}
-    .helen-stage:not(:last-child){border-right:1px solid var(--border)}
-    .helen-stage-1{background:var(--white)}
-    .helen-stage-2{background:var(--clay-dark)}
-    .helen-stage-3{background:var(--dark)}
-    .helen-stage-num{font-family:var(--serif);font-size:3rem;color:rgba(196,154,42,.2);line-height:1;margin-bottom:1rem;font-weight:400}
-    .helen-stage-tag{display:inline-block;padding:.3rem .75rem;border-radius:var(--radius-pill);font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:1rem}
-    .tag-risk{background:rgba(220,38,38,.08);color:#dc2626}
-    .tag-asset{background:var(--gold-pale);color:#8a6a10}
-    .tag-champion{background:rgba(74,124,111,.15);color:#3d6b5f}
-    .helen-stage h3{font-family:var(--serif);font-weight:500;font-size:1.1rem;margin-bottom:.75rem}
-    .helen-stage-1 h3,.helen-stage-2 h3{color:var(--text)}
-    .helen-stage-3 h3{color:var(--white)}
-    .helen-stage p{font-size:.85rem;line-height:1.65}
-    .helen-stage-1 p,.helen-stage-2 p{color:var(--muted-warm)}
-    .helen-stage-3 p{color:rgba(255,255,255,.55)}
-    .helen-quote{margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid var(--border);font-style:italic;font-family:var(--serif);font-size:.9rem;line-height:1.6}
-    .helen-stage-1 .helen-quote,.helen-stage-2 .helen-quote{color:var(--muted-warm)}
-    .helen-stage-3 .helen-quote{border-top-color:rgba(255,255,255,.1);color:rgba(255,255,255,.65)}
-    .helen-quote-attr{font-style:normal;font-size:.75rem;margin-top:.4rem;opacity:.6;font-family:var(--sans)}
-    .helen-bottom{margin-top:1.5rem;padding:1.5rem 2rem;background:var(--dark);border-radius:var(--radius-lg);font-size:.95rem;color:rgba(255,255,255,.75);font-weight:400;line-height:1.6}
-    .helen-bottom em{font-style:italic;font-family:var(--serif);color:var(--gold);font-size:1rem}
 
     /* ── DEPLOY STEPS ── */
     .deploy-section{padding:6rem 3rem}
@@ -189,19 +151,20 @@
     .chaperone-spec-icon{width:44px;height:44px;border-radius:var(--radius-md);background:var(--gold-pale);display:flex;align-items:center;justify-content:center;flex-shrink:0}
     .chaperone-spec h4{font-family:var(--serif);font-weight:500;font-size:1.05rem;color:var(--text);margin-bottom:.3rem}
     .chaperone-spec p{font-size:.82rem;color:var(--muted-warm);line-height:1.6}
-    .chaperone-metrics{background:var(--dark);border-radius:var(--radius-xl);padding:2.5rem}
-    .chaperone-metrics h3{font-family:var(--serif);font-size:1.4rem;color:var(--white);margin-bottom:.5rem;font-weight:400}
-    .chaperone-metrics > p{font-size:.85rem;color:rgba(255,255,255,.45);margin-bottom:2rem;line-height:1.65}
+    .chaperone-metrics{background:#EDE9DF;border-radius:var(--radius-xl);padding:2.5rem}
+    .chaperone-metrics h3{font-family:var(--serif);font-size:1.4rem;color:var(--text);margin-bottom:.5rem;font-weight:400}
+    .chaperone-metrics > p{font-size:.85rem;color:var(--muted-warm);margin-bottom:2rem;line-height:1.65}
     .chaperone-metric-grid{display:grid;grid-template-columns:1fr 1fr;gap:.875rem}
-    .c-metric{background:rgba(255,255,255,.05);border-radius:var(--radius-md);padding:1.25rem}
+    .c-metric{background:var(--white);border-radius:var(--radius-md);padding:1.25rem;box-shadow:var(--shadow-sm)}
     .c-metric-val{font-family:var(--serif);font-size:1.6rem;color:var(--gold);line-height:1;font-weight:400}
-    .c-metric-label{font-size:.72rem;color:rgba(255,255,255,.35);margin-top:.3rem;line-height:1.4}
-    .compliance-row{margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.08)}
-    .compliance-label{font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.75rem}
-    .compliance-tags{display:flex;gap:.5rem;flex-wrap:wrap}
-    .compliance-tag{padding:.3rem .75rem;border-radius:var(--radius-pill);font-size:.75rem}
-    .tag-live{background:rgba(74,222,128,.12);color:#4ade80;border:1px solid rgba(74,222,128,.2)}
-    .tag-soon{background:rgba(196,154,42,.12);color:var(--gold);border:1px solid var(--gold-border)}
+    .c-metric-label{font-size:.72rem;color:var(--muted);margin-top:.3rem;line-height:1.4}
+    .compliance-row{margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--border)}
+    .compliance-label{font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.75rem}
+    .compliance-tags{display:flex;flex-direction:column;gap:.5rem}
+    .compliance-tag{display:flex;align-items:center;gap:.625rem;padding:.6rem .875rem;border-radius:var(--radius-md);background:var(--white);font-size:.82rem;color:var(--muted-warm);font-weight:400;box-shadow:var(--shadow-sm);line-height:1.6}
+    .compliance-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+    .tag-live .compliance-dot{background:#4ade80}
+    .tag-soon .compliance-dot{background:#F0C040}
 
     /* ── WISDOM BOARD ── */
     .wisdom-section{padding:6rem 3rem}
@@ -215,15 +178,15 @@
     .wisdom-card p{font-size:.78rem;color:var(--muted-warm);line-height:1.55}
 
     /* ── ENDORSEMENT ── */
-    .quote-section{padding:6rem 3rem;background:var(--dark)}
+    .quote-section{padding:6rem 3rem}
     .quote-inner{max-width:860px;margin:0 auto;text-align:center}
-    .big-quote{font-family:var(--serif);font-size:clamp(1.3rem,2vw,1.7rem);line-height:1.55;color:var(--white);letter-spacing:-.02em;position:relative;padding:0 1.5rem;font-weight:400}
+    .big-quote{font-family:var(--serif);font-size:clamp(1.3rem,2vw,1.7rem);line-height:1.55;color:var(--text);letter-spacing:-.02em;position:relative;padding:0 1.5rem;font-weight:400}
     .big-quote::before{content:'\201C';position:absolute;left:0;top:-1rem;font-size:5rem;color:var(--gold);opacity:.2;line-height:1}
     .big-quote em{font-style:italic;color:var(--gold)}
     .quote-author{margin-top:2.5rem;display:flex;align-items:center;justify-content:center;gap:1rem}
     .quote-author-avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-hover));display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1rem;color:var(--dark);flex-shrink:0;font-weight:500}
-    .quote-author-name{font-weight:600;font-size:.92rem;color:var(--white);text-align:left}
-    .quote-author-title{font-size:.78rem;color:rgba(255,255,255,.4);line-height:1.45;text-align:left}
+    .quote-author-name{font-weight:600;font-size:.92rem;color:var(--text);text-align:left}
+    .quote-author-title{font-size:.78rem;color:var(--muted-warm);line-height:1.45;text-align:left}
 
     /* ── CTA ── */
     .cta-section{padding:6rem 3rem;text-align:center}
@@ -404,7 +367,7 @@
     <div class="pilot-inner">
       <span class="section-label reveal">Proof of concept</span>
       <h2 class="section-title reveal">We Ran the Pilot.<br><em>Here&#x2019;s What Happened.</em></h2>
-      <p class="section-sub reveal">In partnership with the California Commission on Aging, we stress-tested recruitment, onboarding, and operational delivery across 5 counties over 12 weeks.</p>
+      <p class="section-sub reveal">In partnership with the California Commission on Aging, we stress-tested recruitment, onboarding, and operational delivery across 5 counties over 12 weeks. The results set a baseline we can now replicate anywhere.</p>
       <div class="pilot-grid">
         <div class="reveal">
           <div class="pilot-numbers">
@@ -431,7 +394,7 @@
         <div class="pilot-learnings reveal">
           <div class="pilot-learning">
             <h4>Older adults show up when the role is purposeful</h4>
-            <p>We tested: &#x201C;You are needed to support young people and help build a new kind of social health infrastructure for California.&#x201D; Older adults showed up as contributors, not beneficiaries — consistent with MPA Goal 3 engagement.</p>
+            <p>Framing matters. When older adults were invited as contributors — not beneficiaries — retention and engagement were dramatically higher than standard volunteer programs. Purpose is the recruitment strategy.</p>
           </div>
           <div class="pilot-learning">
             <h4>We disproportionately reach men 60+ as mentors</h4>
@@ -443,37 +406,8 @@
           </div>
           <div class="pilot-learning">
             <h4>The safety bar can be held at scale</h4>
-            <p>Zero safety incidents across 86.5 hours of sessions across five counties. Our AI Chaperone and human-in-the-loop protocols held throughout. This is repeatable.</p>
+            <p>Zero safety incidents across 86.5 hours of sessions. Our AI Chaperone and human-in-the-loop protocols held throughout. This is repeatable — across geographies, languages, and partner types.</p>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- POLICY FIT -->
-  <section class="policy-section">
-    <div class="policy-inner">
-      <span class="section-label reveal">Policy alignment</span>
-      <h2 class="section-title reveal">Three Mandates.<br><em>One Infrastructure.</em></h2>
-      <p class="section-sub reveal">Eldera operationalizes California&#x2019;s existing policy priorities — complementing, not replacing, clinical care.</p>
-      <div class="policy-grid">
-        <div class="policy-card reveal">
-          <span class="policy-win">Measurable Win: MPA</span>
-          <h3>Master Plan for Aging — Goal 3: Inclusion &amp; Equity, Not Isolation</h3>
-          <p>Reduce isolation and increase meaningful roles for older adults statewide. Eldera converts isolation risk into quantifiable civic purpose — with 82% retention in a statewide volunteer corps.</p>
-          <div class="policy-metric">82% retention — 80% above industry average for volunteer programs</div>
-        </div>
-        <div class="policy-card reveal">
-          <span class="policy-win">Measurable Win: BHSA / Prop 1</span>
-          <h3>Behavioral Health Services Act — Early Intervention</h3>
-          <p>Counties must allocate 51% of BHSS to Early Intervention; 51% of that to people age 25 and under. Eldera is a zero-clinical-staff workforce multiplier delivering safety-proven, non-clinical prevention at scale.</p>
-          <div class="policy-metric">BHSA-ready, non-clinical, scalable upstream prevention</div>
-        </div>
-        <div class="policy-card reveal">
-          <span class="policy-win">Measurable Win: CYBHI</span>
-          <h3>Children and Youth Behavioral Health Initiative</h3>
-          <p>Strengthen upstream prevention and early support in schools and communities so fewer youth progress to higher-acuity services. Eldera provides upstream resilience and school belonging with integrated AI-backed clinical referrals.</p>
-          <div class="policy-metric">Tier-1 prevention mandates, 2–3 referral source integration</div>
         </div>
       </div>
     </div>
@@ -484,7 +418,7 @@
     <div class="roi-inner">
       <span class="section-label reveal">The economics</span>
       <h2 class="section-title reveal">Each Mentor Pair Generates<br><em>$4k–$6k in Annual Health Savings.</em></h2>
-      <p class="section-sub reveal">California&#x2019;s highest ROI comes from upstream prevention. Here&#x2019;s the conservative math.</p>
+      <p class="section-sub reveal">The highest ROI in social health comes from upstream prevention. Here&#x2019;s the conservative math on what each active mentor pair generates in system savings.</p>
       <table class="roi-table reveal">
         <thead>
           <tr>
@@ -528,41 +462,6 @@
     </div>
   </section>
 
-  <!-- HELEN'S STORY -->
-  <section class="helen-section">
-    <div class="helen-inner">
-      <span class="section-label reveal">Case study</span>
-      <h2 class="section-title reveal">From Isolation Risk<br><em>to Civic Champion.</em></h2>
-      <p class="section-sub reveal">Helen, a retired scientist and quilter, represents millions of high-capacity older Californians who lack a channel for intergenerational contribution. This is what that transformation looks like.</p>
-      <div class="helen-stages reveal">
-        <div class="helen-stage helen-stage-1">
-          <div class="helen-stage-num">01</div>
-          <span class="helen-stage-tag tag-risk">Before Eldera — The Isolation Risk</span>
-          <h3>Purpose gap. High capacity. No channel.</h3>
-          <p>Helen faced a reduced civic role despite no loss of skill — structural isolation documented in the Master Plan for Aging. Millions of high-capacity adults like Helen represent a significant loss of human capital for California.</p>
-          <div class="helen-quote">&#x201C;My grandkids don&#x2019;t need me anymore.&#x201D;<div class="helen-quote-attr">— Helen, before Eldera</div></div>
-        </div>
-        <div class="helen-stage helen-stage-2">
-          <div class="helen-stage-num">02</div>
-          <span class="helen-stage-tag tag-asset">At Eldera — The Resilience Asset</span>
-          <h3>Zoom Granny. Weekly sessions. 4 lives improved.</h3>
-          <p>Now leading weekly chats on science and history, Helen has shifted from isolation risk to vital youth resilience asset. Eldera&#x2019;s AI Chaperone ensures every session is safe — for mentor, mentee, and parent.</p>
-          <div class="helen-quote">&#x201C;I appreciate you treating Emily &amp; Eva like your granddaughters.&#x201D;<div class="helen-quote-attr">— Sophie, Eldera Mom</div></div>
-        </div>
-        <div class="helen-stage helen-stage-3">
-          <div class="helen-stage-num">03</div>
-          <span class="helen-stage-tag tag-champion">Now — The Civic Champion</span>
-          <h3>Recruiter. Community node. Advocate.</h3>
-          <p>Helen now attends virtual socials and book clubs, recruiting new mentors from her network. She&#x2019;s converted from passive recipient of care into an active civic contributor — a pattern repeatable across millions of older Californians.</p>
-          <div class="helen-quote">&#x201C;We&#x2019;re reading books, so I&#x2019;m downloading free children&#x2019;s books on Kindle. It&#x2019;s fun!&#x201D;<div class="helen-quote-attr">— Helen, Eldera Mentor</div></div>
-        </div>
-      </div>
-      <div class="helen-bottom reveal">
-        This is what converting <em>&#x201C;isolation risk&#x201D;</em> into a <em>&#x201C;youth resilience asset&#x201D;</em> looks like — repeatable across millions of older Californians.
-      </div>
-    </div>
-  </section>
-
   <!-- DEPLOY STEPS -->
   <section class="deploy-section" id="deploy">
     <div class="deploy-inner">
@@ -575,7 +474,7 @@
           <div class="deploy-content">
             <div class="deploy-step-label">Step one</div>
             <h4>Alignment &amp; Designation</h4>
-            <p>Identify specific county or state-level priorities — Master Plan for Aging Goal 3, BHSA Early Intervention targets, or CYBHI mandates. We work with your team to designate Eldera as a reference implementation for non-clinical social health.</p>
+            <p>Identify the specific mandates, funding streams, or population health priorities your deployment will address — whether aging policy, youth behavioral health, early intervention, or social isolation. We work with your team to position Eldera as a reference implementation for non-clinical social health within your context.</p>
           </div>
         </div>
         <div class="deploy-step reveal">
@@ -591,7 +490,7 @@
           <div class="deploy-content">
             <div class="deploy-step-label">Step three</div>
             <h4>Youth: Community Integration</h4>
-            <p>Define 2–3 referral sources — schools, foster/juvenile diversion partners, or primary care. Eldera provides all marketing collateral and a simple intake flow with eligibility criteria aligned to Tier-1 prevention mandates, creating a protective relationship layer for youth ages 6–17.</p>
+            <p>Define 2–3 referral sources — schools, youth diversion programs, primary care, or community organizations. Eldera provides all marketing collateral and a simple intake flow with eligibility criteria, creating a protective relationship layer for youth ages 6–17.</p>
           </div>
         </div>
         <div class="deploy-step reveal">
@@ -671,10 +570,10 @@
           <div class="compliance-row">
             <div class="compliance-label">Compliance status</div>
             <div class="compliance-tags">
-              <span class="compliance-tag tag-live">COPPA Compliant</span>
-              <span class="compliance-tag tag-soon">SOC-2 Q2 2026</span>
-              <span class="compliance-tag tag-soon">HIPAA Q4 2026</span>
-              <span class="compliance-tag tag-live">Active MOU — State of CA</span>
+              <span class="compliance-tag tag-live"><span class="compliance-dot"></span>COPPA Compliant</span>
+              <span class="compliance-tag tag-live"><span class="compliance-dot"></span>Active MOU — State of CA</span>
+              <span class="compliance-tag tag-soon"><span class="compliance-dot"></span>SOC-2 Q2 2026</span>
+              <span class="compliance-tag tag-soon"><span class="compliance-dot"></span>HIPAA Q4 2026</span>
             </div>
           </div>
         </div>
@@ -720,21 +619,11 @@
   <!-- CTA -->
   <section class="cta-section">
     <span class="section-label reveal" style="display:block;text-align:center">Get in touch</span>
-    <h2 class="reveal">California Is Where We Prove<br><em>a Simple Idea.</em></h2>
-    <p class="reveal">When older adults are organized safely and at scale, they are not a cost center. They are a statewide resilience corps — supporting all generations.</p>
+    <h2 class="reveal">We&#x2019;ve Proven It Works.<br><em>Now Let&#x2019;s Deploy It.</em></h2>
+    <p class="reveal">The infrastructure is built, the safety bar is set, and the model is repeatable. If you&#x2019;re working on aging, youth mental health, or social isolation — we should talk.</p>
     <div class="cta-actions reveal">
       <a href="mailto:dana@eldera.ai" class="btn-primary">Schedule a Briefing &#x2192;</a>
       <a href="about.html" class="btn-outline">Learn about Eldera</a>
-    </div>
-    <div style="display:flex;justify-content:center" class="reveal">
-      <div class="contact-card">
-        <div class="contact-avatar">DG</div>
-        <div>
-          <div class="contact-name">Dana Griffin</div>
-          <div class="contact-title">Co-Founder &amp; CEO, Eldera</div>
-          <div class="contact-email">dana@eldera.ai</div>
-        </div>
-      </div>
     </div>
   </section>
 
