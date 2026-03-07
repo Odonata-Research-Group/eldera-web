@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Partner with Eldera — Social Health Infrastructure</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400;1,6..72,500;1,6..72,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --serif:'Newsreader',Georgia,serif;
+      --sans:'Inter',system-ui,sans-serif;
+      --gold:#C49A2A;--gold-hover:#A67E1E;
+      --gold-pale:rgba(196,154,42,0.10);
+      --gold-border:rgba(196,154,42,0.25);
+      --dark:#1A1510;--white:#fff;
+      --clay:#F7F3E9;--clay-dark:#EDE9DF;
+      --text:#1A1510;--text-on-dark:#fff;
+      --sub-on-dark:rgba(255,255,255,0.65);
+      --muted:#666666;--muted-warm:#625E5B;
+      --border:#E8E3D9;
+      --radius-md:0.875rem;--radius-lg:1.25rem;--radius-xl:1.75rem;--radius-pill:100px;
+      --shadow-sm:0 1px 3px rgba(26,21,16,0.06);
+      --shadow-md:0 4px 16px rgba(26,21,16,0.08);
+    }
+    body{font-family:var(--sans);background:var(--clay);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+
+    /* ── NAV ── */
+    .nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;padding:1.25rem 3rem;transition:background 0.4s ease;background:rgba(247,243,233,0.82);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}
+    .nav-logo{display:flex;align-items:center;text-decoration:none;color:var(--dark);flex:1}
+    .nav-center{display:flex;align-items:center;gap:2.25rem}
+    .nav-center a{font-size:.82rem;font-weight:500;color:var(--muted-warm);text-decoration:none;transition:color 0.2s}
+    .nav-center a:hover{color:var(--dark)}
+    .nav-auth{display:flex;align-items:center;gap:1.25rem;flex:1;justify-content:flex-end}
+    .nav-auth a{font-size:.82rem;font-weight:500;color:var(--muted-warm);text-decoration:none;transition:color 0.2s}
+    .nav-auth a:hover{color:var(--dark)}
+    .nav-cta{background:var(--gold)!important;color:var(--dark)!important;font-weight:600!important;padding:.5rem 1.25rem!important;border-radius:var(--radius-pill)!important;transition:background .2s!important}
+    .nav-cta:hover{background:var(--gold-hover)!important}
+    .nav-login{opacity:.7}
+
+    /* ── SHARED ── */
+    .section-label{display:block;font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+    .section-title{font-family:var(--serif);font-size:clamp(2rem,3.5vw,2.8rem);font-weight:500;color:var(--text);letter-spacing:-.02em;line-height:1.12;margin-bottom:1rem}
+    .section-title em{font-style:italic;color:var(--gold)}
+    .section-title--light{color:var(--text-on-dark)}
+    .section-sub{font-size:.95rem;color:var(--muted-warm);max-width:560px;line-height:1.75}
+    .btn-primary{display:inline-block;background:var(--gold);color:var(--dark);font-weight:600;font-size:.95rem;padding:.9rem 2rem;border-radius:var(--radius-pill);text-decoration:none;transition:all .2s}
+    .btn-primary:hover{background:var(--gold-hover);transform:translateY(-2px);box-shadow:0 8px 24px rgba(196,154,42,.3)}
+    .btn-ghost{color:var(--muted-warm);font-size:.92rem;text-decoration:none;transition:color .2s;font-weight:500}
+    .btn-ghost:hover{color:var(--dark)}
+    .btn-outline{display:inline-block;background:transparent;color:var(--dark);font-weight:600;font-size:.95rem;padding:.85rem 2rem;border-radius:var(--radius-pill);text-decoration:none;border:2px solid var(--dark);transition:all .2s}
+    .btn-outline:hover{background:var(--dark);color:var(--white)}
+    .btn-dark{display:inline-block;background:var(--dark);color:var(--gold);font-weight:600;font-size:.95rem;padding:.9rem 2rem;border-radius:var(--radius-pill);text-decoration:none;transition:all .2s}
+    .btn-dark:hover{background:#2a2318;transform:translateY(-2px)}
+
+    /* ── HERO ── */
+    .hero{min-height:85vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:9rem 3rem 6rem;gap:5rem;position:relative}
+    .hero-eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:1.75rem;padding:.4rem 1.1rem;border:1px solid var(--gold-border);border-radius:var(--radius-pill)}
+    .hero h1{font-family:var(--serif);font-size:clamp(2.6rem,4.5vw,3.8rem);line-height:1.06;color:var(--text);margin-bottom:1.5rem;letter-spacing:-.03em;font-weight:400}
+    .hero h1 em{font-style:italic;color:var(--gold)}
+    .hero-sub{font-size:1.05rem;color:var(--muted-warm);max-width:500px;margin-bottom:2.5rem;line-height:1.8}
+    .hero-actions{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;margin-bottom:2.5rem}
+    .stewardship-card{background:var(--white);border-radius:var(--radius-lg);padding:1.75rem;box-shadow:var(--shadow-sm)}
+    .stewardship-card h4{font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+    .stewardship-items{display:flex;flex-direction:column;gap:.75rem}
+    .stewardship-item{display:flex;align-items:flex-start;gap:.75rem;font-size:.82rem;color:var(--muted-warm);line-height:1.6}
+    .stewardship-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:.45rem}
+
+    /* Hero right — proof */
+    .hero-proof{position:relative}
+    .proof-label{font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem}
+    .proof-stats{display:grid;grid-template-columns:1fr 1fr;gap:.875rem;margin-bottom:1rem}
+    .proof-stat{background:var(--white);border-radius:var(--radius-lg);padding:1.5rem;box-shadow:var(--shadow-sm)}
+    .proof-stat-num{font-family:var(--serif);font-size:2.2rem;color:var(--text);line-height:1;font-weight:400}
+    .proof-stat-num span{color:var(--gold);font-size:1.1rem}
+    .proof-stat-label{font-size:.75rem;color:var(--muted);margin-top:.4rem;line-height:1.4}
+    .not-card{background:var(--white);border-radius:var(--radius-lg);padding:1.25rem 1.5rem;box-shadow:var(--shadow-sm)}
+    .not-card-label{font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:.75rem}
+    .not-tags{display:flex;flex-wrap:wrap;gap:.5rem}
+    .not-tag{padding:.3rem .8rem;border-radius:var(--radius-pill);font-size:.78rem;color:var(--muted);background:var(--clay-dark);text-decoration:line-through;text-decoration-color:var(--gold)}
+    .is-tag{padding:.3rem .9rem;border-radius:var(--radius-pill);font-size:.78rem;color:var(--dark);background:var(--gold);font-weight:600}
+
+    /* ── PROBLEM STRIP ── */
+    .problem-section{padding:6rem 3rem}
+    .problem-inner{max-width:1100px;margin:0 auto}
+    .problem-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-top:3.5rem}
+    .problem-stat{border-left:2px solid var(--gold);padding-left:1.5rem}
+    .problem-stat-num{font-family:var(--serif);font-size:2.6rem;color:var(--text);line-height:1;margin-bottom:.5rem;font-weight:400}
+    .problem-stat-desc{font-size:.88rem;color:var(--muted-warm);line-height:1.55;margin-bottom:.4rem}
+    .problem-stat-source{font-size:.72rem;color:var(--muted);font-style:italic}
+
+    /* ── PILOT ── */
+    .pilot-section{padding:6rem 3rem}
+    .pilot-inner{max-width:1100px;margin:0 auto}
+    .pilot-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;margin-top:3.5rem;align-items:start}
+    .pilot-numbers{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(26,21,16,.08);border-radius:var(--radius-xl);overflow:hidden}
+    .pilot-num{background:var(--white);padding:1.75rem 1.5rem}
+    .pilot-num.highlight{background:var(--dark)}
+    .pilot-num-val{font-family:var(--serif);font-size:2.4rem;color:var(--text);line-height:1;margin-bottom:.3rem;font-weight:400}
+    .pilot-num.highlight .pilot-num-val{color:var(--gold)}
+    .pilot-num-label{font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+    .pilot-num.highlight .pilot-num-label{color:rgba(255,255,255,.4)}
+    .counties-row{margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--border)}
+    .counties-label{font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.75rem}
+    .counties-tags{display:flex;flex-wrap:wrap;gap:.5rem}
+    .county-tag{padding:.3rem .9rem;border-radius:var(--radius-pill);background:var(--white);border:1px solid var(--border);font-size:.8rem;color:var(--muted-warm)}
+    .pilot-learnings{display:flex;flex-direction:column;gap:1.25rem}
+    .pilot-learning{background:var(--white);border-radius:var(--radius-lg);padding:1.75rem;transition:transform .25s,box-shadow .25s}
+    .pilot-learning:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
+    .pilot-learning h4{font-family:var(--serif);font-weight:500;font-size:1.05rem;color:var(--text);margin-bottom:.5rem}
+    .pilot-learning p{font-size:.85rem;color:var(--muted-warm);line-height:1.65}
+
+    /* ── POLICY ── */
+    .policy-section{padding:6rem 3rem}
+    .policy-inner{max-width:1100px;margin:0 auto}
+    .policy-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:3.5rem}
+    .policy-card{background:var(--white);border-radius:var(--radius-lg);padding:2rem;display:flex;flex-direction:column;gap:.875rem;transition:transform .25s,box-shadow .25s}
+    .policy-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
+    .policy-win{display:inline-block;padding:.3rem .75rem;background:var(--gold-pale);border-radius:var(--radius-pill);font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+    .policy-card h3{font-family:var(--serif);font-weight:500;font-size:1.05rem;color:var(--text);line-height:1.4}
+    .policy-card p{font-size:.85rem;color:var(--muted-warm);line-height:1.65}
+    .policy-metric{margin-top:auto;padding-top:1rem;border-top:1px solid var(--border);font-size:.82rem;color:var(--muted-warm);font-style:italic}
+
+    /* ── ROI ── */
+    .roi-section{padding:6rem 3rem}
+    .roi-inner{max-width:1100px;margin:0 auto}
+    .roi-table{width:100%;margin-top:3rem;border-collapse:collapse;background:var(--white);border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-sm)}
+    .roi-table th{font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:.875rem 1.5rem;text-align:left;border-bottom:1px solid var(--border);background:var(--clay-dark)}
+    .roi-table td{padding:1.25rem 1.5rem;border-bottom:1px solid var(--border);font-size:.88rem;line-height:1.6;vertical-align:top;color:var(--muted-warm)}
+    .roi-table tr:last-child td{border-bottom:none}
+    .roi-table tr:hover td{background:rgba(196,154,42,.03)}
+    .roi-table td:first-child{font-weight:600;color:var(--text)}
+    .roi-table td:last-child{font-weight:600;color:var(--gold);font-family:var(--serif);font-size:1rem}
+    .roi-total{margin-top:1.25rem;padding:1.5rem 2rem;background:var(--dark);border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:space-between}
+    .roi-total-label{font-size:.88rem;color:rgba(255,255,255,.6)}
+    .roi-total-val{font-family:var(--serif);font-size:1.8rem;color:var(--gold);font-weight:400}
+
+    /* ── HELEN'S STORY ── */
+    .helen-section{padding:6rem 3rem}
+    .helen-inner{max-width:1100px;margin:0 auto}
+    .helen-stages{display:grid;grid-template-columns:repeat(3,1fr);margin-top:3.5rem;border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-sm)}
+    .helen-stage{padding:2.5rem;position:relative}
+    .helen-stage:not(:last-child){border-right:1px solid var(--border)}
+    .helen-stage-1{background:var(--white)}
+    .helen-stage-2{background:var(--clay-dark)}
+    .helen-stage-3{background:var(--dark)}
+    .helen-stage-num{font-family:var(--serif);font-size:3rem;color:rgba(196,154,42,.2);line-height:1;margin-bottom:1rem;font-weight:400}
+    .helen-stage-tag{display:inline-block;padding:.3rem .75rem;border-radius:var(--radius-pill);font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:1rem}
+    .tag-risk{background:rgba(220,38,38,.08);color:#dc2626}
+    .tag-asset{background:var(--gold-pale);color:#8a6a10}
+    .tag-champion{background:rgba(74,124,111,.15);color:#3d6b5f}
+    .helen-stage h3{font-family:var(--serif);font-weight:500;font-size:1.1rem;margin-bottom:.75rem}
+    .helen-stage-1 h3,.helen-stage-2 h3{color:var(--text)}
+    .helen-stage-3 h3{color:var(--white)}
+    .helen-stage p{font-size:.85rem;line-height:1.65}
+    .helen-stage-1 p,.helen-stage-2 p{color:var(--muted-warm)}
+    .helen-stage-3 p{color:rgba(255,255,255,.55)}
+    .helen-quote{margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid var(--border);font-style:italic;font-family:var(--serif);font-size:.9rem;line-height:1.6}
+    .helen-stage-1 .helen-quote,.helen-stage-2 .helen-quote{color:var(--muted-warm)}
+    .helen-stage-3 .helen-quote{border-top-color:rgba(255,255,255,.1);color:rgba(255,255,255,.65)}
+    .helen-quote-attr{font-style:normal;font-size:.75rem;margin-top:.4rem;opacity:.6;font-family:var(--sans)}
+    .helen-bottom{margin-top:1.5rem;padding:1.5rem 2rem;background:var(--dark);border-radius:var(--radius-lg);font-size:.95rem;color:rgba(255,255,255,.75);font-weight:400;line-height:1.6}
+    .helen-bottom em{font-style:italic;font-family:var(--serif);color:var(--gold);font-size:1rem}
+
+    /* ── DEPLOY STEPS ── */
+    .deploy-section{padding:6rem 3rem}
+    .deploy-inner{max-width:820px;margin:0 auto}
+    .deploy-steps{display:flex;flex-direction:column;margin-top:3.5rem}
+    .deploy-step{display:flex;gap:1.5rem;position:relative;padding-bottom:2.5rem}
+    .deploy-step:last-child{padding-bottom:0}
+    .deploy-step:not(:last-child)::before{content:'';position:absolute;left:19px;top:52px;bottom:10px;width:1px;background:var(--gold)}
+    .deploy-num{width:40px;height:40px;border-radius:50%;background:var(--gold);color:var(--dark);font-family:var(--serif);font-size:1.2rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1;font-weight:600;line-height:1;box-shadow:var(--shadow-sm);transition:box-shadow .25s}
+    .deploy-step:hover .deploy-num{box-shadow:var(--shadow-md)}
+    .deploy-content{background:var(--white);border-radius:var(--radius-lg);padding:2rem;flex:1;transition:transform .25s,box-shadow .25s}
+    .deploy-step:hover .deploy-content{transform:translateX(4px)}
+    .deploy-step-label{font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem}
+    .deploy-content h4{font-family:var(--serif);font-weight:500;font-size:1.2rem;color:var(--text);margin-bottom:.625rem;letter-spacing:-.01em}
+    .deploy-content p{font-size:.88rem;color:var(--muted-warm);line-height:1.7}
+
+    /* ── CHAPERONE ── */
+    .chaperone-section{padding:6rem 3rem}
+    .chaperone-inner{max-width:1100px;margin:0 auto}
+    .chaperone-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;margin-top:3.5rem;align-items:start}
+    .chaperone-specs{display:flex;flex-direction:column;gap:1rem}
+    .chaperone-spec{display:flex;gap:1.25rem;align-items:flex-start;background:var(--white);border-radius:var(--radius-lg);padding:1.5rem;transition:transform .25s,box-shadow .25s}
+    .chaperone-spec:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
+    .chaperone-spec-icon{width:44px;height:44px;border-radius:var(--radius-md);background:var(--gold-pale);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .chaperone-spec h4{font-family:var(--serif);font-weight:500;font-size:1.05rem;color:var(--text);margin-bottom:.3rem}
+    .chaperone-spec p{font-size:.82rem;color:var(--muted-warm);line-height:1.6}
+    .chaperone-metrics{background:var(--dark);border-radius:var(--radius-xl);padding:2.5rem}
+    .chaperone-metrics h3{font-family:var(--serif);font-size:1.4rem;color:var(--white);margin-bottom:.5rem;font-weight:400}
+    .chaperone-metrics > p{font-size:.85rem;color:rgba(255,255,255,.45);margin-bottom:2rem;line-height:1.65}
+    .chaperone-metric-grid{display:grid;grid-template-columns:1fr 1fr;gap:.875rem}
+    .c-metric{background:rgba(255,255,255,.05);border-radius:var(--radius-md);padding:1.25rem}
+    .c-metric-val{font-family:var(--serif);font-size:1.6rem;color:var(--gold);line-height:1;font-weight:400}
+    .c-metric-label{font-size:.72rem;color:rgba(255,255,255,.35);margin-top:.3rem;line-height:1.4}
+    .compliance-row{margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.08)}
+    .compliance-label{font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.75rem}
+    .compliance-tags{display:flex;gap:.5rem;flex-wrap:wrap}
+    .compliance-tag{padding:.3rem .75rem;border-radius:var(--radius-pill);font-size:.75rem}
+    .tag-live{background:rgba(74,222,128,.12);color:#4ade80;border:1px solid rgba(74,222,128,.2)}
+    .tag-soon{background:rgba(196,154,42,.12);color:var(--gold);border:1px solid var(--gold-border)}
+
+    /* ── WISDOM BOARD ── */
+    .wisdom-section{padding:6rem 3rem}
+    .wisdom-inner{max-width:1100px;margin:0 auto}
+    .wisdom-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;margin-top:3.5rem}
+    .wisdom-card{background:var(--white);border-radius:var(--radius-lg);padding:1.75rem;transition:transform .25s,box-shadow .25s;box-shadow:var(--shadow-sm)}
+    .wisdom-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
+    .wisdom-avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-hover));display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1rem;color:var(--dark);margin-bottom:1rem;font-weight:500}
+    .wisdom-card h4{font-weight:600;font-size:.9rem;color:var(--text);margin-bottom:.2rem}
+    .wisdom-card .wisdom-role{font-size:.72rem;color:var(--gold);font-weight:600;margin-bottom:.5rem}
+    .wisdom-card p{font-size:.78rem;color:var(--muted-warm);line-height:1.55}
+
+    /* ── ENDORSEMENT ── */
+    .quote-section{padding:6rem 3rem;background:var(--dark)}
+    .quote-inner{max-width:860px;margin:0 auto;text-align:center}
+    .big-quote{font-family:var(--serif);font-size:clamp(1.3rem,2vw,1.7rem);line-height:1.55;color:var(--white);letter-spacing:-.02em;position:relative;padding:0 1.5rem;font-weight:400}
+    .big-quote::before{content:'\201C';position:absolute;left:0;top:-1rem;font-size:5rem;color:var(--gold);opacity:.2;line-height:1}
+    .big-quote em{font-style:italic;color:var(--gold)}
+    .quote-author{margin-top:2.5rem;display:flex;align-items:center;justify-content:center;gap:1rem}
+    .quote-author-avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-hover));display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1rem;color:var(--dark);flex-shrink:0;font-weight:500}
+    .quote-author-name{font-weight:600;font-size:.92rem;color:var(--white);text-align:left}
+    .quote-author-title{font-size:.78rem;color:rgba(255,255,255,.4);line-height:1.45;text-align:left}
+
+    /* ── CTA ── */
+    .cta-section{padding:6rem 3rem;text-align:center}
+    .cta-section h2{font-family:var(--serif);font-size:clamp(2rem,3.5vw,2.8rem);color:var(--text);line-height:1.12;margin-bottom:1.2rem;letter-spacing:-.02em;font-weight:500}
+    .cta-section h2 em{font-style:italic;color:var(--gold)}
+    .cta-section > p{font-size:1rem;color:var(--muted-warm);max-width:500px;margin:0 auto 2.5rem;line-height:1.75}
+    .cta-actions{display:flex;align-items:center;justify-content:center;gap:1.25rem;flex-wrap:wrap;margin-bottom:2.5rem}
+    .contact-card{display:inline-flex;align-items:center;gap:1rem;background:var(--white);border-radius:var(--radius-lg);padding:1rem 1.5rem;box-shadow:var(--shadow-sm)}
+    .contact-avatar{width:44px;height:44px;border-radius:50%;background:var(--dark);display:flex;align-items:center;justify-content:center;font-family:var(--serif);color:var(--gold);font-size:.9rem;flex-shrink:0;font-weight:500}
+    .contact-name{font-weight:600;font-size:.9rem;color:var(--text)}
+    .contact-title{font-size:.78rem;color:var(--muted)}
+    .contact-email{font-size:.82rem;color:var(--gold);font-weight:500;margin-top:.15rem}
+
+    /* ── FOOTER ── */
+    .footer{background:var(--clay);padding:4rem 3rem 2.5rem}
+    .footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem}
+    .footer-col-title{font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem}
+    .footer-col a{display:block;font-size:.85rem;color:var(--muted-warm);text-decoration:none;margin-bottom:.65rem;transition:color .2s}
+    .footer-col a:hover{color:var(--text)}
+    .footer-social{display:flex;gap:.75rem;margin-top:1rem}
+    .footer-social-link{color:var(--muted-warm);transition:color .2s;display:flex;align-items:center}
+    .footer-social-link:hover{color:var(--text)}
+    .footer-bottom{max-width:1100px;margin:3rem auto 0;padding-top:2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+    .footer-copy{font-size:.75rem;color:var(--muted)}
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+    .fade-up{opacity:0;animation:fadeUp .7s cubic-bezier(.2,.8,.2,1) forwards}
+    .fade-up:nth-child(1){animation-delay:.1s}.fade-up:nth-child(2){animation-delay:.22s}.fade-up:nth-child(3){animation-delay:.34s}.fade-up:nth-child(4){animation-delay:.46s}
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.8,.2,1),transform .6s cubic-bezier(.2,.8,.2,1)}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:1000px){
+      .hero{grid-template-columns:1fr;min-height:auto;padding-top:7rem;gap:3rem}
+      .pilot-grid{grid-template-columns:1fr}
+      .policy-grid{grid-template-columns:1fr}
+      .chaperone-grid{grid-template-columns:1fr}
+      .helen-stages{grid-template-columns:1fr}
+      .helen-stage:not(:last-child){border-right:none;border-bottom:1px solid var(--border)}
+      .wisdom-grid{grid-template-columns:1fr 1fr}
+      .footer-inner{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:768px){
+      .nav{padding:1rem 1.5rem}.nav-center{display:none}.nav-auth a:not(.nav-cta){display:none}
+      .problem-stats{grid-template-columns:1fr 1fr}
+      .pilot-numbers{grid-template-columns:1fr 1fr}
+      .proof-stats{grid-template-columns:1fr 1fr}
+      .chaperone-metric-grid{grid-template-columns:1fr 1fr}
+      .wisdom-grid{grid-template-columns:1fr 1fr}
+      .problem-section,.pilot-section,.policy-section,.roi-section,.helen-section,.deploy-section,.chaperone-section,.wisdom-section,.cta-section{padding:4rem 1.5rem}
+      .footer-inner{grid-template-columns:1fr}
+      .footer-bottom{flex-direction:column;gap:.5rem;text-align:center}
+      .roi-total{flex-direction:column;gap:.5rem;text-align:center}
+    }
+    @media(max-width:500px){
+      .problem-stats{grid-template-columns:1fr}
+      .wisdom-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-logo" style="display:flex;align-items:center;text-decoration:none;flex-shrink:0">
+      <svg height="32" viewBox="0 0 345 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="eldera" style="display:block">
+        <path d="M43.4966 33.4844C41.5547 33.4844 39.6427 33.6144 37.769 33.8662C17.0152 36.6551 1.00838 54.3827 1.0083 75.8447C1.0083 97.3069 17.0133 115.036 37.769 117.824C39.6427 118.076 41.5547 118.206 43.4966 118.206L44.5044 118.206L44.5044 33.4844L43.4966 33.4844ZM36.895 109.973C20.7759 106.898 8.61767 92.7739 8.61767 75.8447C8.61776 58.9159 20.7772 44.791 36.895 41.7158L36.895 109.973Z" fill="currentColor" stroke="currentColor" stroke-width="2.01607"/>
+        <path d="M38.375 100.883C40.3042 100.883 42.2088 100.774 44.082 100.562C69.0559 97.7379 88.4668 76.6032 88.4668 50.9424C88.4666 25.2817 69.058 4.14762 44.082 1.32324C42.2089 1.11143 40.3042 1.00293 38.375 1.00293H37.3672L37.3672 100.883H38.375ZM44.9766 9.12109C65.3172 12.2816 80.8572 29.8164 80.8574 50.9424C80.8574 72.0681 65.3155 89.6038 44.9766 92.7646L44.9766 9.12109Z" fill="currentColor" stroke="currentColor" stroke-width="2.01607"/>
+        <path d="M41.3379 100.68C59.8808 100.68 74.9178 85.6935 74.918 67.2002C74.918 48.7068 59.8809 33.7197 41.3379 33.7197C22.7949 33.7197 7.75781 48.7068 7.75781 67.2002C7.75794 85.6935 22.795 100.68 41.3379 100.68ZM41.3379 93.0703C26.9756 93.0703 15.3673 81.469 15.3672 67.2002C15.3672 52.9313 26.9755 41.3291 41.3379 41.3291C55.7003 41.3291 67.3086 52.9313 67.3086 67.2002C67.3085 81.469 55.7002 93.0703 41.3379 93.0703Z" fill="currentColor" stroke="currentColor" stroke-width="2.01607" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M303.848 70.8244C303.848 59.7412 311.809 50.4531 322.19 50.4531C327.575 50.4531 331.712 53.1849 333.429 55.6825V51.3117H344.122V90.337H333.429V85.9662C331.712 88.4638 327.575 91.1956 322.19 91.1956C311.809 91.1956 303.848 81.9076 303.848 70.8244ZM334.287 70.8244C334.287 64.7364 330.307 60.2095 324.453 60.2095C318.599 60.2095 314.619 64.7364 314.619 70.8244C314.619 76.9123 318.599 81.4393 324.453 81.4393C330.307 81.4393 334.287 76.9123 334.287 70.8244Z" fill="currentColor"/>
+        <path d="M276.924 90.3374V51.3121H287.617V57.5561C288.944 53.7316 292.924 50.8438 297.295 50.8438C298.388 50.8438 299.559 50.9218 300.885 51.3121V62.1611C299.246 61.6148 297.763 61.3025 296.046 61.3025C290.973 61.3025 287.617 65.2831 287.617 71.6833V90.3374H276.924Z" fill="currentColor"/>
+        <path d="M268.667 77.6148C266.325 85.4979 258.598 91.1956 248.686 91.1956C236.744 91.1956 228.236 82.61 228.236 70.7463C228.236 59.1168 236.9 50.4531 248.764 50.4531C260.237 50.4531 269.681 58.6485 269.135 73.322H238.695C239.163 77.927 242.598 81.9076 249.232 81.9076C252.978 81.9076 256.257 80.2685 257.505 77.6148H268.667ZM248.451 59.1168C243.534 59.1168 240.1 62.0046 239.085 66.2974H257.427C256.1 61.068 252.12 59.1168 248.451 59.1168Z" fill="currentColor"/>
+        <path d="M180.064 70.8222C180.064 59.739 188.026 50.451 198.406 50.451C203.792 50.451 207.929 53.1828 209.646 55.6804V31.7969H220.339V90.3349H209.646V85.9641C207.929 88.4617 203.792 91.1935 198.406 91.1935C188.026 91.1935 180.064 81.9054 180.064 70.8222ZM210.504 70.8222C210.504 64.7343 206.524 60.2073 200.67 60.2073C194.816 60.2073 190.835 64.7343 190.835 70.8222C190.835 76.9102 194.816 81.4371 200.67 81.4371C206.524 81.4371 210.504 76.9102 210.504 70.8222Z" fill="currentColor"/>
+        <path d="M161.601 90.3349V31.7969H172.294V90.3349H161.601Z" fill="currentColor"/>
+        <path d="M153.343 77.6148C151.002 85.4979 143.275 91.1956 133.362 91.1956C121.421 91.1956 112.913 82.61 112.913 70.7463C112.913 59.1168 121.577 50.4531 133.44 50.4531C144.914 50.4531 154.358 58.6485 153.812 73.322H123.372C123.84 77.927 127.274 81.9076 133.909 81.9076C137.655 81.9076 140.933 80.2685 142.182 77.6148H153.343ZM133.128 59.1168C128.211 59.1168 124.777 62.0046 123.762 66.2974H142.104C140.777 61.068 136.797 59.1168 133.128 59.1168Z" fill="currentColor"/>
+      </svg>
+    </a>
+    <div class="nav-center">
+      <a href="mentors.html">Mentors</a>
+      <a href="parents.html">Parents</a>
+      <a href="partners.html">Partners</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-auth">
+      <a href="mentor-signup.html" class="nav-login">Log In</a>
+      <a href="index.html#get-started" class="nav-cta">Get Started</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <span class="hero-eyebrow fade-up">For counties, agencies &amp; institutional partners</span>
+      <h1 class="fade-up">Older Adults Aren&#x2019;t<br>a Cost Center.<br><em>They&#x2019;re the Cure.</em></h1>
+      <p class="hero-sub fade-up">Eldera is a deployable social health infrastructure — mobilizing screened adults 60+ as a statewide, non-clinical prevention support corps for youth. Proven in California. Ready to scale.</p>
+      <div class="hero-actions fade-up">
+        <a href="mailto:dana@eldera.ai" class="btn-primary">Schedule a Briefing &#x2192;</a>
+        <a href="#deploy" class="btn-ghost">See how it works &#x2193;</a>
+      </div>
+      <div class="stewardship-card fade-up">
+        <h4>Perpetual Stewardship Model</h4>
+        <div class="stewardship-items">
+          <div class="stewardship-item"><span class="stewardship-dot"></span>Transitioning to Public Benefit Corporation — structured for public partnership, not monetization.</div>
+          <div class="stewardship-item"><span class="stewardship-dot"></span>Member data held in trust. Never sold, never used for advertising. De-identified aggregate reporting only.</div>
+          <div class="stewardship-item"><span class="stewardship-dot"></span>Active MOU with the State of California. COPPA compliant. SOC-2 in progress.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-proof">
+      <p class="proof-label">Q4 2025 California Pilot — 5 counties, 12 weeks</p>
+      <div class="proof-stats">
+        <div class="proof-stat">
+          <div class="proof-stat-num">82<span>%</span></div>
+          <div class="proof-stat-label">retention after first call</div>
+        </div>
+        <div class="proof-stat">
+          <div class="proof-stat-num">46<span>%</span></div>
+          <div class="proof-stat-label">male mentor engagement<br>(national avg: 25–30%)</div>
+        </div>
+        <div class="proof-stat">
+          <div class="proof-stat-num">0</div>
+          <div class="proof-stat-label">safety incidents across all sessions</div>
+        </div>
+        <div class="proof-stat">
+          <div class="proof-stat-num">44<span>min</span></div>
+          <div class="proof-stat-label">average session length</div>
+        </div>
+      </div>
+      <div class="not-card">
+        <div class="not-card-label">What Eldera is not</div>
+        <div class="not-tags">
+          <span class="not-tag">Clinical care</span>
+          <span class="not-tag">Therapy</span>
+          <span class="not-tag">Tutoring</span>
+          <span class="not-tag">In-person</span>
+          <span class="is-tag">Non-clinical prevention infrastructure ✓</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="problem-section">
+    <div class="problem-inner">
+      <span class="section-label reveal">The crisis</span>
+      <h2 class="section-title reveal">Two Loneliness Epidemics.<br><em>One Solution.</em></h2>
+      <p class="section-sub reveal">The healthcare cost crisis, youth mental health emergency, and older-adult isolation are colliding. The infrastructure to address all three simultaneously already exists.</p>
+      <div class="problem-stats">
+        <div class="problem-stat reveal">
+          <div class="problem-stat-num">3 in 10</div>
+          <div class="problem-stat-desc">California adolescents report chronic sadness or hopelessness</div>
+          <div class="problem-stat-source">Public Policy Institute of California</div>
+        </div>
+        <div class="problem-stat reveal">
+          <div class="problem-stat-num">40%</div>
+          <div class="problem-stat-desc">of older Californians report loneliness or isolation</div>
+          <div class="problem-stat-source">California&#x2019;s Master Plan on Aging</div>
+        </div>
+        <div class="problem-stat reveal">
+          <div class="problem-stat-num">$6.7B</div>
+          <div class="problem-stat-desc">excess Medicare spending attributable to social isolation among older adults annually</div>
+          <div class="problem-stat-source">U.S. Surgeon General, 2023</div>
+        </div>
+        <div class="problem-stat reveal">
+          <div class="problem-stat-num">9M</div>
+          <div class="problem-stat-desc">older residents in California — enough human capacity to strengthen youth belonging at scale</div>
+          <div class="problem-stat-source">California Department of Finance</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PILOT RESULTS -->
+  <section class="pilot-section">
+    <div class="pilot-inner">
+      <span class="section-label reveal">Proof of concept</span>
+      <h2 class="section-title reveal">We Ran the Pilot.<br><em>Here&#x2019;s What Happened.</em></h2>
+      <p class="section-sub reveal">In partnership with the California Commission on Aging, we stress-tested recruitment, onboarding, and operational delivery across 5 counties over 12 weeks.</p>
+      <div class="pilot-grid">
+        <div class="reveal">
+          <div class="pilot-numbers">
+            <div class="pilot-num"><div class="pilot-num-val">89</div><div class="pilot-num-label">Sign-ups</div></div>
+            <div class="pilot-num highlight"><div class="pilot-num-val">0</div><div class="pilot-num-label">Safety incidents</div></div>
+            <div class="pilot-num"><div class="pilot-num-val">57<span style="font-size:1.1rem">%</span></div><div class="pilot-num-label">Vetted &amp; approved</div></div>
+            <div class="pilot-num"><div class="pilot-num-val">84<span style="font-size:1.1rem">%</span></div><div class="pilot-num-label">Matched out of vetted</div></div>
+            <div class="pilot-num"><div class="pilot-num-val">82<span style="font-size:1.1rem">%</span></div><div class="pilot-num-label">Retention after first call</div></div>
+            <div class="pilot-num"><div class="pilot-num-val">44<span style="font-size:.9rem">min</span></div><div class="pilot-num-label">Avg. session length</div></div>
+            <div class="pilot-num highlight"><div class="pilot-num-val">46<span style="font-size:1.1rem">%</span></div><div class="pilot-num-label">Male mentor engagement</div></div>
+            <div class="pilot-num"><div class="pilot-num-val">86.5</div><div class="pilot-num-label">Safe connection hours</div></div>
+          </div>
+          <div class="counties-row">
+            <div class="counties-label">Pilot footprint</div>
+            <div class="counties-tags">
+              <span class="county-tag">Sonoma</span>
+              <span class="county-tag">San Francisco</span>
+              <span class="county-tag">San Mateo</span>
+              <span class="county-tag">Santa Cruz</span>
+              <span class="county-tag">Los Angeles</span>
+            </div>
+          </div>
+        </div>
+        <div class="pilot-learnings reveal">
+          <div class="pilot-learning">
+            <h4>Older adults show up when the role is purposeful</h4>
+            <p>We tested: &#x201C;You are needed to support young people and help build a new kind of social health infrastructure for California.&#x201D; Older adults showed up as contributors, not beneficiaries — consistent with MPA Goal 3 engagement.</p>
+          </div>
+          <div class="pilot-learning">
+            <h4>We disproportionately reach men 60+ as mentors</h4>
+            <p>46% of pilot mentors were men — vs. 25–30% national average for volunteerism (AmeriCorps/BBBS). Older men are the group most needed by boys and young men, and historically hardest to mobilize.</p>
+          </div>
+          <div class="pilot-learning">
+            <h4>The 43% screening drop-off is a feature, not a bug</h4>
+            <p>Our onboarding attrition reflects intentional screening rigor — reducing risk before any adult is matched with a child. It&#x2019;s our safety infrastructure in action, not a recruitment failure.</p>
+          </div>
+          <div class="pilot-learning">
+            <h4>The safety bar can be held at scale</h4>
+            <p>Zero safety incidents across 86.5 hours of sessions across five counties. Our AI Chaperone and human-in-the-loop protocols held throughout. This is repeatable.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POLICY FIT -->
+  <section class="policy-section">
+    <div class="policy-inner">
+      <span class="section-label reveal">Policy alignment</span>
+      <h2 class="section-title reveal">Three Mandates.<br><em>One Infrastructure.</em></h2>
+      <p class="section-sub reveal">Eldera operationalizes California&#x2019;s existing policy priorities — complementing, not replacing, clinical care.</p>
+      <div class="policy-grid">
+        <div class="policy-card reveal">
+          <span class="policy-win">Measurable Win: MPA</span>
+          <h3>Master Plan for Aging — Goal 3: Inclusion &amp; Equity, Not Isolation</h3>
+          <p>Reduce isolation and increase meaningful roles for older adults statewide. Eldera converts isolation risk into quantifiable civic purpose — with 82% retention in a statewide volunteer corps.</p>
+          <div class="policy-metric">82% retention — 80% above industry average for volunteer programs</div>
+        </div>
+        <div class="policy-card reveal">
+          <span class="policy-win">Measurable Win: BHSA / Prop 1</span>
+          <h3>Behavioral Health Services Act — Early Intervention</h3>
+          <p>Counties must allocate 51% of BHSS to Early Intervention; 51% of that to people age 25 and under. Eldera is a zero-clinical-staff workforce multiplier delivering safety-proven, non-clinical prevention at scale.</p>
+          <div class="policy-metric">BHSA-ready, non-clinical, scalable upstream prevention</div>
+        </div>
+        <div class="policy-card reveal">
+          <span class="policy-win">Measurable Win: CYBHI</span>
+          <h3>Children and Youth Behavioral Health Initiative</h3>
+          <p>Strengthen upstream prevention and early support in schools and communities so fewer youth progress to higher-acuity services. Eldera provides upstream resilience and school belonging with integrated AI-backed clinical referrals.</p>
+          <div class="policy-metric">Tier-1 prevention mandates, 2–3 referral source integration</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROI -->
+  <section class="roi-section">
+    <div class="roi-inner">
+      <span class="section-label reveal">The economics</span>
+      <h2 class="section-title reveal">Each Mentor Pair Generates<br><em>$4k–$6k in Annual Health Savings.</em></h2>
+      <p class="section-sub reveal">California&#x2019;s highest ROI comes from upstream prevention. Here&#x2019;s the conservative math.</p>
+      <table class="roi-table reveal">
+        <thead>
+          <tr>
+            <th>Savings lever</th>
+            <th>Evidence</th>
+            <th>Conservative math</th>
+            <th>Annual delta</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Lower Medicare overspend from isolation</td>
+            <td>Isolated beneficiaries cost Medicare +$1,644/year (Surgeon General, 2023)</td>
+            <td>Mentor → reduced isolation → recovers that excess spend</td>
+            <td>$1,644</td>
+          </tr>
+          <tr>
+            <td>Purpose effect on cardiovascular disease</td>
+            <td>Higher purpose associated with 23% lower CVD incidence (Kim et al., Harvard Medical School)</td>
+            <td>Avg. post-event spend ≈ $5,200/yr × 0.23</td>
+            <td>~$1,200</td>
+          </tr>
+          <tr>
+            <td>Avoided youth mental health spend</td>
+            <td>Families with a child with anxiety/depression pay +$4,361/yr more (JAMA Network, 2021)</td>
+            <td>Formal mentoring cuts internalizing symptoms ~30% → 0.30 × $4,361</td>
+            <td>~$1,300</td>
+          </tr>
+          <tr>
+            <td>Reduced family medical spillover</td>
+            <td>Extra family medical spend = $2,337/yr (JAMA Network, 2021)</td>
+            <td>30% symptom drop → 0.30 × $2,337</td>
+            <td>~$700</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="roi-total reveal">
+        <span class="roi-total-label">Conservative total savings per active mentor-mentee pair, per year</span>
+        <span class="roi-total-val">~$4,800</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- HELEN'S STORY -->
+  <section class="helen-section">
+    <div class="helen-inner">
+      <span class="section-label reveal">Case study</span>
+      <h2 class="section-title reveal">From Isolation Risk<br><em>to Civic Champion.</em></h2>
+      <p class="section-sub reveal">Helen, a retired scientist and quilter, represents millions of high-capacity older Californians who lack a channel for intergenerational contribution. This is what that transformation looks like.</p>
+      <div class="helen-stages reveal">
+        <div class="helen-stage helen-stage-1">
+          <div class="helen-stage-num">01</div>
+          <span class="helen-stage-tag tag-risk">Before Eldera — The Isolation Risk</span>
+          <h3>Purpose gap. High capacity. No channel.</h3>
+          <p>Helen faced a reduced civic role despite no loss of skill — structural isolation documented in the Master Plan for Aging. Millions of high-capacity adults like Helen represent a significant loss of human capital for California.</p>
+          <div class="helen-quote">&#x201C;My grandkids don&#x2019;t need me anymore.&#x201D;<div class="helen-quote-attr">— Helen, before Eldera</div></div>
+        </div>
+        <div class="helen-stage helen-stage-2">
+          <div class="helen-stage-num">02</div>
+          <span class="helen-stage-tag tag-asset">At Eldera — The Resilience Asset</span>
+          <h3>Zoom Granny. Weekly sessions. 4 lives improved.</h3>
+          <p>Now leading weekly chats on science and history, Helen has shifted from isolation risk to vital youth resilience asset. Eldera&#x2019;s AI Chaperone ensures every session is safe — for mentor, mentee, and parent.</p>
+          <div class="helen-quote">&#x201C;I appreciate you treating Emily &amp; Eva like your granddaughters.&#x201D;<div class="helen-quote-attr">— Sophie, Eldera Mom</div></div>
+        </div>
+        <div class="helen-stage helen-stage-3">
+          <div class="helen-stage-num">03</div>
+          <span class="helen-stage-tag tag-champion">Now — The Civic Champion</span>
+          <h3>Recruiter. Community node. Advocate.</h3>
+          <p>Helen now attends virtual socials and book clubs, recruiting new mentors from her network. She&#x2019;s converted from passive recipient of care into an active civic contributor — a pattern repeatable across millions of older Californians.</p>
+          <div class="helen-quote">&#x201C;We&#x2019;re reading books, so I&#x2019;m downloading free children&#x2019;s books on Kindle. It&#x2019;s fun!&#x201D;<div class="helen-quote-attr">— Helen, Eldera Mentor</div></div>
+        </div>
+      </div>
+      <div class="helen-bottom reveal">
+        This is what converting <em>&#x201C;isolation risk&#x201D;</em> into a <em>&#x201C;youth resilience asset&#x201D;</em> looks like — repeatable across millions of older Californians.
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPLOY STEPS -->
+  <section class="deploy-section" id="deploy">
+    <div class="deploy-inner">
+      <span class="section-label reveal">How to deploy</span>
+      <h2 class="section-title reveal">A Turnkey Infrastructure<br><em>for Social Health.</em></h2>
+      <p class="section-sub reveal">Five steps from policy alignment to quarterly impact reporting. Eldera provides all collateral, training, and operations. Your team provides community access and referral partners.</p>
+      <div class="deploy-steps">
+        <div class="deploy-step reveal">
+          <div class="deploy-num">1</div>
+          <div class="deploy-content">
+            <div class="deploy-step-label">Step one</div>
+            <h4>Alignment &amp; Designation</h4>
+            <p>Identify specific county or state-level priorities — Master Plan for Aging Goal 3, BHSA Early Intervention targets, or CYBHI mandates. We work with your team to designate Eldera as a reference implementation for non-clinical social health.</p>
+          </div>
+        </div>
+        <div class="deploy-step reveal">
+          <div class="deploy-num">2</div>
+          <div class="deploy-content">
+            <div class="deploy-step-label">Step two</div>
+            <h4>Adult 60+ Mobilization</h4>
+            <p>Recruit through existing community networks — retired educators, higher-ed alumni, professional associations, corporate retiree groups, libraries, faith communities, and Area Agencies on Aging. Eldera provides all marketing collateral, manages orientation, handles background checks, vetting, and training.</p>
+          </div>
+        </div>
+        <div class="deploy-step reveal">
+          <div class="deploy-num">3</div>
+          <div class="deploy-content">
+            <div class="deploy-step-label">Step three</div>
+            <h4>Youth: Community Integration</h4>
+            <p>Define 2–3 referral sources — schools, foster/juvenile diversion partners, or primary care. Eldera provides all marketing collateral and a simple intake flow with eligibility criteria aligned to Tier-1 prevention mandates, creating a protective relationship layer for youth ages 6–17.</p>
+          </div>
+        </div>
+        <div class="deploy-step reveal">
+          <div class="deploy-num">4</div>
+          <div class="deploy-content">
+            <div class="deploy-step-label">Step four</div>
+            <h4>Connection: Safe Service Delivery</h4>
+            <p>Eldera matches approved mentors to youth and archives weekly virtual sessions. Our proprietary AI Chaperone monitors safety on all transcripts and video, operating escalation pathways and warm handoffs to county resources when a clinical risk is identified.</p>
+          </div>
+        </div>
+        <div class="deploy-step reveal">
+          <div class="deploy-num">5</div>
+          <div class="deploy-content">
+            <div class="deploy-step-label">Step five</div>
+            <h4>Impact: Reporting &amp; Expansion</h4>
+            <p>Receive quarterly, de-identified reporting — reach, engagement, retention, safety, geography and language access, demographics, SOGI, and qualitative signals. Small-cell suppression (n&lt;20) applied to all outputs. County uses results to expand referral partners and increase mentor supply.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI CHAPERONE -->
+  <section class="chaperone-section">
+    <div class="chaperone-inner">
+      <span class="section-label reveal">Safety infrastructure</span>
+      <h2 class="section-title reveal">The AI Chaperone.<br><em>Every Session. Every Time.</em></h2>
+      <p class="section-sub reveal">Our proprietary safety layer doesn&#x2019;t interrupt connection — it protects it. Four parallel models, 12 risk categories, human always in the loop.</p>
+      <div class="chaperone-grid">
+        <div class="chaperone-specs reveal">
+          <div class="chaperone-spec">
+            <div class="chaperone-spec-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            </div>
+            <div>
+              <h4>Real-time monitoring</h4>
+              <p>Video, voice, text, and sentiment stream analyzed simultaneously across every session — without disrupting natural conversation.</p>
+            </div>
+          </div>
+          <div class="chaperone-spec">
+            <div class="chaperone-spec-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <h4>12 risk categories</h4>
+              <p>Including financial fraud, grooming, self-harm, and abuse indicators. 6,000+ flag repository, growing weekly with each session.</p>
+            </div>
+          </div>
+          <div class="chaperone-spec">
+            <div class="chaperone-spec-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <div>
+              <h4>Human always in the loop</h4>
+              <p>Every escalation is reviewed by a real Eldera team member. Warm handoffs to county clinical resources when risk is identified.</p>
+            </div>
+          </div>
+          <div class="chaperone-spec">
+            <div class="chaperone-spec-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            </div>
+            <div>
+              <h4>Aggregate reporting</h4>
+              <p>De-identified, small-cell suppressed quarterly reports on safety, demographics, engagement, and SOGI — aligned to government reporting standards.</p>
+            </div>
+          </div>
+        </div>
+        <div class="chaperone-metrics reveal">
+          <h3>Safety by the numbers</h3>
+          <p>Six years in market. 170,000+ hours of monitored sessions. The safety bar has been held — consistently.</p>
+          <div class="chaperone-metric-grid">
+            <div class="c-metric"><div class="c-metric-val">4</div><div class="c-metric-label">parallel AI models running simultaneously</div></div>
+            <div class="c-metric"><div class="c-metric-val">12</div><div class="c-metric-label">risk categories monitored per session</div></div>
+            <div class="c-metric"><div class="c-metric-val">6k+</div><div class="c-metric-label">flag repository entries, growing weekly</div></div>
+            <div class="c-metric"><div class="c-metric-val">&lt;3/10k</div><div class="c-metric-label">incident rate across all sessions</div></div>
+          </div>
+          <div class="compliance-row">
+            <div class="compliance-label">Compliance status</div>
+            <div class="compliance-tags">
+              <span class="compliance-tag tag-live">COPPA Compliant</span>
+              <span class="compliance-tag tag-soon">SOC-2 Q2 2026</span>
+              <span class="compliance-tag tag-soon">HIPAA Q4 2026</span>
+              <span class="compliance-tag tag-live">Active MOU — State of CA</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WISDOM BOARD -->
+  <section class="wisdom-section">
+    <div class="wisdom-inner">
+      <span class="section-label reveal">Wisdom Board</span>
+      <h2 class="section-title reveal">Guided by Global Leaders in<br><em>Longevity, Health, and AI.</em></h2>
+      <p class="section-sub reveal">Eldera&#x2019;s Wisdom Board brings together the world&#x2019;s foremost experts in aging, public health, childhood development, and responsible technology.</p>
+      <div class="wisdom-grid">
+        <div class="wisdom-card reveal"><div class="wisdom-avatar">LF</div><h4>Linda Fried</h4><div class="wisdom-role">Public Health</div><p>Dean, Columbia University Mailman School of Public Health. Founder, Experience Corps (now AARP). Head of Aging, World Economic Forum.</p></div>
+        <div class="wisdom-card reveal"><div class="wisdom-avatar">KD</div><h4>Ken Dychtwald</h4><div class="wisdom-role">Aging / Investor</div><p>Co-Founder, AgeWave. International Council on Aging. Eldera Mentor and Investor.</p></div>
+        <div class="wisdom-card reveal"><div class="wisdom-avatar">AM</div><h4>Adam Myers MD</h4><div class="wisdom-role">Clinical / Payor</div><p>Former Chief Clinical Transformation, Blue Cross Blue Shield. Chief of Population Health, Cleveland Clinic.</p></div>
+        <div class="wisdom-card reveal"><div class="wisdom-avatar">CC</div><h4>Chip Conley</h4><div class="wisdom-role">Community / Investor</div><p>Founder, Modern Elder Academy. Former Head of Strategy, Airbnb. Eldera Investor.</p></div>
+        <div class="wisdom-card reveal"><div class="wisdom-avatar">SS</div><h4>Steve Smith</h4><div class="wisdom-role">Wisdom Board</div><p>Veteran NASA Astronaut. Stanford Engineer. Global Space Diplomat.</p></div>
+        <div class="wisdom-card reveal"><div class="wisdom-avatar">AO</div><h4>Adrian Otto</h4><div class="wisdom-role">Technology + AI</div><p>Technical Director, Office of the CTO, Google AI for Good. Former Distinguished Architect, Rackspace. Eldera Parent.</p></div>
+        <div class="wisdom-card reveal"><div class="wisdom-avatar">MD</div><h4>Maddy Dychtwald</h4><div class="wisdom-role">Aging / Investor</div><p>Co-Founder, AgeWave. Co-Founder, Women Against Alzheimer&#x2019;s. Eldera Mentor and Investor.</p></div>
+        <div class="wisdom-card reveal"><div class="wisdom-avatar">JB</div><h4>Jen Beighley, PhD</h4><div class="wisdom-role">Childhood Development</div><p>Professor, Seattle University Hospital. Childhood development researcher. Eldera Parent.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENDORSEMENT -->
+  <section class="quote-section">
+    <div class="quote-inner">
+      <blockquote class="big-quote reveal">
+        Eldera really is <em>revolutionary care.</em> By pairing adults 60+ with youth for regular, safe conversations, it strengthens both purpose in life and social connectedness — two fundamental factors linked to mental well-being, cognitive resilience, and reduced risk of dementia, stroke, and depression.
+      </blockquote>
+      <div class="quote-author reveal">
+        <div class="quote-author-avatar">JR</div>
+        <div>
+          <div class="quote-author-name">Jonathan Rosand MD, MSC</div>
+          <div class="quote-author-title">Professor of Neurology, Harvard · Endowed Chair, Massachusetts General Hospital · Associate Member, Broad Institute of MIT and Harvard</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <span class="section-label reveal" style="display:block;text-align:center">Get in touch</span>
+    <h2 class="reveal">California Is Where We Prove<br><em>a Simple Idea.</em></h2>
+    <p class="reveal">When older adults are organized safely and at scale, they are not a cost center. They are a statewide resilience corps — supporting all generations.</p>
+    <div class="cta-actions reveal">
+      <a href="mailto:dana@eldera.ai" class="btn-primary">Schedule a Briefing &#x2192;</a>
+      <a href="about.html" class="btn-outline">Learn about Eldera</a>
+    </div>
+    <div style="display:flex;justify-content:center" class="reveal">
+      <div class="contact-card">
+        <div class="contact-avatar">DG</div>
+        <div>
+          <div class="contact-name">Dana Griffin</div>
+          <div class="contact-title">Co-Founder &amp; CEO, Eldera</div>
+          <div class="contact-email">dana@eldera.ai</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <a href="index.html" style="display:flex;align-items:center;text-decoration:none;color:var(--dark);margin-bottom:1rem">
+          <svg height="32" viewBox="0 0 345 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="eldera" style="display:block;color:var(--dark)">
+            <path d="M43.5 33.5C41.6 33.5 39.6 33.6 37.8 33.9C17 36.7 1 54.4 1 75.9C1 97.3 17 115 37.8 117.8C39.6 118.1 41.6 118.2 43.5 118.2H44.5V33.5H43.5ZM36.9 110C20.8 106.9 8.6 92.8 8.6 75.9C8.6 58.9 20.8 44.8 36.9 41.7V110Z" fill="currentColor" stroke="currentColor" stroke-width="2"/>
+            <path d="M38.4 100.9C40.3 100.9 42.2 100.8 44.1 100.6C69.1 97.7 88.5 76.6 88.5 50.9C88.5 25.3 69.1 4.2 44.1 1.3C42.2 1.1 40.3 1 38.4 1H37.4V100.9H38.4ZM45 9.1C65.3 12.3 80.9 29.8 80.9 50.9C80.9 72.1 65.3 89.6 45 92.8V9.1Z" fill="currentColor" stroke="currentColor" stroke-width="2"/>
+            <path d="M41.3 100.7C59.9 100.7 74.9 85.7 74.9 67.2C74.9 48.7 59.9 33.7 41.3 33.7C22.8 33.7 7.8 48.7 7.8 67.2C7.8 85.7 22.8 100.7 41.3 100.7ZM41.3 93.1C27 93.1 15.4 81.5 15.4 67.2C15.4 52.9 27 41.3 41.3 41.3C55.7 41.3 67.3 52.9 67.3 67.2C67.3 81.5 55.7 93.1 41.3 93.1Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M303.848 70.8C303.848 59.7 311.809 50.5 322.19 50.5C327.575 50.5 331.712 53.2 333.429 55.7V51.3H344.122V90.3H333.429V86C331.712 88.5 327.575 91.2 322.19 91.2C311.809 91.2 303.848 81.9 303.848 70.8ZM334.287 70.8C334.287 64.7 330.307 60.2 324.453 60.2C318.599 60.2 314.619 64.7 314.619 70.8C314.619 76.9 318.599 81.4 324.453 81.4C330.307 81.4 334.287 76.9 334.287 70.8Z" fill="currentColor"/>
+            <path d="M276.924 90.3V51.3H287.617V57.6C288.944 53.7 292.924 50.8 297.295 50.8C298.388 50.8 299.559 50.9 300.885 51.3V62.2C299.246 61.6 297.763 61.3 296.046 61.3C290.973 61.3 287.617 65.3 287.617 71.7V90.3H276.924Z" fill="currentColor"/>
+            <path d="M268.667 77.6C266.325 85.5 258.598 91.2 248.686 91.2C236.744 91.2 228.236 82.6 228.236 70.7C228.236 59.1 236.9 50.5 248.764 50.5C260.237 50.5 269.681 58.6 269.135 73.3H238.695C239.163 77.9 242.598 81.9 249.232 81.9C252.978 81.9 256.257 80.3 257.505 77.6H268.667ZM248.451 59.1C243.534 59.1 240.1 62 239.085 66.3H257.427C256.1 61.1 252.12 59.1 248.451 59.1Z" fill="currentColor"/>
+            <path d="M180.064 70.8C180.064 59.7 188.026 50.5 198.406 50.5C203.792 50.5 207.929 53.2 209.646 55.7V31.8H220.339V90.3H209.646V86C207.929 88.5 203.792 91.2 198.406 91.2C188.026 91.2 180.064 81.9 180.064 70.8ZM210.504 70.8C210.504 64.7 206.524 60.2 200.67 60.2C194.816 60.2 190.835 64.7 190.835 70.8C190.835 76.9 194.816 81.4 200.67 81.4C206.524 81.4 210.504 76.9 210.504 70.8Z" fill="currentColor"/>
+            <path d="M161.601 90.3V31.8H172.294V90.3H161.601Z" fill="currentColor"/>
+            <path d="M153.343 77.6C151.002 85.5 143.275 91.2 133.362 91.2C121.421 91.2 112.913 82.6 112.913 70.7C112.913 59.1 121.577 50.5 133.44 50.5C144.914 50.5 154.358 58.6 153.812 73.3H123.372C123.84 77.9 127.274 81.9 133.909 81.9C137.655 81.9 140.933 80.3 142.182 77.6H153.343ZM133.128 59.1C128.211 59.1 124.777 62 123.762 66.3H142.104C140.777 61.1 136.797 59.1 133.128 59.1Z" fill="currentColor"/>
+          </svg>
+        </a>
+      </div>
+      <div class="footer-col"><div class="footer-col-title">Platform</div><a href="mentors.html">For Mentors</a><a href="parents.html">For Parents</a><a href="membership.html">Membership</a><a href="#">How It Works</a></div>
+      <div class="footer-col"><div class="footer-col-title">Company</div><a href="about.html">About</a><a href="partners.html">Partners</a><a href="#">Safety</a><a href="#">Stories</a></div>
+      <div class="footer-col"><div class="footer-col-title">Connect</div><a href="#">Contact Us</a><a href="#">Newsletter</a><a href="#">Careers</a>
+        <div class="footer-social">
+          <a href="#" class="footer-social-link" aria-label="Eldera on Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" class="footer-social-link" aria-label="Eldera on LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Eldera. All rights reserved.</span>
+      <span class="footer-copy">Privacy · Terms · Accessibility</span>
+    </div>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 60);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => observer.observe(el));
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const t = document.querySelector(a.getAttribute('href'));
+        if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  </script>
+</body>
+</html>
