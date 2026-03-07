@@ -48,7 +48,7 @@
     .btn-ghost:hover { border-color: var(--gold-border); background: var(--white); }
 
     /* ── HERO — two column, Function-style ── */
-    .about-hero { background: var(--clay); padding: 10rem 3rem 8rem; position: relative; overflow: hidden; }
+    .about-hero { padding: 10rem 3rem 8rem; position: relative; overflow: hidden; }
     .about-hero::before { content: ''; position: absolute; top: -10%; right: -5%; width: 700px; height: 700px; background: radial-gradient(circle, rgba(196,154,42,0.04) 0%, transparent 65%); pointer-events: none; }
     .hero-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 7rem; align-items: start; position: relative; z-index: 1; }
     .hero-eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; padding: 0.4rem 1.1rem; border: 1px solid var(--gold-border); border-radius: var(--radius-pill); }
@@ -74,7 +74,7 @@
     .why-card-source { font-size: 0.7rem; color: #bbb; font-style: italic; margin-top: 0.75rem; }
 
     /* ── TIMELINE ── */
-    .timeline-section { padding: 7rem 3rem; background: var(--clay); }
+    .timeline-section { padding: 7rem 3rem; }
     .timeline-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 340px 1fr; gap: 6rem; align-items: start; }
     .timeline-header { position: sticky; top: 8rem; }
     .timeline-header .section-label { color: var(--gold); }
@@ -101,7 +101,7 @@
     .stewardship-card ul li::before { content: '—'; color: var(--gold); flex-shrink: 0; }
 
     /* ── TEAM ── */
-    .team-section { padding: 7rem 3rem; background: var(--clay); }
+    .team-section { padding: 7rem 3rem; }
     .team-inner { max-width: 1100px; margin: 0 auto; }
     .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; margin-top: 4rem; }
     .team-card { background: var(--white); border-radius: var(--radius-lg); padding: 1.75rem; transition: transform 0.2s, box-shadow 0.2s; }
@@ -123,7 +123,7 @@
     .wisdom-card p { font-size: 0.78rem; color: var(--muted-warm); line-height: 1.55; }
 
     /* ── ENDORSEMENT ── */
-    .endorsement-section { background: var(--clay); padding: 7rem 3rem; text-align: center; }
+    .endorsement-section { padding: 7rem 3rem; text-align: center; }
     .endorsement-inner { max-width: 820px; margin: 0 auto; }
     .endorsement-quote { font-family: var(--serif); font-size: clamp(1.2rem, 2vw, 1.6rem); color: var(--text); line-height: 1.6; letter-spacing: -0.01em; position: relative; padding: 0 2rem; font-weight: 400; font-style: italic; }
     .endorsement-quote::before { content: '"'; position: absolute; left: 0; top: -0.75rem; font-size: 4rem; color: var(--gold); opacity: 0.25; line-height: 1; font-style: normal; }
@@ -133,7 +133,7 @@
     .endorsement-title { font-size: 0.78rem; color: var(--muted); margin-top: 0.35rem; line-height: 1.6; }
 
     /* ── RECOGNIZED BY ── */
-    .recognized-section { padding: 6rem 3rem; border-top: 1px solid var(--border); background: var(--clay); }
+    .recognized-section { padding: 6rem 3rem; border-top: 1px solid var(--border); }
     .recognized-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
     .recognized-left h2 { font-family: var(--serif); font-size: clamp(1.8rem, 2.8vw, 2.4rem); color: var(--text); letter-spacing: -0.02em; line-height: 1.15; font-weight: 400; margin-bottom: 1.25rem; }
     .recognized-left h2 em { font-style: italic; color: var(--gold); }
@@ -160,7 +160,7 @@
     .faq-item.open .faq-a { max-height: 400px; }
 
     /* ── CLOSING CTA ── */
-    .about-cta { padding: 7rem 3rem; background: var(--clay); text-align: center; position: relative; overflow: hidden; }
+    .about-cta { padding: 7rem 3rem; text-align: center; position: relative; overflow: hidden; }
     .about-cta::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 800px; height: 800px; background: radial-gradient(circle, rgba(196,154,42,0.06) 0%, transparent 65%); pointer-events: none; }
     .about-cta h2 { font-family: var(--serif); font-size: clamp(2rem, 3.5vw, 2.8rem); color: var(--text); line-height: 1.12; margin-bottom: 1.25rem; letter-spacing: -0.02em; max-width: 680px; margin-left: auto; margin-right: auto; font-weight: 400; position: relative; z-index: 1; }
     .about-cta h2 em { font-style: italic; color: var(--gold); }
